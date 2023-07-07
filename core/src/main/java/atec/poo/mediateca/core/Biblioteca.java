@@ -17,15 +17,17 @@ public class Biblioteca {
      * instances of the various possible types (books, DVDs, users).
      *
      * @param filename of the file to load
-     * @throws BadEntrySpecificationException
-     * @throws IOException
+     * @throws BadEntrySpecificationException A especificação do ficheiro não é correta
+     * @throws IOException Erro na abertura e/ou Leitura do ficheiro
      */
     void importFile(String filename) throws BadEntrySpecificationException, IOException {
         Scanner s =new Scanner(new File(filename));
         while(s.hasNextLine()){
             String line = s.nextLine();
+            //System.out.println(line);
             String[] elementos= line.split(":",0);
             switch(elementos[0]){
+
                 case "USER":
                     //this.registerUser(elementos[1],elementos[2]);
                     //TODO: A implementar pelos alunos dependente dos métodos que implementarem
