@@ -20,7 +20,10 @@ public class DoDisplayDate extends Comando<LibraryManager> {
 
   @Override
   public final void executar() {
-    ui.escreveLinha("---> Mostrar Data");// A apagar. Só indicativo
+
+    ui.escreveLinha(Message.currentDate(this.getReceptor().getData()));
+
   }
-  
+
+
 }
