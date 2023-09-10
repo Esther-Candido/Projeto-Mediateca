@@ -12,9 +12,9 @@ public class Menu extends atec.poo.ui.Menu {
    */
   public Menu(LibraryManager receiver) {
     super(Label.TITLE, new Comando<?>[] { //
-      new DoDisplayWork(receiver), //
-      new DoDisplayWorks(receiver), //
-      new DoPerformSearch(receiver), //
+            new DoDisplayWork(receiver), //
+            new DoDisplayWorks(receiver), //
+            new DoPerformSearch(receiver), //
     });
   }
 

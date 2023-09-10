@@ -17,3 +17,4 @@ public interface Label {
   String PERFORM_SEARCH = "Efectuar pesquisa de termos";
 
 }
+

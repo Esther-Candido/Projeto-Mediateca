@@ -1,7 +1,10 @@
 package atec.poo.mediateca.app.users;
 
 import atec.poo.mediateca.core.LibraryManager;
+import atec.poo.mediateca.core.User;
 import atec.poo.ui.Comando;
+
+import java.util.ArrayList;
 
 
 /**
@@ -19,6 +22,9 @@ public class DoShowUsers extends Comando<LibraryManager> {
 
   @Override
   public final void executar() {
-    ui.escreveLinha("---> Mostrar Utilizadores");// A apagar. Só indicativo
+    ArrayList<User> users=this.getReceptor().listUsers();
+    for (User u : users) {
+      ui.escreveLinha(u.toString());
+    }
   }
 }

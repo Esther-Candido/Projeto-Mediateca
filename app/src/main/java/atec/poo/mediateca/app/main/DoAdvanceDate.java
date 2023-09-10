@@ -2,7 +2,7 @@ package atec.poo.mediateca.app.main;
 
 import atec.poo.mediateca.core.LibraryManager;
 import atec.poo.ui.Comando;
-
+import atec.poo.ui.LerInteiro;
 
 
 /**
@@ -11,18 +11,21 @@ import atec.poo.ui.Comando;
  */
 public class DoAdvanceDate extends Comando<LibraryManager> {
 
+  private LerInteiro dias;
   /**
    * @param receiver
    */
   public DoAdvanceDate(LibraryManager receiver) {
     super( receiver,Label.ADVANCE_DATE);
+    this.dias=new LerInteiro(Message.requestDaysToAdvance());
 
   }
 
 
   @Override
-  public final void executar(){
-    ui.escreveLinha("---> Avançar Data");// A apagar. Só indicativo
+  public final void executar() {
+    ui.lerInput(this.dias);
+    this.getReceptor().setData(this.dias.getValor());
   }
   
 }

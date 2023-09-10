@@ -1,9 +1,12 @@
 package atec.poo.mediateca.app.main;
 
+import atec.poo.mediateca.app.exceptions.FileOpenFailedException;
 import atec.poo.mediateca.core.LibraryManager;
-
 import atec.poo.ui.Comando;
+import atec.poo.ui.LerString;
 import atec.poo.ui.exceptions.DialogException;
+
+import java.io.IOException;
 
 
 /**
@@ -12,6 +15,7 @@ import atec.poo.ui.exceptions.DialogException;
  */
 public class DoSave extends Comando<LibraryManager> {
 
+  private LerString ficheiro;
 
 
   /**
@@ -19,12 +23,16 @@ public class DoSave extends Comando<LibraryManager> {
    */
   public DoSave(LibraryManager receiver) {
     super(receiver, Label.SAVE);
-
+    this.ficheiro = new LerString(Message.saveAs(), null);
   }
 
   @Override
   public final void executar() throws DialogException {
-    ui.escreveLinha("---> Salvar Aplicação num ficheiro - Seriazable");// A apagar. Só indicativo
-
+    ui.lerInput(this.ficheiro);
+    try {
+      this.getReceptor().save(this.ficheiro.getValor());
+    } catch (IOException e) {
+      throw new FileOpenFailedException(this.ficheiro.getValor());
+    }
   }
 }
