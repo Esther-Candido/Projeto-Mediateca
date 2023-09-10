@@ -13,12 +13,15 @@ import java.util.Scanner;
 
 public class Biblioteca implements Serializable {
     private static final long serialVersionUID = 2L;
-
     private HashMap<Integer, User> users;
     private HashMap<Integer, Obra> obras;
     private int nextUserID;
     private int nextObraID;
     private int data;
+
+    /**
+     * Construtor
+     */
 
     public Biblioteca() {
         this.users = new HashMap<>();
@@ -28,15 +31,31 @@ public class Biblioteca implements Serializable {
         this.data = 0;
     }
 
+    /**
+     * Define a Data Atual
+     * @param data
+     */
+
     public void setData(int data) {
         if (data > 0)
             this.data += data;
     }
 
+    /**
+     * Mostra a Data Atual
+     * @return Data Atual
+     */
+
     public int getData() {
         return data;
     }
 
+    /**
+     * Registra um novo utente na biblioteca.
+     * @param nome O nome do utente.
+     * @param email O email do utente.
+     * @return ID do novo utente criado
+     */
 
     public int registarUser(String nome, String email) {
         User u = new User(this.nextUserID, nome, email);
@@ -45,19 +64,46 @@ public class Biblioteca implements Serializable {
         return u.getId();
     }
 
-    public int registarLivro(String titulo, String autor, Double preco, String categoria, String isbn, Integer exemplares) {
+    /**
+     * Registra um novo livro na biblioteca.
+     * @param titulo O titulo do livro.
+     * @param autor O autor do livro.
+     * @param preco O preco do livro.
+     * @param categoria A categoria do livro.
+     * @param isbn O valor de ISBN do livro.
+     * @param exemplares Nº de Exemplares do livro.
+     * @return ID do novo livro criado
+     */
+
+    public int registarLivro(String titulo, String autor, Double preco, String categoria, String isbn, String exemplares) {
         Livro l = new Livro(this.nextObraID, titulo, autor, preco, categoria, isbn, exemplares);
         this.obras.put(l.getId(), l);
         this.nextObraID++;
         return l.getId();
     }
 
-    public int registarDVD(String titulo, String realizador, Double preco, String categoria, String igac, Integer exemplares) {
+    /**
+     * Registra um novo dvd na biblioteca.
+     * @param titulo O titulo do dvd.
+     * @param realizador O realizador do dvd.
+     * @param preco O preco do dvd.
+     * @param categoria A categoria do dvd.
+     * @param igac O valor de IGAC do dvd.
+     * @param exemplares Nº de Exemplares do dvd.
+     * @return ID do novo dvd criado
+     */
+
+    public int registarDVD(String titulo, String realizador, Double preco, String categoria, String igac, String exemplares) {
         DVD d = new DVD(this.nextObraID, titulo, realizador, preco, categoria, igac, exemplares);
         this.obras.put(d.getId(), d);
         this.nextObraID++;
         return d.getId();
     }
+
+    /**
+     * Mostra informações sobre todos os utentes
+     * @return As informações de todos os utentes
+     */
 
     public ArrayList<User> listUsers() {
         ArrayList<User> users_array = new ArrayList<>(this.users.values());
@@ -65,10 +111,56 @@ public class Biblioteca implements Serializable {
         return users_array;
     }
 
+    /**
+     * Obtém notificações de um utente específico.
+     * @param id O ID do utente.
+     * @return As notificações do utente pretendido.
+     * @throws UserNotFoundException Se o usuário não existe.
+     */
+
+    public String mostrarNotificacao(int id) throws UserNotFoundException {
+        if (this.users.containsKey(id))
+            return this.users.get(id).toString();
+        throw new UserNotFoundException(id);
+    }
+
+    /**
+     * Obtém informações sobre um utente específico.
+     * @param id O ID do utente.
+     * @return As informações do utente pretendido.
+     * @throws UserNotFoundException Se o usuário não existe.
+     */
+
     public String mostrarUtente(int id) throws UserNotFoundException {
         if (this.users.containsKey(id))
             return this.users.get(id).toString();
         throw new UserNotFoundException(id);
+    }
+
+    /**
+     * Paga a multa de um utente.
+     * @param id O ID do utente.
+     * @return A mensagem de pagamento bem-sucedido.
+     * @throws UserNotFoundException Se o utente não existir.
+     */
+
+
+    public String pagarMulta(int id) throws UserNotFoundException {
+        if (this.users.containsKey(id))
+            return this.users.get(id).toString();
+        throw new UserNotFoundException(id);
+
+        /* FALTA TERMINAR
+
+        if (utente.getEstado().equals("ATIVO")) {
+            utente.setMultas(0);
+            utente.setEstado("NORMAL");
+        } else {
+            throw new UtilizadorAtivoException(id);
+        }
+        return " User " + id + " está ATIVO novamente";
+
+        */
     }
 
     /**
@@ -91,10 +183,10 @@ public class Biblioteca implements Serializable {
                     this.registarUser(elementos[1], elementos[2]);
                     break;
                 case "BOOK":
-                    this.registarLivro(elementos[1],elementos[2],elementos[3],elementos[4],elementos[5],elementos[6]);
+                    this.registarLivro(elementos[1],elementos[2],Double.parseDouble(elementos[3]),elementos[4],elementos[5],elementos[6]);
                     break;
                 case "DVD":
-                    this.registarDVD(elementos[1],elementos[2],elementos[3],elementos[4],elementos[5],elementos[6]);
+                    this.registarDVD(elementos[1],elementos[2],Double.parseDouble(elementos[3]),elementos[4],elementos[5],elementos[6]);
                     break;
                 default:
                     throw new BadEntrySpecificationException("Unknow type of category");

@@ -26,9 +26,7 @@ public class DoRegisterUser extends Comando<LibraryManager> {
     public final void executar() throws DialogException {
         ui.lerInput(this.nome);
         ui.lerInput(this.email);
-        //Cheguei aqui tenho os dados do user
         int id = this.getReceptor().registarUser(this.nome.getValor(), this.email.getValor());
-
         ui.escreveLinha(Message.userRegistrationSuccessful(id));
 
     }

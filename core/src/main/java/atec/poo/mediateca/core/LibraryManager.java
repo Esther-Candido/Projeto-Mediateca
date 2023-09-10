@@ -23,6 +23,14 @@ public class LibraryManager{
         return this._biblioteca.mostrarUtente(id);
     }
 
+    public  String mostrarNotificacao(int id) throws UserNotFoundException {
+        return this._biblioteca.mostrarNotificacao(id);
+    }
+
+    public  String pagarMulta(int id) throws UserNotFoundException {
+        return this._biblioteca.pagarMulta(id);
+    }
+
     public ArrayList<User> listUsers(){
         return this._biblioteca.listUsers();
     }

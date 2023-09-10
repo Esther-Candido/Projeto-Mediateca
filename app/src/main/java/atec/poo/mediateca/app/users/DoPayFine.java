@@ -1,7 +1,10 @@
 package atec.poo.mediateca.app.users;
 
+import atec.poo.mediateca.app.exceptions.NoSuchUserException;
 import atec.poo.mediateca.core.LibraryManager;
+import atec.poo.mediateca.core.exceptions.UserNotFoundException;
 import atec.poo.ui.Comando;
+import atec.poo.ui.LerInteiro;
 import atec.poo.ui.exceptions.DialogException;
 
 /**
@@ -10,18 +13,24 @@ import atec.poo.ui.exceptions.DialogException;
  */
 public class DoPayFine extends Comando<LibraryManager> {
 
-
+    private LerInteiro id;
     /**
      * @param receiver
      */
     public DoPayFine(LibraryManager receiver) {
         super(receiver, Label.PAY_FINE);
-
+        this.id=new LerInteiro(Message.requestUserId());
     }
 
     @Override
     public final void executar() throws DialogException {
-        ui.escreveLinha("---> Pagar Multa");// A apagar. Só indicativo
+        ui.lerInput(this.id);
+        try{
+            String info=this.getReceptor().pagarMulta(this.id.getValor());
+            ui.escreveLinha(info);
+        } catch (UserNotFoundException e) {
+            throw new NoSuchUserException(e.getId());
+        }
     }
 
 }

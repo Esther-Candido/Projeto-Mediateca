@@ -20,7 +20,6 @@ public class DoShowUser extends Comando<LibraryManager> {
     public DoShowUser(LibraryManager receiver) {
         super(receiver, Label.SHOW_USER);
         this.id=new LerInteiro(Message.requestUserId());
-
     }
 
     @Override

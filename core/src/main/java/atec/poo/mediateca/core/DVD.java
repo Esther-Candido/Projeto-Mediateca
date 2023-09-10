@@ -6,7 +6,7 @@ public class DVD extends Obra {
 
     private String igac;
 
-    public DVD(int id, String titulo, String realizador, Double preco, String categoria, String igac, Integer exemplares) {
+    public DVD(int id, String titulo, String realizador, Double preco, String categoria, String igac, String exemplares) {
         super(id, titulo, preco, categoria, exemplares);
         this.realizador = realizador;
         this.igac = igac;
