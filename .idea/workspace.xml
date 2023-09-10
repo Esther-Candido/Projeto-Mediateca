@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6379ee83-5fa2-4b83-b733-2ec37a8ae01a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Mediateca_All.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Mediateca_Users.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Mediateca_sem_import.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Mediateca_works.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/exceptions/FileOpenFailedException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/exceptions/Message.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/exceptions/NoSuchUserException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/exceptions/NoSuchWorkException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/exceptions/RuleFailedException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/exceptions/UserIsActiveException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/exceptions/UserRegistrationFailedException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/exceptions/WorkNotBorrowedByUserException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/main/DoAdvanceDate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/main/DoDisplayDate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/main/DoOpen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/main/DoOpenRequestsMenu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/main/DoOpenUsersMenu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/main/DoOpenWorksMenu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/main/DoSave.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/main/Label.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/main/Menu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/main/Message.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/requests/DoRequestWork.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/requests/DoReturnWork.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/requests/Label.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/requests/Menu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/requests/Message.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/users/DoPayFine.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/users/DoRegisterUser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/users/DoShowUser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/users/DoShowUserNotifications.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/users/DoShowUsers.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/users/Label.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/users/Menu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/users/Message.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/works/DoDisplayWork.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/works/DoDisplayWorks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/works/DoPerformSearch.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/works/Label.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/works/Menu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/works/Message.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Biblioteca.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/LibraryManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Obra.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Utente.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/exceptions/BadEntrySpecificationException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/exceptions/ImportFileException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/exceptions/ObraNaoExisteException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/exceptions/RegistoNomeIncorretoException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/exceptions/RegistroEmail_incorretoException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/exceptions/UtilizadorAtivoException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/exceptions/UtilizadorNaoExisteException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Enunciado.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/img/final.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/img/import1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/img/import2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/img/import3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/img/pesquisa1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/img/show_notif1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/img/show_obra1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/img/show_obras2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/img/show_users_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/img/show_users_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/imports/all.import" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/imports/users05.import" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/imports/works.import" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/main/java/atec/poo/ui/Comando.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/main/java/atec/poo/ui/Constantes.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/main/java/atec/poo/ui/Dialogo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/main/java/atec/poo/ui/Ler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/main/java/atec/poo/ui/LerBoolean.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/main/java/atec/poo/ui/LerData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/main/java/atec/poo/ui/LerDouble.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/main/java/atec/poo/ui/LerInteiro.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/main/java/atec/poo/ui/LerOpcao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/main/java/atec/poo/ui/LerString.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/main/java/atec/poo/ui/Mensagens.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/main/java/atec/poo/ui/Menu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/main/java/atec/poo/ui/exceptions/DialogException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/main/java/atec/poo/ui/exceptions/ErrorMessages.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/main/java/atec/poo/ui/exceptions/FormatoInvalidoException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/main/java/atec/poo/ui/exceptions/TipoEntradaInvalidoException.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2VDDX0Qd706mPoCF8sXxcPaYHni" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/eliseu/Desktop/PROJETOJAVA/grupo-2&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager" selected="Application.Mediateca-All" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6379ee83-5fa2-4b83-b733-2ec37a8ae01a" name="Changes" comment="" />
+      <created>1694361793068</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1694361793068</updated>
+      <workItem from="1694361794073" duration="2873000" />
+      <workItem from="1694366766541" duration="24000" />
+      <workItem from="1694377411913" duration="569000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
