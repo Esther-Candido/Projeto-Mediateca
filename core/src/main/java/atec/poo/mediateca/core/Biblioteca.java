@@ -145,7 +145,11 @@ public class Biblioteca implements Serializable {
      */
 
     public void requisitarObra(int idUser,int idObra){
+        int stock_atualizado = this.obras.get(idObra).getStock() - 1;
+        this.obras.get(idObra).setStock(stock_atualizado);
     }
+
+
 
     /**
      * Registra um novo livro na biblioteca.
