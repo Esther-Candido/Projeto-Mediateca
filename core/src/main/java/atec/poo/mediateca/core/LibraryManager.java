@@ -100,6 +100,10 @@ public class LibraryManager{
         return this._biblioteca.listObras();
     }
 
+
+    //public void requisitarObra(int idUser,int idObra){return this._biblioteca.requisitarObra(idUser,idObra);}
+
+
     /**
      *
      * @param ficheiro

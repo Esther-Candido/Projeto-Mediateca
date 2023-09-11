@@ -8,8 +8,8 @@ public abstract class Obra implements Comparable<Obra>, Serializable {
     private final String titulo;
     private final Double preco;
     private String categoria;
-    private String stock;
-    private String exemplares;
+    private int stock;
+    private int exemplares;
     private Tipo tipo;
 
     Obra(int id, String titulo, Double preco, String categoria, String exemplares) {
@@ -17,7 +17,7 @@ public abstract class Obra implements Comparable<Obra>, Serializable {
         this.titulo = titulo;
         this.preco = preco;
         this.categoria = categoria;
-        this.stock = stock = exemplares;
+        this.stock = exemplares;
         this.exemplares = exemplares;
         this.tipo = tipo;
     }

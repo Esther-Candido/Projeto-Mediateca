@@ -6,7 +6,7 @@ public class Livro extends Obra{
 
     private String isbn;
 
-    public Livro(int id, String titulo, String autor, Double preco, String categoria,String isbn, String exemplares) {
+    public Livro(int id, String titulo, String autor, Double preco, String categoria,String isbn, int exemplares) {
         super(id, titulo, preco, categoria, exemplares);
         this.autor = autor;
         this.isbn = isbn;
