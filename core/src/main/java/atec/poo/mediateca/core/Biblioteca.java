@@ -111,17 +111,10 @@ public class Biblioteca implements Serializable {
         return users_array;
     }
 
-    /**
-     * Obtém notificações de um utente específico.
-     * @param id O ID do utente.
-     * @return As notificações do utente pretendido.
-     * @throws UserNotFoundException Se o usuário não existe.
-     */
-
-    public String mostrarNotificacao(int id) throws UserNotFoundException {
-        if (this.users.containsKey(id))
-            return this.users.get(id).toString();
-        throw new UserNotFoundException(id);
+    public ArrayList<Obra> listObras() {
+        ArrayList<Obra> obras_array = new ArrayList<>(this.obras.values());
+        Collections.sort(obras_array);
+        return obras_array;
     }
 
     /**
@@ -134,6 +127,24 @@ public class Biblioteca implements Serializable {
     public String mostrarUtente(int id) throws UserNotFoundException {
         if (this.users.containsKey(id))
             return this.users.get(id).toString();
+        throw new UserNotFoundException(id);
+    }
+
+    /**
+     * Obtém notificações de um utente específico.
+     * @param id O ID do utente.
+     * @return As notificações do utente pretendido.
+     * @throws UserNotFoundException Se o usuário não existe.
+     */
+
+    public String mostrarNotificacao(int id) throws UserNotFoundException {
+        if (this.users.containsKey(id))
+            return this.users.get(id).toString(); // Em vez mostrar informação do Utente mostrar as notificações desse Utente (Entrega/Requisição)
+            // Exemplos:
+            /*
+                ENTREGA: 4 - 2 de 4 - DVD - Casamento Real - 8 Ficção - António Fonseca - 200400500
+                REQUISIÇÃO: 5 - 4 de 22 - Livro - Dicionário - 45 - Referência - Pedro Casanova - 1234567893
+             */
         throw new UserNotFoundException(id);
     }
 
@@ -161,6 +172,12 @@ public class Biblioteca implements Serializable {
         return " User " + id + " está ATIVO novamente";
 
         */
+    }
+
+    public String mostrarObra(int id) {
+        if (this.obras.containsKey(id))
+            return this.obras.get(id).toString();
+        return null;
     }
 
     /**

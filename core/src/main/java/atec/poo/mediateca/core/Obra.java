@@ -9,7 +9,6 @@ public class Obra implements Comparable<Obra>, Serializable {
     private final Double preco;
     private String categoria;
     private String exemplares;
-    private Tipo tipo;
 
      Obra(int id, String titulo, Double preco, String categoria, String exemplares) {
         this.id = id;
@@ -17,7 +16,6 @@ public class Obra implements Comparable<Obra>, Serializable {
         this.preco = preco;
         this.categoria = categoria;
         this.exemplares = exemplares;
-        this.tipo = Tipo.DVD; // Não tenho a certeza
     }
 
     public int getId() {
@@ -50,7 +48,7 @@ public class Obra implements Comparable<Obra>, Serializable {
 
     @Override
     public String toString() {
-        return this.id+" - "+this.exemplares+" - "+this.tipo+" - "+this.titulo+" - "+this.preco+" - "+this.categoria;
+        return this.id+" - "+this.exemplares+" - DVD/LIVRO - "+this.titulo+" - "+this.preco+" - "+this.categoria;
     }
 
     @Override

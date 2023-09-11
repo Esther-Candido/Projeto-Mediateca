@@ -28,4 +28,10 @@ public class Livro extends Obra{
     public void setIsbn(String isbn) {
         this.isbn = isbn;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + this.autor+ " - "+this.isbn;
+    }
+
 }

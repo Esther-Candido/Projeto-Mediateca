@@ -27,4 +27,9 @@ public class DVD extends Obra {
     public void setIgac(String igac) {
         this.igac = igac;
     }
+
+    @Override
+    public String toString() {
+        return super.toString()+" - " +this.realizador+" - "+this.igac;
+    }
 }

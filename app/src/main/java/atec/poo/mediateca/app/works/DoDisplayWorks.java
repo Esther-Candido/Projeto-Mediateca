@@ -1,7 +1,11 @@
 package atec.poo.mediateca.app.works;
 
 import atec.poo.mediateca.core.LibraryManager;
+import atec.poo.mediateca.core.Obra;
+import atec.poo.mediateca.core.User;
 import atec.poo.ui.Comando;
+
+import java.util.ArrayList;
 
 /**
  * 4.3.2. Listar Obras
@@ -17,6 +21,9 @@ public class DoDisplayWorks extends Comando<LibraryManager> {
 
     @Override
     public final void executar() {
-        ui.escreveLinha("---> Mostrar Obras");// A apagar. Só indicativo
+        ArrayList<Obra> obras=this.getReceptor().listObras();
+        for (Obra o : obras) {
+            ui.escreveLinha(o.toString());
+        }
     }
 }

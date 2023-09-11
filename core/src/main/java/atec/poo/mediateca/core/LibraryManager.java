@@ -35,6 +35,14 @@ public class LibraryManager{
         return this._biblioteca.listUsers();
     }
 
+    public String mostrarObra(int id) {
+        return this._biblioteca.mostrarObra(id);
+    }
+
+    public ArrayList<Obra> listObras(){
+        return this._biblioteca.listObras();
+    }
+
     public void save(String ficheiro) throws IOException {
         ObjectOutputStream oos=new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(ficheiro+".import")));
         //ObjectOutputStream oos=new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("imports/"+ficheiro+".import")));
