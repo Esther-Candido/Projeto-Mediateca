@@ -8,14 +8,18 @@ public class Obra implements Comparable<Obra>, Serializable {
     private final String titulo;
     private final Double preco;
     private String categoria;
+    private String stock;
     private String exemplares;
+    private Tipo tipo;
 
-     Obra(int id, String titulo, Double preco, String categoria, String exemplares) {
+    Obra(int id, String titulo, Double preco, String categoria, String exemplares) {
         this.id = id;
         this.titulo = titulo;
         this.preco = preco;
         this.categoria = categoria;
+        this.stock = stock = exemplares;
         this.exemplares = exemplares;
+        this.tipo = tipo;
     }
 
     public int getId() {
@@ -42,13 +46,25 @@ public class Obra implements Comparable<Obra>, Serializable {
         return exemplares;
     }
 
-    public void setExemplares(String exemplares) {
-        this.exemplares = exemplares;
+    public Tipo getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(Tipo tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getStock() {
+        return stock;
+    }
+
+    public void setStock(String stock) {
+        this.stock = stock;
     }
 
     @Override
     public String toString() {
-        return this.id+" - "+this.exemplares+" - DVD/LIVRO - "+this.titulo+" - "+this.preco+" - "+this.categoria;
+        return this.id+" - "+this.stock+" de "+this.exemplares+" - "+this.tipo+" - "+this.titulo+" - "+this.preco+" - "+this.categoria;
     }
 
     @Override

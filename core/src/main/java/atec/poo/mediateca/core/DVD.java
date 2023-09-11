@@ -10,6 +10,7 @@ public class DVD extends Obra {
         super(id, titulo, preco, categoria, exemplares);
         this.realizador = realizador;
         this.igac = igac;
+        this.setTipo(Tipo.DVD);
     }
 
     public String getRealizador() {

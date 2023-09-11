@@ -10,7 +10,7 @@ public class Livro extends Obra{
         super(id, titulo, preco, categoria, exemplares);
         this.autor = autor;
         this.isbn = isbn;
-
+        this.setTipo(Tipo.BOOK);
     }
 
     public String getAutor() {
@@ -31,7 +31,7 @@ public class Livro extends Obra{
 
     @Override
     public String toString() {
-        return super.toString() + this.autor+ " - "+this.isbn;
+        return super.toString()+" - " +this.autor+ " - "+this.isbn;
     }
 
 }
