@@ -7,10 +7,9 @@ public class User implements Comparable<User>, Serializable {
     private final int id;
     private final String nome;
     private final String email;
-
     private Estado estado;
-
     private Comportamento comportamento;
+    private Double multa;
 
 
     public User(int id, String nome, String email) {
@@ -19,6 +18,7 @@ public class User implements Comparable<User>, Serializable {
         this.email = email;
         this.estado=Estado.ACTIVO;
         this.comportamento=Comportamento.NORMAL;
+        this.multa= (double) 0;
     }
 
     public void setEstado(Estado estado) {
@@ -45,9 +45,20 @@ public class User implements Comparable<User>, Serializable {
         return nome;
     }
 
+    public Double getMulta() {
+        return multa;
+    }
+
+    public void setMulta(Double multa) {
+        this.multa = multa;
+    }
+
     @Override
     public String toString() {
-        return this.id+" - "+this.nome+" - "+this.email+" - "+this.comportamento+" - "+this.estado;
+        if (multa > 0)
+            return this.id+" - "+this.nome+" - "+this.email+" - "+this.comportamento+" - "+this.estado+" - "+this.multa;
+        else
+            return this.id+" - "+this.nome+" - "+this.email+" - "+this.comportamento+" - "+this.estado;
     }
 
     @Override

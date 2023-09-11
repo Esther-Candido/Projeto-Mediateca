@@ -39,7 +39,7 @@ public class DoPerformSearch extends Comando<LibraryManager> {
   public final void executar() throws DialogException  {
     ui.lerInput(this.pesquisa);
     this.pesquisa.getValor();
-   
+
     ArrayList<Obra> obras=this.getReceptor().listObras();
 
     // Ordena a lista de obras por ID

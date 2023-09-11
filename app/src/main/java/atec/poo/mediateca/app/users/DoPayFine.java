@@ -5,6 +5,7 @@ import atec.poo.mediateca.core.LibraryManager;
 import atec.poo.mediateca.core.exceptions.UserNotFoundException;
 import atec.poo.ui.Comando;
 import atec.poo.ui.LerInteiro;
+import atec.poo.ui.LerString;
 import atec.poo.ui.exceptions.DialogException;
 
 /**
@@ -14,6 +15,7 @@ import atec.poo.ui.exceptions.DialogException;
 public class DoPayFine extends Comando<LibraryManager> {
 
     private LerInteiro id;
+    private LerString tipo;
     /**
      * @param receiver
      */

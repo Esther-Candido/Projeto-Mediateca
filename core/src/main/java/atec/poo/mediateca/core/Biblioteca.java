@@ -112,7 +112,7 @@ public class Biblioteca implements Serializable {
      * @param id O ID do utente.
      * @return A mensagem de pagamento bem-sucedido ou que o utente não tem dividas.
      * @throws UserNotFoundException Se o utente não existir.
-     * @throws UserIsActiveException
+     //* @throws UserIsActiveException
      */
 
     public String pagarMulta(int id) throws UserNotFoundException {
@@ -139,6 +139,15 @@ public class Biblioteca implements Serializable {
     }
 
     /**
+     *
+     * @param idUser Utilizador que vai fazer a solicitação da Obra
+     * @param idObra Obra a ser Requisitada
+     */
+
+    public void requisitarObra(int idUser,int idObra){
+    }
+
+    /**
      * Registra um novo livro na biblioteca.
      * @param titulo O titulo do livro.
      * @param autor O autor do livro.
@@ -149,7 +158,7 @@ public class Biblioteca implements Serializable {
      * @return ID do novo livro criado
      */
 
-    public int registarLivro(String titulo, String autor, Double preco, String categoria, String isbn, String exemplares) {
+    public int registarLivro(String titulo, String autor, Double preco, String categoria, String isbn, int exemplares) {
         Livro l = new Livro(this.nextObraID, titulo, autor, preco, categoria, isbn, exemplares);
         this.obras.put(l.getId(), l);
         this.nextObraID++;
@@ -167,7 +176,7 @@ public class Biblioteca implements Serializable {
      * @return ID do novo dvd criado
      */
 
-    public int registarDVD(String titulo, String realizador, Double preco, String categoria, String igac, String exemplares) {
+    public int registarDVD(String titulo, String realizador, Double preco, String categoria, String igac, int exemplares) {
         DVD d = new DVD(this.nextObraID, titulo, realizador, preco, categoria, igac, exemplares);
         this.obras.put(d.getId(), d);
         this.nextObraID++;
@@ -193,7 +202,13 @@ public class Biblioteca implements Serializable {
 
     public ArrayList<Obra> listObras() {
         ArrayList<Obra> obras_array = new ArrayList<>(this.obras.values());
-        Collections.sort(obras_array);
+        Collections.sort(obras_array);//A ordem vai ser a codificada no metodo compareTo da interface comparable
+        return obras_array;
+    }
+
+    public ArrayList<Obra> listObrasByID() {
+        ArrayList<Obra> obras_array = new ArrayList<>(this.obras.values());
+        Collections.sort(obras_array,new CompareObraByID());//A ordem vai ser por ID
         return obras_array;
     }
 
@@ -217,10 +232,10 @@ public class Biblioteca implements Serializable {
                     this.registarUser(elementos[1], elementos[2]);
                     break;
                 case "BOOK":
-                    this.registarLivro(elementos[1],elementos[2],Double.parseDouble(elementos[3]),elementos[4],elementos[5],elementos[6]);
+                    this.registarLivro(elementos[1],elementos[2],Double.parseDouble(elementos[3]),elementos[4],elementos[5],Integer.parseInt(elementos[6]));
                     break;
                 case "DVD":
-                    this.registarDVD(elementos[1],elementos[2],Double.parseDouble(elementos[3]),elementos[4],elementos[5],elementos[6]);
+                    this.registarDVD(elementos[1],elementos[2],Double.parseDouble(elementos[3]),elementos[4],elementos[5],Integer.parseInt(elementos[6]));
                     break;
                 default:
                     throw new BadEntrySpecificationException("Unknow type of category");
