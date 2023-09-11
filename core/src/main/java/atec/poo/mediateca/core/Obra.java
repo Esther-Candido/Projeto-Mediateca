@@ -2,7 +2,7 @@ package atec.poo.mediateca.core;
 
 import java.io.Serializable;
 
-public class Obra implements Comparable<Obra>, Serializable {
+public abstract class Obra implements Comparable<Obra>, Serializable {
     private static final long serialVersionUID = 1L;
     private final int id;
     private final String titulo;
@@ -46,6 +46,14 @@ public class Obra implements Comparable<Obra>, Serializable {
         return exemplares;
     }
 
+    public int getExemplares() {
+        return exemplares;
+    }
+
+    public void setExemplares(int exemplares) {
+        this.exemplares = exemplares;
+    }
+
     public Tipo getTipo() {
         return tipo;
     }
@@ -73,4 +81,6 @@ public class Obra implements Comparable<Obra>, Serializable {
             return this.id-o.getId();
         return this.titulo.compareTo(o.getTitulo());
     }
+
+    public abstract String nomeautor_realizador();
 }

@@ -33,4 +33,9 @@ public class DVD extends Obra {
     public String toString() {
         return super.toString()+" - " +this.realizador+" - "+this.igac;
     }
+
+    @Override
+    public String nomeautor_realizador() {
+        return this.realizador;
+    }
 }

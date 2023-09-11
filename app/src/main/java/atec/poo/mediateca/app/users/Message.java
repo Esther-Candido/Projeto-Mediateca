@@ -32,5 +32,4 @@ public interface Message {
   static String userRegistrationSuccessful(int idUser) {
     return "Novo utente criado com o número " + idUser + ".";
   }
-
 }

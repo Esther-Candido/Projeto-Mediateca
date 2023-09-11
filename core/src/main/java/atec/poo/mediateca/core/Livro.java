@@ -34,4 +34,9 @@ public class Livro extends Obra{
         return super.toString()+" - " +this.autor+ " - "+this.isbn;
     }
 
+    @Override
+    public String nomeautor_realizador() {
+        return this.autor;
+    }
+
 }

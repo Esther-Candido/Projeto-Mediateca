@@ -2,6 +2,7 @@ package atec.poo.mediateca.core;
 
 import atec.poo.mediateca.core.exceptions.BadEntrySpecificationException;
 import atec.poo.mediateca.core.exceptions.UserNotFoundException;
+import atec.poo.mediateca.core.utilidades.CompareObraByID;
 
 import java.io.File;
 import java.io.IOException;
