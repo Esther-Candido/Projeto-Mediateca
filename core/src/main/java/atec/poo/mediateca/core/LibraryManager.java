@@ -101,7 +101,9 @@ public class LibraryManager{
     }
 
 
-    //public void requisitarObra(int idUser,int idObra){return this._biblioteca.requisitarObra(idUser,idObra);}
+    public void requisitarObra(int idUser,int idObra){
+        this._biblioteca.requisitarObra(idUser, idObra);
+    }
 
 
     /**

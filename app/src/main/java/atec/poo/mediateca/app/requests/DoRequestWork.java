@@ -1,9 +1,12 @@
 package atec.poo.mediateca.app.requests;
 
 import atec.poo.mediateca.core.LibraryManager;
+import atec.poo.mediateca.core.Obra;
 import atec.poo.ui.Comando;
 import atec.poo.ui.LerInteiro;
 import atec.poo.ui.exceptions.DialogException;
+
+import java.util.ArrayList;
 
 
 /**
@@ -33,7 +36,9 @@ public class DoRequestWork extends Comando<LibraryManager> {
     public final void executar() throws DialogException {
         ui.lerInput(this.user_id);
         ui.lerInput(this.obra_id);
-    
+
+        this.getReceptor().requisitarObra(this.user_id.getValor(),this.obra_id.getValor());
+
         //ui.escreveLinha("---> Requisitar Obra");// A apagar. Só indicativo
     }
 }

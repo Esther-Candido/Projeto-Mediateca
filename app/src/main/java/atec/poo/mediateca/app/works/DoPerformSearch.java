@@ -43,6 +43,7 @@ public class DoPerformSearch extends Comando<LibraryManager> {
     ArrayList<Obra> obras=this.getReceptor().listObras();
 
     // Ordena a lista de obras por ID
+    //obras.sort(new CompareObraByID()); Outra forma de fazer
     Collections.sort(obras, new CompareObraByID());
 
     // busca pela palavra inserida no input(pesquisa) se tem na lista de array de obras..(pesquisa em titulo e nomeautor_realizador)
