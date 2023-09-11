@@ -4,18 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4662b5e-311f-435c-968a-2d020cfccb77" name="Changes" comment="">
+    <list default="true" id="f4662b5e-311f-435c-968a-2d020cfccb77" name="Changes" comment="pesquisar obras FILTRO e ordenar por ID">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/users/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/users/Message.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/works/DoPerformSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/works/DoPerformSearch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Biblioteca.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Biblioteca.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/DVD.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/DVD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Livro.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Livro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Obra.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Obra.java" afterDir="false" />
     </list>
-    <list id="ab932900-c719-417c-973a-d1cc8cd95c38" name="Changes by atec" comment="">
+    <list id="ab932900-c719-417c-973a-d1cc8cd95c38" name="Changes by atec" comment="pesquisar obras FILTRO e ordenar por ID">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/utilidades/CompareObraByID.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/requests/DoRequestWork.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/requests/DoRequestWork.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Biblioteca.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Biblioteca.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/DVD.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/DVD.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/LibraryManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/LibraryManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Livro.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Livro.java" afterDir="false" />
@@ -24,14 +20,13 @@
     </list>
     <list id="3911f312-361b-4d89-9396-920982db21c3" name="Changes by Bruno Rafael" comment="">
       <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/users/DoPayFine.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/users/DoPayFine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/works/DoPerformSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/works/DoPerformSearch.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Biblioteca.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Biblioteca.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Obra.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Obra.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/User.java" afterDir="false" />
     </list>
     <list id="2bb50890-f5fb-4e45-bc29-c8828237ae5f" name="Changes by eliseu" comment="" />
-    <list id="f13d89b1-b798-435d-9fcd-d21652288b04" name="Changes by vitor" comment="">
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Biblioteca.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Biblioteca.java" afterDir="false" />
-    </list>
+    <list id="f13d89b1-b798-435d-9fcd-d21652288b04" name="Changes by vitor" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,42 +44,21 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Livro.java">
-      <ranges>
-        <range start1="8" end1="9" start2="8" end2="9" changelist="ab932900-c719-417c-973a-d1cc8cd95c38" />
-        <range start1="35" end1="35" start2="35" end2="40" changelist="f4662b5e-311f-435c-968a-2d020cfccb77" />
-      </ranges>
-    </file>
     <file path="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Obra.java">
       <ranges>
-        <range start1="4" end1="5" start2="4" end2="5" changelist="f4662b5e-311f-435c-968a-2d020cfccb77" />
         <range start1="10" end1="12" start2="10" end2="12" changelist="ab932900-c719-417c-973a-d1cc8cd95c38" />
         <range start1="14" end1="15" start2="14" end2="15" changelist="3911f312-361b-4d89-9396-920982db21c3" />
         <range start1="19" end1="20" start2="19" end2="20" changelist="ab932900-c719-417c-973a-d1cc8cd95c38" />
         <range start1="44" end1="46" start2="44" end2="50" changelist="3911f312-361b-4d89-9396-920982db21c3" />
-        <range start1="47" end1="47" start2="51" end2="59" changelist="f4662b5e-311f-435c-968a-2d020cfccb77" />
-        <range start1="56" end1="59" start2="68" end2="68" changelist="3911f312-361b-4d89-9396-920982db21c3" />
-        <range start1="60" end1="63" start2="69" end2="69" changelist="3911f312-361b-4d89-9396-920982db21c3" />
-        <range start1="75" end1="75" start2="81" end2="83" changelist="f4662b5e-311f-435c-968a-2d020cfccb77" />
+        <range start1="64" end1="67" start2="68" end2="68" changelist="3911f312-361b-4d89-9396-920982db21c3" />
+        <range start1="68" end1="71" start2="69" end2="69" changelist="3911f312-361b-4d89-9396-920982db21c3" />
       </ranges>
     </file>
-    <file path="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Biblioteca.java">
+    <file path="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/works/DoPerformSearch.java">
       <ranges>
-        <range start1="4" end1="4" start2="4" end2="5" changelist="f4662b5e-311f-435c-968a-2d020cfccb77" />
-        <range start1="113" end1="114" start2="114" end2="115" changelist="3911f312-361b-4d89-9396-920982db21c3" />
-        <range start1="138" end1="138" start2="139" end2="148" changelist="ab932900-c719-417c-973a-d1cc8cd95c38" />
-        <range start1="150" end1="151" start2="160" end2="161" changelist="ab932900-c719-417c-973a-d1cc8cd95c38" />
-        <range start1="168" end1="169" start2="178" end2="179" changelist="ab932900-c719-417c-973a-d1cc8cd95c38" />
-        <range start1="194" end1="195" start2="204" end2="205" changelist="f13d89b1-b798-435d-9fcd-d21652288b04" />
-        <range start1="197" end1="197" start2="207" end2="213" changelist="f13d89b1-b798-435d-9fcd-d21652288b04" />
-        <range start1="218" end1="219" start2="234" end2="235" changelist="ab932900-c719-417c-973a-d1cc8cd95c38" />
-        <range start1="221" end1="222" start2="237" end2="238" changelist="ab932900-c719-417c-973a-d1cc8cd95c38" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/DVD.java">
-      <ranges>
-        <range start1="8" end1="9" start2="8" end2="9" changelist="ab932900-c719-417c-973a-d1cc8cd95c38" />
-        <range start1="35" end1="35" start2="35" end2="40" changelist="f4662b5e-311f-435c-968a-2d020cfccb77" />
+        <range start1="30" end1="33" start2="30" end2="31" changelist="f4662b5e-311f-435c-968a-2d020cfccb77" />
+        <range start1="43" end1="44" start2="41" end2="42" changelist="3911f312-361b-4d89-9396-920982db21c3" />
+        <range start1="49" end1="49" start2="47" end2="48" changelist="f4662b5e-311f-435c-968a-2d020cfccb77" />
       </ranges>
     </file>
   </component>
@@ -100,25 +74,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/Documents/ATEC/Curso/5413 - Programação de Computadore (Orientada a objetos) - Vitor/Projeto/grupo-2",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Documents/ATEC/Curso/5413 - Programação de Computadore (Orientada a objetos) - Vitor/Projeto/grupo-2&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.Mappings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Documents\ATEC\Curso\5413 - Programação de Computadore (Orientada a objetos) - Vitor\Projeto" />
@@ -151,7 +126,8 @@
       <workItem from="1694380991988" duration="1436000" />
       <workItem from="1694385052937" duration="5683000" />
       <workItem from="1694438242850" duration="9996000" />
-      <workItem from="1694453664067" duration="8258000" />
+      <workItem from="1694453664067" duration="8742000" />
+      <workItem from="1694462551648" duration="314000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <option name="closed" value="true" />
@@ -177,7 +153,15 @@
       <option name="project" value="LOCAL" />
       <updated>1694444689106</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="pesquisar obras FILTRO e ordenar por ID">
+      <option name="closed" value="true" />
+      <created>1694462226843</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1694462226843</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -198,6 +182,9 @@
     <MESSAGE value="update" />
     <MESSAGE value="mostrar obra/mostrar todas as obras" />
     <MESSAGE value="comentarios" />
-    <option name="LAST_COMMIT_MESSAGE" value="comentarios" />
+    <MESSAGE value="Changes by eliseu" />
+    <MESSAGE value="Changes" />
+    <MESSAGE value="pesquisar obras FILTRO e ordenar por ID" />
+    <option name="LAST_COMMIT_MESSAGE" value="pesquisar obras FILTRO e ordenar por ID" />
   </component>
 </project>

@@ -29,8 +29,6 @@ public class DoPerformSearch extends Comando<LibraryManager> {
 
   private LerString pesquisa;
 
-  Tipo tipo;
-
 
   public DoPerformSearch(LibraryManager receiver) {
     super(receiver, Label.PERFORM_SEARCH);
@@ -47,6 +45,7 @@ public class DoPerformSearch extends Comando<LibraryManager> {
     // Ordena a lista de obras por ID
     Collections.sort(obras, new CompareObraByID());
 
+    // busca pela palavra inserida no input(pesquisa) se tem na lista de array de obras..(pesquisa em titulo e nomeautor_realizador)
     for ( Obra o: obras ) {
       if (o.getTitulo().toLowerCase().contains(this.pesquisa.getValor().toLowerCase()) || o.nomeautor_realizador().toLowerCase().contains(this.pesquisa.getValor().toLowerCase())){
         ui.escreveLinha(o.toString());
