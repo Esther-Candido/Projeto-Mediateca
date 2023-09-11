@@ -65,42 +65,6 @@ public class Biblioteca implements Serializable {
     }
 
     /**
-     * Registra um novo livro na biblioteca.
-     * @param titulo O titulo do livro.
-     * @param autor O autor do livro.
-     * @param preco O preco do livro.
-     * @param categoria A categoria do livro.
-     * @param isbn O valor de ISBN do livro.
-     * @param exemplares Nº de Exemplares do livro.
-     * @return ID do novo livro criado
-     */
-
-    public int registarLivro(String titulo, String autor, Double preco, String categoria, String isbn, String exemplares) {
-        Livro l = new Livro(this.nextObraID, titulo, autor, preco, categoria, isbn, exemplares);
-        this.obras.put(l.getId(), l);
-        this.nextObraID++;
-        return l.getId();
-    }
-
-    /**
-     * Registra um novo dvd na biblioteca.
-     * @param titulo O titulo do dvd.
-     * @param realizador O realizador do dvd.
-     * @param preco O preco do dvd.
-     * @param categoria A categoria do dvd.
-     * @param igac O valor de IGAC do dvd.
-     * @param exemplares Nº de Exemplares do dvd.
-     * @return ID do novo dvd criado
-     */
-
-    public int registarDVD(String titulo, String realizador, Double preco, String categoria, String igac, String exemplares) {
-        DVD d = new DVD(this.nextObraID, titulo, realizador, preco, categoria, igac, exemplares);
-        this.obras.put(d.getId(), d);
-        this.nextObraID++;
-        return d.getId();
-    }
-
-    /**
      * Mostra informações sobre todos os utentes
      * @return As informações de todos os utentes
      */
@@ -109,12 +73,6 @@ public class Biblioteca implements Serializable {
         ArrayList<User> users_array = new ArrayList<>(this.users.values());
         Collections.sort(users_array);
         return users_array;
-    }
-
-    public ArrayList<Obra> listObras() {
-        ArrayList<Obra> obras_array = new ArrayList<>(this.obras.values());
-        Collections.sort(obras_array);
-        return obras_array;
     }
 
     /**
@@ -151,10 +109,10 @@ public class Biblioteca implements Serializable {
     /**
      * Paga a multa de um utente.
      * @param id O ID do utente.
-     * @return A mensagem de pagamento bem-sucedido.
+     * @return A mensagem de pagamento bem-sucedido ou que o utente não tem dividas.
      * @throws UserNotFoundException Se o utente não existir.
+     * @throws UserIsActiveException
      */
-
 
     public String pagarMulta(int id) throws UserNotFoundException {
         if (this.users.containsKey(id))
@@ -162,6 +120,11 @@ public class Biblioteca implements Serializable {
         throw new UserNotFoundException(id);
 
         /* FALTA TERMINAR
+
+        - Se o utente estiver suspenso, a multa é saldada e o utente passa a poder requisitar obras, de acordo com as regras gerais.
+            (Utente passa a Activo e recebe uma mensagem que esta Ativo e pode voltar a Requisitar Obras)
+        - Se o utente não estiver suspenso, i.e., não tem multas por saldar, deve lançar-se uma exceção:
+            atec.poo.mediateca.app.exceptions.UserIsActiveException.
 
         if (utente.getEstado().equals("ATIVO")) {
             utente.setMultas(0);
@@ -174,10 +137,63 @@ public class Biblioteca implements Serializable {
         */
     }
 
+    /**
+     * Registra um novo livro na biblioteca.
+     * @param titulo O titulo do livro.
+     * @param autor O autor do livro.
+     * @param preco O preco do livro.
+     * @param categoria A categoria do livro.
+     * @param isbn O valor de ISBN do livro.
+     * @param exemplares Nº de Exemplares do livro.
+     * @return ID do novo livro criado
+     */
+
+    public int registarLivro(String titulo, String autor, Double preco, String categoria, String isbn, String exemplares) {
+        Livro l = new Livro(this.nextObraID, titulo, autor, preco, categoria, isbn, exemplares);
+        this.obras.put(l.getId(), l);
+        this.nextObraID++;
+        return l.getId();
+    }
+
+    /**
+     * Registra um novo dvd na biblioteca.
+     * @param titulo O titulo do dvd.
+     * @param realizador O realizador do dvd.
+     * @param preco O preco do dvd.
+     * @param categoria A categoria do dvd.
+     * @param igac O valor de IGAC do dvd.
+     * @param exemplares Nº de Exemplares do dvd.
+     * @return ID do novo dvd criado
+     */
+
+    public int registarDVD(String titulo, String realizador, Double preco, String categoria, String igac, String exemplares) {
+        DVD d = new DVD(this.nextObraID, titulo, realizador, preco, categoria, igac, exemplares);
+        this.obras.put(d.getId(), d);
+        this.nextObraID++;
+        return d.getId();
+    }
+
+    /**
+     * Obtém informações sobre uma obra específica.
+     * @param id
+     * @return As informações da obra pretendido.
+     */
+
     public String mostrarObra(int id) {
         if (this.obras.containsKey(id))
             return this.obras.get(id).toString();
         return null;
+    }
+
+    /**
+     * Mostra informações sobre todas as obras
+     * @return As informações de todas as obras
+     */
+
+    public ArrayList<Obra> listObras() {
+        ArrayList<Obra> obras_array = new ArrayList<>(this.obras.values());
+        Collections.sort(obras_array);
+        return obras_array;
     }
 
     /**

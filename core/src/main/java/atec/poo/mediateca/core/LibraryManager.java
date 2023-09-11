@@ -11,38 +11,100 @@ public class LibraryManager{
 
     private Biblioteca _biblioteca;
 
+    /**
+     * Cria uma nova Biblioteca
+     */
     public LibraryManager() {
         this._biblioteca =new Biblioteca();
     }
 
+    /**
+     * Mostra a Data
+     * @return Data Atual
+     */
+    public int getData() {
+        return this._biblioteca.getData();
+    }
+
+    /**
+     * Atualiza a Data
+     * @param dias
+     * @return Dias Avançar
+     */
+    public void setData(int dias) {
+        this._biblioteca.setData(dias);
+    }
+
+    /**
+     * Cria um novo Utente
+     * @param nome
+     * @param email
+     * @return Novo Utente
+     */
     public int registarUser(String nome, String email){
         return this._biblioteca.registarUser(nome,email);
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     * @throws UserNotFoundException
+     */
     public String mostrarUtente(int id) throws UserNotFoundException {
         return this._biblioteca.mostrarUtente(id);
     }
 
-    public  String mostrarNotificacao(int id) throws UserNotFoundException {
-        return this._biblioteca.mostrarNotificacao(id);
-    }
-
-    public  String pagarMulta(int id) throws UserNotFoundException {
-        return this._biblioteca.pagarMulta(id);
-    }
-
+    /**
+     *
+     * @return
+     */
     public ArrayList<User> listUsers(){
         return this._biblioteca.listUsers();
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     * @throws UserNotFoundException
+     */
+    public  String mostrarNotificacao(int id) throws UserNotFoundException {
+        return this._biblioteca.mostrarNotificacao(id);
+    }
+
+    /**
+     *
+     * @param id
+     * @return
+     * @throws UserNotFoundException
+     */
+    public  String pagarMulta(int id) throws UserNotFoundException {
+        return this._biblioteca.pagarMulta(id);
+    }
+
+    /**
+     *
+     * @param id
+     * @return
+     */
     public String mostrarObra(int id) {
         return this._biblioteca.mostrarObra(id);
     }
 
+    /**
+     *
+     * @return
+     */
     public ArrayList<Obra> listObras(){
         return this._biblioteca.listObras();
     }
 
+    /**
+     *
+     * @param ficheiro
+     * @throws IOException
+     */
     public void save(String ficheiro) throws IOException {
         ObjectOutputStream oos=new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(ficheiro+".import")));
         //ObjectOutputStream oos=new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("imports/"+ficheiro+".import")));
@@ -50,6 +112,12 @@ public class LibraryManager{
         oos.close();
     }
 
+    /**
+     *
+     * @param ficheiro
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     public void load(String ficheiro) throws IOException, ClassNotFoundException {
         ObjectInputStream ois=new ObjectInputStream(new BufferedInputStream(new FileInputStream(ficheiro)));
         this._biblioteca=((Biblioteca) ois.readObject());
@@ -68,24 +136,4 @@ public class LibraryManager{
             throw new ImportFileException(e);
         }
     }
-
-    /**
-     * Mostra a data
-     * @return data atual
-     */
-
-    public int getData() {
-        return this._biblioteca.getData();
-    }
-
-    /**
-     * Atualiza a data
-     * @param dias
-     * @return dias avançar
-     */
-
-    public void setData(int dias) {
-        this._biblioteca.setData(dias);
-    }
-
 }
