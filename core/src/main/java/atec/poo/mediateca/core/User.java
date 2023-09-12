@@ -66,8 +66,8 @@ public class User implements Comparable<User>, Serializable {
 
     @Override
     public int compareTo(User o) {
-        if(this.nome.equals(o.getNome()))
+        if(this.nome.equalsIgnoreCase(o.getNome()))
             return this.id-o.getId();
-        return this.nome.compareTo(o.getNome());
+        return this.nome.toLowerCase().compareTo(o.getNome().toLowerCase());
     }
 }
