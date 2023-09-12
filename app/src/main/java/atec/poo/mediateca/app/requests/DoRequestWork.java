@@ -39,6 +39,5 @@ public class DoRequestWork extends Comando<LibraryManager> {
 
         this.getReceptor().requisitarObra(this.user_id.getValor(),this.obra_id.getValor());
 
-        //ui.escreveLinha("---> Requisitar Obra");// A apagar. Só indicativo
     }
 }

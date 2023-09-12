@@ -100,11 +100,14 @@ public class LibraryManager{
         return this._biblioteca.listObras();
     }
 
-
+    /**
+     *
+     * @param idUser
+     * @param idObra
+     */
     public void requisitarObra(int idUser,int idObra){
         this._biblioteca.requisitarObra(idUser, idObra);
     }
-
 
     /**
      *

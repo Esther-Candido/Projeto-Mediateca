@@ -41,14 +41,12 @@ public class DoPerformSearch extends Comando<LibraryManager> {
     this.pesquisa.getValor();
 
     ArrayList<Obra> obras=this.getReceptor().listObras();
-
     // Ordena a lista de obras por ID
-    //obras.sort(new CompareObraByID()); Outra forma de fazer
-    Collections.sort(obras, new CompareObraByID());
+    Collections.sort(obras, new CompareObraByID()); //obras.sort(new CompareObraByID()); Outra forma de fazer
 
-    // busca pela palavra inserida no input(pesquisa) se tem na lista de array de obras..(pesquisa em titulo e nomeautor_realizador)
+    // Procura pela palavra inserida no input(pesquisa) se tem na lista de array de obras em titulo e nomeCriador(Autor/Realizador)
     for ( Obra o: obras ) {
-      if (o.getTitulo().toLowerCase().contains(this.pesquisa.getValor().toLowerCase()) || o.nomeautor_realizador().toLowerCase().contains(this.pesquisa.getValor().toLowerCase())){
+      if (o.getTitulo().toLowerCase().contains(this.pesquisa.getValor().toLowerCase()) || o.nomeCriador().toLowerCase().contains(this.pesquisa.getValor().toLowerCase())){
         ui.escreveLinha(o.toString());
       }
     }

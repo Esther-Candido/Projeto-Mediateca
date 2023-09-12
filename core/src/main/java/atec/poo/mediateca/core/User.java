@@ -10,8 +10,7 @@ public class User implements Comparable<User>, Serializable {
     private Estado estado;
     private Comportamento comportamento;
     private Double multa;
-
-
+    
     public User(int id, String nome, String email) {
         this.id = id;
         this.nome = nome;
@@ -21,28 +20,32 @@ public class User implements Comparable<User>, Serializable {
         this.multa= (double) 0;
     }
 
-    public void setEstado(Estado estado) {
-        this.estado = estado;
-    }
-
-    public void setComportamento(Comportamento comportamento) {
-        this.comportamento = comportamento;
-    }
-
-    public Estado getEstado() {
-        return estado;
-    }
-
-    public Comportamento getComportamento() {
-        return comportamento;
-    }
-
     public int getId() {
         return id;
     }
 
     public String getNome() {
         return nome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public Estado getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Estado estado) {
+        this.estado = estado;
+    }
+
+    public Comportamento getComportamento() {
+        return comportamento;
+    }
+
+    public void setComportamento(Comportamento comportamento) {
+        this.comportamento = comportamento;
     }
 
     public Double getMulta() {

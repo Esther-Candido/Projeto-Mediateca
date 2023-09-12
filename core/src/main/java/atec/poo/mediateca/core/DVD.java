@@ -1,9 +1,7 @@
 package atec.poo.mediateca.core;
 
 public class DVD extends Obra {
-
     private String realizador;
-
     private String igac;
 
     public DVD(int id, String titulo, String realizador, Double preco, String categoria, String igac, int exemplares) {
@@ -35,7 +33,7 @@ public class DVD extends Obra {
     }
 
     @Override
-    public String nomeautor_realizador() {
+    public String nomeCriador() {
         return this.realizador;
     }
 }

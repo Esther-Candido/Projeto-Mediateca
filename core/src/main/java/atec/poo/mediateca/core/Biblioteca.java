@@ -139,19 +139,6 @@ public class Biblioteca implements Serializable {
     }
 
     /**
-     *
-     * @param idUser Utilizador que vai fazer a solicitação da Obra
-     * @param idObra Obra a ser Requisitada
-     */
-
-    public void requisitarObra(int idUser,int idObra){
-        int stock_atualizado = this.obras.get(idObra).getStock() - 1;
-        this.obras.get(idObra).setStock(stock_atualizado);
-    }
-
-
-
-    /**
      * Registra um novo livro na biblioteca.
      * @param titulo O titulo do livro.
      * @param autor O autor do livro.
@@ -200,20 +187,36 @@ public class Biblioteca implements Serializable {
     }
 
     /**
-     * Mostra informações sobre todas as obras
+     * Mostra informações sobre todas as obras por ordem alfabetica
      * @return As informações de todas as obras
      */
 
     public ArrayList<Obra> listObras() {
         ArrayList<Obra> obras_array = new ArrayList<>(this.obras.values());
-        Collections.sort(obras_array);//A ordem vai ser a codificada no metodo compareTo da interface comparable
+        Collections.sort(obras_array); //A ordem vai ser a codificada no metodo compareTo da interface comparable
         return obras_array;
     }
 
+    /**
+     * Mostra informações sobre todas as obras por ordem crescente do ID da obra
+     * @return As informações de todas as obras
+     */
+
     public ArrayList<Obra> listObrasByID() {
         ArrayList<Obra> obras_array = new ArrayList<>(this.obras.values());
-        Collections.sort(obras_array,new CompareObraByID());//A ordem vai ser por ID
+        Collections.sort(obras_array,new CompareObraByID()); //A ordem vai ser por ID
         return obras_array;
+    }
+
+    /**
+     * Requisita obra pelo o id do Utente que quer requisitar e o id da Obra a ser requisitada
+     * @param idUser Utilizador que vai fazer a solicitação da Obra
+     * @param idObra Obra a ser Requisitada
+     */
+
+    public void requisitarObra(int idUser,int idObra){
+        int stock_atualizado = this.obras.get(idObra).getStock() - 1;
+        this.obras.get(idObra).setStock(stock_atualizado);
     }
 
     /**

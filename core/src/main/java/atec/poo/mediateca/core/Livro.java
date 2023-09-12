@@ -1,9 +1,7 @@
 package atec.poo.mediateca.core;
 
 public class Livro extends Obra{
-
     private String autor;
-
     private String isbn;
 
     public Livro(int id, String titulo, String autor, Double preco, String categoria,String isbn, int exemplares) {
@@ -35,7 +33,7 @@ public class Livro extends Obra{
     }
 
     @Override
-    public String nomeautor_realizador() {
+    public String nomeCriador() {
         return this.autor;
     }
 

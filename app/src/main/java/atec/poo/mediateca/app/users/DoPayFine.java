@@ -15,7 +15,6 @@ import atec.poo.ui.exceptions.DialogException;
 public class DoPayFine extends Comando<LibraryManager> {
 
     private LerInteiro id;
-    private LerString tipo;
     /**
      * @param receiver
      */

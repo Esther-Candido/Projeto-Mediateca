@@ -19,7 +19,6 @@ public abstract class Obra implements Comparable<Obra>, Serializable {
         this.categoria = categoria;
         this.stock = exemplares;
         this.exemplares = exemplares;
-        this.tipo = tipo;
     }
 
     public int getId() {
@@ -66,8 +65,6 @@ public abstract class Obra implements Comparable<Obra>, Serializable {
         this.tipo = tipo;
     }
 
-
-
     @Override
     public String toString() {
         return this.id+" - "+this.stock+" de "+this.exemplares+" - "+this.tipo+" - "+this.titulo+" - "+this.preco+" - "+this.categoria;
@@ -80,5 +77,5 @@ public abstract class Obra implements Comparable<Obra>, Serializable {
         return this.titulo.compareTo(o.getTitulo());
     }
 
-    public abstract String nomeautor_realizador();
+    public abstract String nomeCriador();
 }
