@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4662b5e-311f-435c-968a-2d020cfccb77" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/exceptions/WorkNotFoundException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/requests/DoRequestWork.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/requests/DoRequestWork.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/core/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Biblioteca.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Biblioteca.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/LibraryManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/LibraryManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/User.java" afterDir="false" />
     </list>
     <list id="ab932900-c719-417c-973a-d1cc8cd95c38" name="Changes by atec" comment="pesquisar obras FILTRO e ordenar por ID" />
@@ -67,6 +72,7 @@
       <recent name="D:\Documents\ATEC\Curso\5413 - Programação de Computadore (Orientada a objetos) - Vitor\Projeto" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Documents\ATEC\Curso\5413 - Programação de Computadore (Orientada a objetos) - Vitor\Projeto\grupo-2" />
       <recent name="D:\Documents\ATEC\Curso\5413 - Programação de Computadore (Orientada a objetos) - Vitor\Projeto" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -100,7 +106,11 @@
       <workItem from="1694453664067" duration="8742000" />
       <workItem from="1694462551648" duration="7142000" />
       <workItem from="1694531703759" duration="1753000" />
-      <workItem from="1694533504643" duration="1559000" />
+      <workItem from="1694533504643" duration="2069000" />
+      <workItem from="1694535901022" duration="596000" />
+      <workItem from="1694555067426" duration="4104000" />
+      <workItem from="1694580100168" duration="1233000" />
+      <workItem from="1694615700972" duration="7069000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <option name="closed" value="true" />
@@ -174,7 +184,15 @@
       <option name="project" value="LOCAL" />
       <updated>1694533307949</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="ordem utentes">
+      <option name="closed" value="true" />
+      <created>1694535468789</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1694535468789</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -201,6 +219,7 @@
     <MESSAGE value="Changes by Bruno Rafael" />
     <MESSAGE value="att" />
     <MESSAGE value="limpeza de codigo" />
-    <option name="LAST_COMMIT_MESSAGE" value="limpeza de codigo" />
+    <MESSAGE value="ordem utentes" />
+    <option name="LAST_COMMIT_MESSAGE" value="ordem utentes" />
   </component>
 </project>

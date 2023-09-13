@@ -210,13 +210,53 @@ public class Biblioteca implements Serializable {
 
     /**
      * Requisita obra pelo o id do Utente que quer requisitar e o id da Obra a ser requisitada
-     * @param idUser Utilizador que vai fazer a solicitação da Obra
-     * @param idObra Obra a ser Requisitada
+     * @param userID Utilizador que vai fazer a solicitação da Obra
+     * @param obraID Obra a ser Requisitada
      */
 
-    public void requisitarObra(int idUser,int idObra){
-        int stock_atualizado = this.obras.get(idObra).getStock() - 1;
-        this.obras.get(idObra).setStock(stock_atualizado);
+    public String requisitarObra(int userID, int obraID) {
+        Obra obra = this.obras.get(obraID);
+        User user = this.users.get(userID);
+
+        if (obra == null || obraID <= 0 || obraID > obra.getExemplares()) {
+            return "Obra não encontrada ou número de exemplares inválido";
+        }
+
+        if (!user.getObraID(obraID)) {
+            String comportamento = user.getComportamento().toString();
+            int requisicaoLimite;
+
+            switch (comportamento) {
+                case "NORMAL":
+                    requisicaoLimite = 3;
+                    break;
+                case "CUMPRIDOR":
+                    requisicaoLimite = 5;
+                    break;
+                case "FALTOSO":
+                    requisicaoLimite = 1;
+                    break;
+                default:
+                    return "Comportamento de Utente Inexistente!";
+            }
+
+            if (user.getEstado().toString().equals("SUSPENSO")) {
+                return "Utente Suspenso! Não tem permissões para requisitar obras!";
+            }
+
+            if (user.numRequisicoes < requisicaoLimite) {
+                user.numRequisicoes++;
+                user.requisicao.add(obraID);
+                int novoStock = obra.getStock() - 1;
+                obra.setStock(novoStock);
+
+                return "[Obra requisitada com Sucesso]" + "\nUtente: " + user.getNome() + "\nObra: " + obra.getTitulo();
+            } else {
+                return "Limite de requisições Atingido!";
+            }
+        } else {
+            return "Obra já requisitada por este Utente!";
+        }
     }
 
     /**

@@ -1,23 +1,19 @@
 package atec.poo.mediateca.app.requests;
 
+import atec.poo.mediateca.app.exceptions.NoSuchWorkException;
 import atec.poo.mediateca.core.LibraryManager;
-import atec.poo.mediateca.core.Obra;
+import atec.poo.mediateca.core.exceptions.WorkNotFoundException;
 import atec.poo.ui.Comando;
 import atec.poo.ui.LerInteiro;
 import atec.poo.ui.exceptions.DialogException;
-
-import java.util.ArrayList;
-
 
 /**
  * Conforme enunciado
  * 4.4.1. Rquisitar uma obra
  */
 public class DoRequestWork extends Comando<LibraryManager> {
-
-    private LerInteiro user_id;
-    private LerInteiro obra_id;
-
+    private LerInteiro userID;
+    private LerInteiro obraID;
 
     /**
      * Requisita a obra
@@ -26,18 +22,22 @@ public class DoRequestWork extends Comando<LibraryManager> {
      */
     public DoRequestWork(LibraryManager receiver) {
         super(receiver, Label.REQUEST_WORK);
-        this.user_id = new LerInteiro(Message.requestUserId());
-        this.obra_id = new LerInteiro(Message.requestWorkId());
-
+        this.userID = new LerInteiro(Message.requestUserId());
+        this.obraID = new LerInteiro(Message.requestWorkId());
     }
 
 
     @Override
     public final void executar() throws DialogException {
-        ui.lerInput(this.user_id);
-        ui.lerInput(this.obra_id);
+        ui.lerInput(this.userID);
+        ui.lerInput(this.obraID);
 
-        this.getReceptor().requisitarObra(this.user_id.getValor(),this.obra_id.getValor());
+        try {
+            String info=this.getReceptor().requisitarObra(this.userID.getValor(),this.obraID.getValor());
+            ui.escreveLinha(info);
+        } catch (WorkNotFoundException e) {
+            throw new NoSuchWorkException(e.getId());
+        }
 
     }
 }

@@ -1,6 +1,8 @@
 package atec.poo.mediateca.core;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class User implements Comparable<User>, Serializable {
     private static final long serialVersionUID = 1L;
@@ -9,15 +11,18 @@ public class User implements Comparable<User>, Serializable {
     private final String email;
     private Estado estado;
     private Comportamento comportamento;
-    private Double multa;
-    
+    private double multa;
+    List<Integer> requisicao=new ArrayList<Integer>();
+    public int numRequisicoes;
+
     public User(int id, String nome, String email) {
         this.id = id;
         this.nome = nome;
         this.email = email;
         this.estado=Estado.ACTIVO;
         this.comportamento=Comportamento.NORMAL;
-        this.multa= (double) 0;
+        this.multa=0;
+        this.numRequisicoes=0;
     }
 
     public int getId() {
@@ -48,18 +53,29 @@ public class User implements Comparable<User>, Serializable {
         this.comportamento = comportamento;
     }
 
-    public Double getMulta() {
+    public double getMulta() {
         return multa;
     }
 
-    public void setMulta(Double multa) {
+    public void setMulta(double multa) {
         this.multa = multa;
+    }
+
+    public boolean getObraID(int id) {
+        if (requisicao != null) {
+            for (Integer valor : requisicao) {
+                if (valor == id) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     @Override
     public String toString() {
         if (multa > 0)
-            return this.id+" - "+this.nome+" - "+this.email+" - "+this.comportamento+" - "+this.estado+" - "+this.multa;
+            return this.id+" - "+this.nome+" - "+this.email+" - "+this.comportamento+" - "+this.estado+" - EUR "+this.multa;
         else
             return this.id+" - "+this.nome+" - "+this.email+" - "+this.comportamento+" - "+this.estado;
     }

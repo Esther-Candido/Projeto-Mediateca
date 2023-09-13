@@ -3,6 +3,7 @@ package atec.poo.mediateca.core;
 import atec.poo.mediateca.core.exceptions.BadEntrySpecificationException;
 import atec.poo.mediateca.core.exceptions.ImportFileException;
 import atec.poo.mediateca.core.exceptions.UserNotFoundException;
+import atec.poo.mediateca.core.exceptions.WorkNotFoundException;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -101,12 +102,12 @@ public class LibraryManager{
     }
 
     /**
-     *
-     * @param idUser
-     * @param idObra
+     * @param userID
+     * @param obraID
+     * @return
      */
-    public void requisitarObra(int idUser,int idObra){
-        this._biblioteca.requisitarObra(idUser, idObra);
+    public String requisitarObra(int userID, int obraID) throws WorkNotFoundException {
+        return this._biblioteca.requisitarObra(userID, obraID);
     }
 
     /**
@@ -115,8 +116,7 @@ public class LibraryManager{
      * @throws IOException
      */
     public void save(String ficheiro) throws IOException {
-        ObjectOutputStream oos=new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(ficheiro+".import")));
-        //ObjectOutputStream oos=new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("imports/"+ficheiro+".import")));
+        ObjectOutputStream oos=new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(ficheiro)));
         oos.writeObject(this._biblioteca);
         oos.close();
     }
@@ -128,8 +128,8 @@ public class LibraryManager{
      * @throws ClassNotFoundException
      */
     public void load(String ficheiro) throws IOException, ClassNotFoundException {
-        ObjectInputStream ois=new ObjectInputStream(new BufferedInputStream(new FileInputStream(ficheiro)));
-        this._biblioteca=((Biblioteca) ois.readObject());
+        ObjectInputStream ois = new ObjectInputStream(new BufferedInputStream(new FileInputStream(ficheiro)));
+        this._biblioteca = ((Biblioteca) ois.readObject());
         ois.close();
     }
 
