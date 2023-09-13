@@ -218,6 +218,11 @@ public class Biblioteca implements Serializable {
         Obra obra = this.obras.get(obraID);
         User user = this.users.get(userID);
 
+        // Se o utente não puder requisitar a obra (considerando-se as regras definidas acima), deve ser lançada a excepção:
+        // atec.poo.mediateca.app.exceptions.RuleFailedException (exceto regra 3: ver a seguir).
+        //Se a requisição não for possível por falta de exemplares (violação da regra 3), deve-se perguntar ao utente, utilizando a mensagem:
+        // requestReturnNotificationPreference(), se deseja ser notificado acerca da devolução.
+
         if (obra == null)
             return "Obra não encontrada!";
 
@@ -259,6 +264,8 @@ public class Biblioteca implements Serializable {
                 user.requisicao.add(obraID);
                 int novoStock = obra.getStock() - 1;
                 obra.setStock(novoStock);
+
+                //Utiliza-se a mensagem Message.workReturnDay() para comunicar o prazo de devolução, em caso de requisição bem sucedida.
 
                 return "[Obra requisitada com Sucesso]" + "\nUtente: " + user.getNome() + "\nObra: " + obra.getTitulo();
             } else {

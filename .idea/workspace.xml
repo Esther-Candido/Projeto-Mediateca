@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f4662b5e-311f-435c-968a-2d020cfccb77" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/requests/DoRequestWork.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/requests/DoRequestWork.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Biblioteca.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Biblioteca.java" afterDir="false" />
     </list>
     <list id="ab932900-c719-417c-973a-d1cc8cd95c38" name="Changes by atec" comment="pesquisar obras FILTRO e ordenar por ID" />
@@ -105,7 +106,8 @@
       <workItem from="1694535901022" duration="596000" />
       <workItem from="1694555067426" duration="4104000" />
       <workItem from="1694580100168" duration="1233000" />
-      <workItem from="1694615700972" duration="9229000" />
+      <workItem from="1694615700972" duration="10479000" />
+      <workItem from="1694629078872" duration="2124000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <option name="closed" value="true" />
@@ -195,7 +197,15 @@
       <option name="project" value="LOCAL" />
       <updated>1694622942015</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="requisição 100% / falta notificação em caso de 0 stock &amp; data limite devolução">
+      <option name="closed" value="true" />
+      <created>1694625064337</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1694625064337</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -224,6 +234,7 @@
     <MESSAGE value="limpeza de codigo" />
     <MESSAGE value="ordem utentes" />
     <MESSAGE value="requisição 50% feito" />
-    <option name="LAST_COMMIT_MESSAGE" value="requisição 50% feito" />
+    <MESSAGE value="requisição 100% / falta notificação em caso de 0 stock &amp; data limite devolução" />
+    <option name="LAST_COMMIT_MESSAGE" value="requisição 100% / falta notificação em caso de 0 stock &amp; data limite devolução" />
   </component>
 </project>

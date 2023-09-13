@@ -32,6 +32,9 @@ public class DoRequestWork extends Comando<LibraryManager> {
         ui.lerInput(this.userID);
         ui.lerInput(this.obraID);
 
+        // Sempre que é pedido o identificador do utente (Message.requestUserId()), é lançada a exceção atec.poo.mediateca.app.exceptions.NoSuchUserException se o utente indicado não existir.
+        // Sempre que é pedido o identificador da obra (requestWorkId()), é lançada a exceção atec.poo.mediateca.app.exceptions.NoSuchWorkException, se a obra indicada não existir.
+
         try {
             String info=this.getReceptor().requisitarObra(this.userID.getValor(),this.obraID.getValor());
             ui.escreveLinha(info);
