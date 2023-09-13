@@ -218,9 +218,19 @@ public class Biblioteca implements Serializable {
         Obra obra = this.obras.get(obraID);
         User user = this.users.get(userID);
 
-        if (obra == null || obraID <= 0 || obraID > obra.getExemplares()) {
-            return "Obra não encontrada ou número de exemplares inválido";
+        if (obra == null)
+            return "Obra não encontrada!";
+
+        if (obra.getStock() <= 0) {
+            return "Obra esgotada!";
+            // Fazer notificação para o Utente que tentou requisitar esta obra pra avisar quando tiver disponivel!
         }
+
+        if (obra.getCategoria().equals("REFERENCE"))
+            return "Não é permitido requisitar obras com a categoria 'REFERENCE'!";
+
+        if (obra.getPreco() > 25.00 && !user.getComportamento().equals("CUMPRIDOR"))
+            return "Esta obra possui um preço superior a €25,00 e só pode ser requisitada por utentes cumpridores!";
 
         if (!user.getObraID(obraID)) {
             String comportamento = user.getComportamento().toString();
