@@ -2,6 +2,7 @@ package atec.poo.mediateca.core;
 
 import atec.poo.mediateca.core.exceptions.BadEntrySpecificationException;
 import atec.poo.mediateca.core.exceptions.UserNotFoundException;
+import atec.poo.mediateca.core.exceptions.WorkNotFoundException;
 import atec.poo.mediateca.core.utilidades.CompareObraByID;
 
 import java.io.File;
@@ -180,10 +181,10 @@ public class Biblioteca implements Serializable {
      * @return As informações da obra pretendido.
      */
 
-    public String mostrarObra(int id) {
+    public String mostrarObra(int id) throws WorkNotFoundException {
         if (this.obras.containsKey(id))
             return this.obras.get(id).toString();
-        return null;
+        throw new WorkNotFoundException(id);
     }
 
     /**
@@ -222,9 +223,6 @@ public class Biblioteca implements Serializable {
         // atec.poo.mediateca.app.exceptions.RuleFailedException (exceto regra 3: ver a seguir).
         //Se a requisição não for possível por falta de exemplares (violação da regra 3), deve-se perguntar ao utente, utilizando a mensagem:
         // requestReturnNotificationPreference(), se deseja ser notificado acerca da devolução.
-
-        if (obra == null)
-            return "Obra não encontrada!";
 
         if (obra.getStock() <= 0) {
             return "Obra esgotada!";

@@ -89,7 +89,7 @@ public class LibraryManager{
      * @param id
      * @return
      */
-    public String mostrarObra(int id) {
+    public String mostrarObra(int id) throws  WorkNotFoundException{
         return this._biblioteca.mostrarObra(id);
     }
 
@@ -106,7 +106,7 @@ public class LibraryManager{
      * @param obraID
      * @return
      */
-    public String requisitarObra(int userID, int obraID) throws WorkNotFoundException {
+    public String requisitarObra(int userID, int obraID) {
         return this._biblioteca.requisitarObra(userID, obraID);
     }
 

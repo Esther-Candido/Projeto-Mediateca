@@ -26,8 +26,8 @@ public class DoShowUser extends Comando<LibraryManager> {
     public final void executar() throws DialogException {
         ui.lerInput(this.id);
         try {
-            String info=this.getReceptor().mostrarUtente(this.id.getValor());
-            ui.escreveLinha(info);
+            String user=this.getReceptor().mostrarUtente(this.id.getValor());
+            ui.escreveLinha(user);
         } catch (UserNotFoundException e) {
             throw new NoSuchUserException(e.getId());
         }

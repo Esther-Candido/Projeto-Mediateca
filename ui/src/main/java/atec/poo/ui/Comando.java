@@ -1,6 +1,7 @@
 package atec.poo.ui;
 
 import static atec.poo.ui.Dialogo.IO;
+
 import atec.poo.ui.exceptions.DialogException;
 
 public abstract class Comando<Receptor> {
