@@ -33,24 +33,12 @@ public class User implements Comparable<User>, Serializable {
         return nome;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
     public Estado getEstado() {
         return estado;
     }
 
-    public void setEstado(Estado estado) {
-        this.estado = estado;
-    }
-
     public Comportamento getComportamento() {
         return comportamento;
-    }
-
-    public void setComportamento(Comportamento comportamento) {
-        this.comportamento = comportamento;
     }
 
     public double getMulta() {

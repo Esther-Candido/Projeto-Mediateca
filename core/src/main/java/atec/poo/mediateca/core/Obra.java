@@ -53,10 +53,6 @@ public abstract class Obra implements Comparable<Obra>, Serializable {
         return exemplares;
     }
 
-    public void setExemplares(int exemplares) {
-        this.exemplares = exemplares;
-    }
-
     public Tipo getTipo() {
         return tipo;
     }

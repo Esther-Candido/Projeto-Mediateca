@@ -46,17 +46,13 @@ public class DoRequestWork extends Comando<LibraryManager> {
             throw new NoSuchWorkException(e.getId());
         }
 
-        String info = this.getReceptor().requisitarObra(this.userID.getValor(),this.obraID.getValor());
-        ui.escreveLinha(info);
+        int tempoEntrega = this.getReceptor().requisicaoDias(userID.getValor(), obraID.getValor()) + this.getReceptor().getData();
 
-        // Concluir esta parte para mostrar o tempo e as exceptions corretas:
-        //int tempoEntrega = this.getReceptor().requisicaoDias(userID.getValor(), obraID.getValor()) + this.getReceptor().getData();
-
-        /*try {
-            this.getReceptor().requisitarObra(obraID.getValor(), userID.getValor());
+        try{
+            this.getReceptor().requisitarObra(this.userID.getValor(),this.obraID.getValor());
             ui.escreveLinha(Message.workReturnDay(obraID.getValor(), tempoEntrega));
-        } catch (Exception e) {
-            throw new RuleFailedException(userID.getValor(), obraID.getValor(), e.hashCode());
-        }*/
+        } catch (RuleException e) {
+            throw new RuleFailedException(e.getUserId(), e.getObraId(), e.getRuleId());
+        }
     }
 }

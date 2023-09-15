@@ -193,29 +193,30 @@ public class Biblioteca implements Serializable {
      * @param userID Utilizador que vai fazer a solicitação da Obra
      * @param obraID Obra a ser Requisitada
      */
-    public String requisitarObra(int userID, int obraID) {
+    public String requisitarObra(int userID, int obraID) throws RuleException {
         Obra obra = this.obras.get(obraID);
         User user = this.users.get(userID);
 
-        // Se o utente não puder requisitar a obra (considerando-se as regras definidas acima), deve ser lançada a excepção:
-        // atec.poo.mediateca.app.exceptions.RuleFailedException (exceto regra 3: ver a seguir).
-        //Se a requisição não for possível por falta de exemplares (violação da regra 3), deve-se perguntar ao utente, utilizando a mensagem:
-        // requestReturnNotificationPreference(), se deseja ser notificado acerca da devolução.
-
         if (obra.getStock() <= 0) {
-            return "Obra esgotada!";
-            // Fazer notificação para o Utente que tentou requisitar esta obra pra avisar quando tiver disponivel!
+            return "NÃO HÁ MAIS! ACABOU! VÊ SE ENTENDES!"; // NÂO É PRA USAR
+            //Se a requisição não for possível por falta de exemplares (violação da regra 3), deve-se perguntar ao utente, utilizando a mensagem:
+            // requestReturnNotificationPreference(), se deseja ser notificado acerca da devolução.
+        }
+
+
+        if (user.getEstado().toString().equals("SUSPENSO")) {
+            throw new RuleException(userID, obraID, 2);
         }
 
         if (obra.getCategoria().equals("REFERENCE"))
-            return "Não é permitido requisitar obras com a categoria 'REFERENCE'!";
+            throw new RuleException(userID, obraID, 5);
 
         if (obra.getPreco() > 25.00 && !user.getComportamento().equals("CUMPRIDOR"))
-            return "Esta obra possui um preço superior a €25,00 e só pode ser requisitada por utentes cumpridores!";
+            throw new RuleException(userID, obraID, 6);
 
         if (!user.getObraID(obraID)) {
             String comportamento = user.getComportamento().toString();
-            int requisicaoLimite;
+            int requisicaoLimite = 0;
 
             switch (comportamento) {
                 case "NORMAL":
@@ -227,12 +228,6 @@ public class Biblioteca implements Serializable {
                 case "FALTOSO":
                     requisicaoLimite = 1;
                     break;
-                default:
-                    return "Comportamento de Utente Inexistente!";
-            }
-
-            if (user.getEstado().toString().equals("SUSPENSO")) {
-                return "Utente Suspenso! Não tem permissões para requisitar obras!";
             }
 
             if (user.numRequisicoes < requisicaoLimite) {
@@ -241,14 +236,12 @@ public class Biblioteca implements Serializable {
                 int novoStock = obra.getStock() - 1;
                 obra.setStock(novoStock);
 
-                //Utiliza-se a mensagem Message.workReturnDay() para comunicar o prazo de devolução, em caso de requisição bem sucedida.
-
-                return "[Obra requisitada com Sucesso]" + "\nUtente: " + user.getNome() + "\nObra: " + obra.getTitulo();
+                return "Teste";
             } else {
-                return "Limite de requisições Atingido!";
+                throw new RuleException(userID, obraID, 4);
             }
         } else {
-            return "Obra já requisitada por este Utente!";
+            throw new RuleException(userID, obraID, 1);
         }
     }
 
@@ -258,7 +251,7 @@ public class Biblioteca implements Serializable {
      * @param obraID
      * @return
      */
-    /*public int requisicaoMaxDias (int userID, int obraID) {
+    public int requisicaoMaxDias (int userID, int obraID) {
         User user = users.get(userID);
         Obra obra = obras.get(obraID);
         if (obra.getExemplares() > 5) {
@@ -281,7 +274,7 @@ public class Biblioteca implements Serializable {
             };
         }
         return 0;
-    }*/
+    }
 
     /**
      *

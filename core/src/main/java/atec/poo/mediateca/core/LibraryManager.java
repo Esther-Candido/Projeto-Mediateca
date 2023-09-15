@@ -100,7 +100,7 @@ public class LibraryManager{
      * @param obraID
      * @return
      */
-    public String requisitarObra(int userID, int obraID) {
+    public String requisitarObra(int userID, int obraID) throws RuleException{
         return this._biblioteca.requisitarObra(userID, obraID);
     }
 
@@ -110,9 +110,9 @@ public class LibraryManager{
      * @param obraID
      * @return
      */
-    /*public int requisicaoDias(int userID, int obraID) {
+    public int requisicaoDias(int userID, int obraID) {
         return this._biblioteca.requisicaoMaxDias(userID, obraID);
-    }*/
+    }
 
     /**
      *
