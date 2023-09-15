@@ -3,6 +3,7 @@ package atec.poo.mediateca.core;
 import atec.poo.mediateca.core.exceptions.*;
 import atec.poo.mediateca.core.utilidades.CompareObraByID;
 
+
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
@@ -100,33 +101,19 @@ public class Biblioteca implements Serializable {
     }
 
     /**
-     * Paga a multa de um utente.
-     * @param id O ID do utente.
-     * @return A mensagem de pagamento bem-sucedido ou que o utente não tem dividas.
-     * @throws UserNotFoundException Se o utente não existir.
-     //* @throws UserIsActiveException
+     *
+     * @param userID
      */
-    public String pagarMulta(int id) throws UserNotFoundException {
-        if (this.users.containsKey(id))
-            return this.users.get(id).toString();
-        throw new UserNotFoundException(id);
 
-        /* FALTA TERMINAR
-
-        - Se o utente estiver suspenso, a multa é saldada e o utente passa a poder requisitar obras, de acordo com as regras gerais.
-            (Utente passa a Activo e recebe uma mensagem que esta Ativo e pode voltar a Requisitar Obras)
-        - Se o utente não estiver suspenso, i.e., não tem multas por saldar, deve lançar-se uma exceção:
-            atec.poo.mediateca.app.exceptions.UserIsActiveException.
-
-        if (utente.getEstado().equals("ATIVO")) {
-            utente.setMultas(0);
-            utente.setEstado("NORMAL");
-        } else {
-            throw new UtilizadorAtivoException(id);
+    public void pagarMulta(int userID){
+        User user = this.users.get(userID);
+        if (user.getEstado().toString().equals("SUSPENSO")) {  // A Multa é saldada e user passa ativo!
+            user.setMulta(0);
+            user.setEstado(Estado.valueOf("ACTIVO"));
         }
-        return " User " + id + " está ATIVO novamente";
-
-        */
+        if (user.getEstado().toString().equals("ACTIVO")) {
+            user.setMulta(0);
+        }
     }
 
     /**
