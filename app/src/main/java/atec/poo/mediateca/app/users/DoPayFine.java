@@ -24,13 +24,7 @@ public class DoPayFine extends Comando<LibraryManager> {
 
     @Override
     public final void executar() throws DialogException {
-        // Por fazer
         ui.lerInput(this.id);
-        try{
-            String info=this.getReceptor().pagarMulta(this.id.getValor());
-            ui.escreveLinha(info);
-        } catch (UserNotFoundException e) {
-            throw new NoSuchUserException(e.getId());
-        }
+        this.getReceptor().pagarMulta(this.id.getValor());
     }
 }

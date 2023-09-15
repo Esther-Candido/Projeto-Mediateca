@@ -70,13 +70,9 @@ public class LibraryManager{
 
     /**
      *
-     * @param id
-     * @return
-     * @throws UserNotFoundException
+     * @param userID
      */
-    public  String pagarMulta(int id) throws UserNotFoundException {
-        return this._biblioteca.pagarMulta(id);
-    }
+    public void pagarMulta(int userID){this._biblioteca.pagarMulta(userID);}
 
     /**
      *
@@ -100,8 +96,8 @@ public class LibraryManager{
      * @param obraID
      * @return
      */
-    public String requisitarObra(int userID, int obraID) throws RuleException{
-        return this._biblioteca.requisitarObra(userID, obraID);
+    public void requisitarObra(int userID, int obraID) throws RuleException{
+        this._biblioteca.requisitarObra(userID, obraID);
     }
 
     /**

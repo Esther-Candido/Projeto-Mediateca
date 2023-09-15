@@ -190,19 +190,16 @@ public class Biblioteca implements Serializable {
      * @param userID Utilizador que vai fazer a solicitação da Obra
      * @param obraID Obra a ser Requisitada
      */
-    public String requisitarObra(int userID, int obraID) throws RuleException {
+    public void requisitarObra(int userID, int obraID) throws RuleException {
         Obra obra = this.obras.get(obraID);
         User user = this.users.get(userID);
 
-        if (obra.getStock() <= 0) {
-            return "NÃO HÁ MAIS! ACABOU! VÊ SE ENTENDES!"; // NÂO É PRA USAR
-            //Se a requisição não for possível por falta de exemplares (violação da regra 3), deve-se perguntar ao utente, utilizando a mensagem:
-            // requestReturnNotificationPreference(), se deseja ser notificado acerca da devolução.
-        }
-
-
         if (user.getEstado().toString().equals("SUSPENSO")) {
             throw new RuleException(userID, obraID, 2);
+        }
+
+        if (obra.getStock() <= 0) {
+            throw new RuleException(userID, obraID, 3);
         }
 
         if (obra.getCategoria().equals("REFERENCE"))
@@ -232,8 +229,7 @@ public class Biblioteca implements Serializable {
                 user.requisicao.add(obraID);
                 int novoStock = obra.getStock() - 1;
                 obra.setStock(novoStock);
-
-                return "Teste";
+                user.setMulta(39);
             } else {
                 throw new RuleException(userID, obraID, 4);
             }

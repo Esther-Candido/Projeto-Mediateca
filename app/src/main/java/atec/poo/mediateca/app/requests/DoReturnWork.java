@@ -2,6 +2,7 @@ package atec.poo.mediateca.app.requests;
 
 import atec.poo.mediateca.app.exceptions.NoSuchUserException;
 import atec.poo.mediateca.app.exceptions.NoSuchWorkException;
+import atec.poo.mediateca.app.exceptions.UserIsActiveException;
 import atec.poo.mediateca.app.exceptions.WorkNotBorrowedByUserException;
 import atec.poo.mediateca.core.LibraryManager;
 import atec.poo.mediateca.core.User;

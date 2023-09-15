@@ -37,6 +37,10 @@ public class User implements Comparable<User>, Serializable {
         return estado;
     }
 
+    public void setEstado(Estado estado) {
+        this.estado = estado;
+    }
+
     public Comportamento getComportamento() {
         return comportamento;
     }
