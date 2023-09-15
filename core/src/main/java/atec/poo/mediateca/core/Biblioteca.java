@@ -187,22 +187,11 @@ public class Biblioteca implements Serializable {
         throw new WorkNotFoundException(id);
     }
 
-    /**
-     * Mostra informações sobre todas as obras por ordem alfabetica
-     * @return As informações de todas as obras
-     */
-
-    public ArrayList<Obra> listObras() {
-        ArrayList<Obra> obras_array = new ArrayList<>(this.obras.values());
-        Collections.sort(obras_array); //A ordem vai ser a codificada no metodo compareTo da interface comparable
-        return obras_array;
-    }
 
     /**
      * Mostra informações sobre todas as obras por ordem crescente do ID da obra
      * @return As informações de todas as obras
      */
-
     public ArrayList<Obra> listObrasByID() {
         ArrayList<Obra> obras_array = new ArrayList<>(this.obras.values());
         Collections.sort(obras_array,new CompareObraByID()); //A ordem vai ser por ID
@@ -272,6 +261,62 @@ public class Biblioteca implements Serializable {
         } else {
             return "Obra já requisitada por este Utente!";
         }
+    }
+
+    /**
+     *
+     * @param userID
+     * @param obraID
+     * @return
+     */
+
+    /*public int requisicaoMaxDias (int userID, int obraID) {
+        User user = users.get(userID);
+        Obra obra = obras.get(obraID);
+        if (obra.getExemplares() > 5) {
+            return switch (user.getComportamento()) {
+                case CUMPRIDOR -> 30;
+                case NORMAL -> 15;
+                case FALTOSO -> 2;
+            };
+        } else if (obra.getExemplares() > 1 && obra.getExemplares() <= 5) {
+            return switch (user.getComportamento()) {
+                case CUMPRIDOR -> 15;
+                case NORMAL -> 8;
+                case FALTOSO -> 2;
+            };
+        } else if (obra.getExemplares() == 1) {
+            return switch (user.getComportamento()) {
+                case CUMPRIDOR -> 8;
+                case NORMAL -> 3;
+                case FALTOSO -> 2;
+            };
+        }
+        return 0;
+    }*/
+
+    /**
+     *
+     * @param userID
+     * @param obraID
+     * @return
+     */
+    public String devolverObra(int userID, int obraID) {
+        User user = this.users.get(userID);
+        Obra obra = this.obras.get(obraID);
+
+
+        user.numRequisicoes--;
+        user.requisicao.remove(obraID);
+        int novoStock = obra.getStock() + 1;
+        obra.setStock(novoStock);
+
+        //Utiliza-se a mensagem Message.workReturnDay() para comunicar o prazo de devolução, em caso de requisição bem sucedida.
+
+        return "[Obra devolvida com Sucesso]" + "\nUtente: " + user.getNome() + "\nObra: " + obra.getTitulo();
+
+
+
     }
 
     /**

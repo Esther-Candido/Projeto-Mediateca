@@ -40,9 +40,8 @@ public class DoPerformSearch extends Comando<LibraryManager> {
     ui.lerInput(this.pesquisa);
     this.pesquisa.getValor();
 
-    ArrayList<Obra> obras=this.getReceptor().listObras();
     // Ordena a lista de obras por ID
-    Collections.sort(obras, new CompareObraByID()); //obras.sort(new CompareObraByID()); Outra forma de fazer
+    ArrayList<Obra> obras=this.getReceptor().listObrasByID();
 
     // Procura pela palavra inserida no input(pesquisa) se tem na lista de array de obras em titulo e nomeCriador(Autor/Realizador)
     for ( Obra o: obras ) {
