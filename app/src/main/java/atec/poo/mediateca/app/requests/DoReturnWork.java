@@ -62,4 +62,22 @@ public class DoReturnWork extends Comando<LibraryManager> {
         }
     }
 
+    /*
+        try {
+            double multa = this.getReceptor().devolverRequisicao(idUtente.getValor(), idObra.getValor());     //devolve a multa
+            if (multa > 0) {
+                ui.escreveLinha(Message.showFine(idUtente.getValor(), (int) multa));                           //mostra a multa
+                ui.lerInput(request = new LerString(Message.requestFinePaymentChoice(), null));           //pergunta se quer pagar a multa
+
+                switch (request.getValor().toLowerCase()) {
+                    case "s" -> this.getReceptor().pagarMultalogo(idUtente.getValor(), (int) multa, "s"); //se sim, paga a multa
+                    case "n" -> this.getReceptor().pagarMultalogo(idUtente.getValor(), (int) multa, "n"); //se nao, nao paga a multa
+                }
+
+            }
+        } catch (Exception e) {
+            throw new WorkNotBorrowedByUserException(idObra.getValor(), idUtente.getValor());
+        }
+    */
+
 }

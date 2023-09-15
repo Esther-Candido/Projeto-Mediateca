@@ -25,6 +25,7 @@ public class DoShowUsers extends Comando<LibraryManager> {
     ArrayList<User> users=this.getReceptor().listUsers();
     for (User u : users) {
       ui.escreveLinha(u.toString());
+      ui.escreveLinha(String.valueOf(u.numRequisicoes));
     }
   }
 }

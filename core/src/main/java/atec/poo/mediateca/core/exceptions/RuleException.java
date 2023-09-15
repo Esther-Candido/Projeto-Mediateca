@@ -1,8 +1,6 @@
 package atec.poo.mediateca.core.exceptions;
 
-import java.io.Serializable;
-
-public class RuleException extends Exception implements Serializable {
+public class RuleException extends Exception {
 
     private int id;
 
@@ -10,7 +8,7 @@ public class RuleException extends Exception implements Serializable {
         this.id = id;
     }
 
-    public int getId() {
+    public int id() {
         return id;
     }
 }

@@ -49,12 +49,13 @@ public class DoRequestWork extends Comando<LibraryManager> {
         String info = this.getReceptor().requisitarObra(this.userID.getValor(),this.obraID.getValor());
         ui.escreveLinha(info);
 
-        /*try{
-            String info = this.getReceptor().requisitarObra(this.userID.getValor(),this.obraID.getValor());
-            ui.escreveLinha(info);
-        } catch (RuleException e) {
-            throw new RuleFailedException(e.getId());
-        }*/
+        //int tempoEntrega = this.getReceptor().requisicaoDias(userID.getValor(), obraID.getValor()) + this.getReceptor().getData();
 
+        /*try {
+            this.getReceptor().requisitarObra(obraID.getValor(), userID.getValor());
+            ui.escreveLinha(Message.workReturnDay(obraID.getValor(), tempoEntrega));
+        } catch (Exception e) {
+            throw new RuleFailedException(userID.getValor(), obraID.getValor(), e.hashCode());
+        }*/
     }
 }

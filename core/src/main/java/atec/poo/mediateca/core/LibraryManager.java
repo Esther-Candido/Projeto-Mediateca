@@ -1,9 +1,6 @@
 package atec.poo.mediateca.core;
 
-import atec.poo.mediateca.core.exceptions.BadEntrySpecificationException;
-import atec.poo.mediateca.core.exceptions.ImportFileException;
-import atec.poo.mediateca.core.exceptions.UserNotFoundException;
-import atec.poo.mediateca.core.exceptions.WorkNotFoundException;
+import atec.poo.mediateca.core.exceptions.*;
 
 import java.io.*;
 import java.util.ArrayList;
