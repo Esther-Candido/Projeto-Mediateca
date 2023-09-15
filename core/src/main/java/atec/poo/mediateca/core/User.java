@@ -61,7 +61,7 @@ public class User implements Comparable<User>, Serializable {
         this.multa = multa;
     }
 
-    public boolean getObraID(int id) {
+    public boolean getObraID(int id) { // Arranjar um melhor nome pra isto
         if (requisicao != null) {
             for (Integer valor : requisicao) {
                 if (valor == id) {

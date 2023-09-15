@@ -32,5 +32,4 @@ public class DoShowUser extends Comando<LibraryManager> {
             throw new NoSuchUserException(e.getId());
         }
     }
-
 }

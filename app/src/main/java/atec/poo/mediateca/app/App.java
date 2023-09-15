@@ -6,11 +6,11 @@ import atec.poo.mediateca.core.exceptions.ImportFileException;
 
 import static atec.poo.ui.Dialogo.IO;
 
-
 /**
  * Main driver for the library management application.
  */
 public class App {
+
     /**
      * @param args
      */
@@ -33,9 +33,7 @@ public class App {
         } finally {
             IO.close();
         }
-
     }
-
 }
 
 

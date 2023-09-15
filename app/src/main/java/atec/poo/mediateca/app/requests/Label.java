@@ -3,7 +3,6 @@ package atec.poo.mediateca.app.requests;
 /** Menu entries for the requests menu. */
 @SuppressWarnings("nls")
 public interface Label {
-
   /** §4.4. Menu title. */
   String TITLE = "Menu de Gestão de Requisições";
 
@@ -12,5 +11,4 @@ public interface Label {
 
   /** §4.4.2. Return work. */
   String RETURN_WORK = "Devolver obra";
-
 }

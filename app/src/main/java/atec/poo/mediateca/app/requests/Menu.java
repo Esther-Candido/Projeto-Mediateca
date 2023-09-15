@@ -3,7 +3,6 @@ package atec.poo.mediateca.app.requests;
 import atec.poo.mediateca.core.LibraryManager;
 import atec.poo.ui.Comando;
 
-
 /** 4.4. Requests menu. */
 public class Menu extends atec.poo.ui.Menu {
 
@@ -16,5 +15,4 @@ public class Menu extends atec.poo.ui.Menu {
       new DoReturnWork(receiver), 
     });
   }
-
 }

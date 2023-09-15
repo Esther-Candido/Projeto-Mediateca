@@ -3,7 +3,6 @@ package atec.poo.mediateca.app.users;
 import atec.poo.mediateca.core.LibraryManager;
 import atec.poo.ui.Comando;
 
-
 /** 4.2. Users menu. */
 public class Menu extends atec.poo.ui.Menu {
 
@@ -19,5 +18,4 @@ public class Menu extends atec.poo.ui.Menu {
       new DoPayFine(receiver), //
     });
   }
-
 }

@@ -18,7 +18,6 @@ public class DoOpenRequestsMenu extends Comando<LibraryManager> {
     super(receiver,Label.OPEN_REQUESTS_MENU);
   }
 
-
   @Override
   public final void executar() {
     Menu menu = new Menu(this.getReceptor());

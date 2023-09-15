@@ -25,7 +25,6 @@ public class Biblioteca implements Serializable {
     /**
      * Construtor
      */
-
     public Biblioteca() {
         this.users = new HashMap<>();
         this.obras = new HashMap<>();
@@ -38,7 +37,6 @@ public class Biblioteca implements Serializable {
      * Define a Data Atual
      * @param data
      */
-
     public void setData(int data) {
         if (data > 0)
             this.data += data;
@@ -48,7 +46,6 @@ public class Biblioteca implements Serializable {
      * Mostra a Data Atual
      * @return Data Atual
      */
-
     public int getData() {
         return data;
     }
@@ -59,7 +56,6 @@ public class Biblioteca implements Serializable {
      * @param email O email do utente.
      * @return ID do novo utente criado
      */
-
     public int registarUser(String nome, String email) {
         User u = new User(this.nextUserID, nome, email);
         this.users.put(u.getId(), u);
@@ -71,7 +67,6 @@ public class Biblioteca implements Serializable {
      * Mostra informações sobre todos os utentes
      * @return As informações de todos os utentes
      */
-
     public ArrayList<User> listUsers() {
         ArrayList<User> users_array = new ArrayList<>(this.users.values());
         Collections.sort(users_array);
@@ -84,7 +79,6 @@ public class Biblioteca implements Serializable {
      * @return As informações do utente pretendido.
      * @throws UserNotFoundException Se o usuário não existe.
      */
-
     public String mostrarUtente(int id) throws UserNotFoundException {
         if (this.users.containsKey(id))
             return this.users.get(id).toString();
@@ -97,7 +91,6 @@ public class Biblioteca implements Serializable {
      * @return As notificações do utente pretendido.
      * @throws UserNotFoundException Se o usuário não existe.
      */
-
     public String mostrarNotificacao(int id) throws UserNotFoundException {
         if (this.users.containsKey(id))
             return this.users.get(id).toString(); // Em vez mostrar informação do Utente mostrar as notificações desse Utente (Entrega/Requisição)
@@ -116,7 +109,6 @@ public class Biblioteca implements Serializable {
      * @throws UserNotFoundException Se o utente não existir.
      //* @throws UserIsActiveException
      */
-
     public String pagarMulta(int id) throws UserNotFoundException {
         if (this.users.containsKey(id))
             return this.users.get(id).toString();
@@ -150,7 +142,6 @@ public class Biblioteca implements Serializable {
      * @param exemplares Nº de Exemplares do livro.
      * @return ID do novo livro criado
      */
-
     public int registarLivro(String titulo, String autor, Double preco, String categoria, String isbn, int exemplares) {
         Livro l = new Livro(this.nextObraID, titulo, autor, preco, categoria, isbn, exemplares);
         this.obras.put(l.getId(), l);
@@ -168,7 +159,6 @@ public class Biblioteca implements Serializable {
      * @param exemplares Nº de Exemplares do dvd.
      * @return ID do novo dvd criado
      */
-
     public int registarDVD(String titulo, String realizador, Double preco, String categoria, String igac, int exemplares) {
         DVD d = new DVD(this.nextObraID, titulo, realizador, preco, categoria, igac, exemplares);
         this.obras.put(d.getId(), d);
@@ -181,7 +171,6 @@ public class Biblioteca implements Serializable {
      * @param id
      * @return As informações da obra pretendido.
      */
-
     public String mostrarObra(int id) throws WorkNotFoundException {
         if (this.obras.containsKey(id))
             return this.obras.get(id).toString();
@@ -204,7 +193,6 @@ public class Biblioteca implements Serializable {
      * @param userID Utilizador que vai fazer a solicitação da Obra
      * @param obraID Obra a ser Requisitada
      */
-
     public String requisitarObra(int userID, int obraID) {
         Obra obra = this.obras.get(obraID);
         User user = this.users.get(userID);
@@ -270,7 +258,6 @@ public class Biblioteca implements Serializable {
      * @param obraID
      * @return
      */
-
     /*public int requisicaoMaxDias (int userID, int obraID) {
         User user = users.get(userID);
         Obra obra = obras.get(obraID);
@@ -315,9 +302,6 @@ public class Biblioteca implements Serializable {
         //Utiliza-se a mensagem Message.workReturnDay() para comunicar o prazo de devolução, em caso de requisição bem sucedida.
 
         return "[Obra devolvida com Sucesso]" + "\nUtente: " + user.getNome() + "\nObra: " + obra.getTitulo();
-
-
-
     }
 
     /**
@@ -352,4 +336,3 @@ public class Biblioteca implements Serializable {
         s.close();
     }
 }
-

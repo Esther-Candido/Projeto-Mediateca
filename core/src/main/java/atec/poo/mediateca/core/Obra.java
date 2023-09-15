@@ -12,7 +12,7 @@ public abstract class Obra implements Comparable<Obra>, Serializable {
     private int exemplares;
     private Tipo tipo;
 
-    Obra(int id, String titulo, Double preco, String categoria, int exemplares) {
+    public Obra(int id, String titulo, Double preco, String categoria, int exemplares) {
         this.id = id;
         this.titulo = titulo;
         this.preco = preco;

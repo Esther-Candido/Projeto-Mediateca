@@ -36,5 +36,4 @@ public class Livro extends Obra{
     public String nomeCriador() {
         return this.autor;
     }
-
 }

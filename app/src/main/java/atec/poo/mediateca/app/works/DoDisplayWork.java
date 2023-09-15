@@ -7,12 +7,10 @@ import atec.poo.ui.Comando;
 import atec.poo.ui.LerInteiro;
 import atec.poo.ui.exceptions.DialogException;
 
-
 /**
  * 4.3.1. Mostrar Obra.
  */
 public class DoDisplayWork extends Comando<LibraryManager> {
-
     private LerInteiro id;
     /**
      * @param receiver
@@ -21,7 +19,6 @@ public class DoDisplayWork extends Comando<LibraryManager> {
         super(receiver, Label.SHOW_WORK);
         this.id=new LerInteiro(Message.requestWorkId());
     }
-
 
     @Override
     public final void executar() throws DialogException {
@@ -32,9 +29,6 @@ public class DoDisplayWork extends Comando<LibraryManager> {
         } catch (WorkNotFoundException e) {
             throw new NoSuchWorkException(e.getId());
         }
-
-
     }
-
 }
 

@@ -28,7 +28,5 @@ public class DoRegisterUser extends Comando<LibraryManager> {
         ui.lerInput(this.email);
         int id = this.getReceptor().registarUser(this.nome.getValor(), this.email.getValor());
         ui.escreveLinha(Message.userRegistrationSuccessful(id));
-
     }
-
 }

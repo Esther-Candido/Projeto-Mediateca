@@ -49,5 +49,4 @@ public interface Message {
   static String workReturnDay(int idWork, int day) {
     return "A obra " + idWork + " deve ser devolvida no dia " + day + ".";
   }
-
 }

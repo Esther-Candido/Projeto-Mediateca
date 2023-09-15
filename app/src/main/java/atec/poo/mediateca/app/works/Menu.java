@@ -3,7 +3,6 @@ package atec.poo.mediateca.app.works;
 import atec.poo.mediateca.core.LibraryManager;
 import atec.poo.ui.Comando;
 
-
 /** 4.3. Works menu. */
 public class Menu extends atec.poo.ui.Menu {
 
@@ -17,5 +16,4 @@ public class Menu extends atec.poo.ui.Menu {
             new DoPerformSearch(receiver), //
     });
   }
-
 }

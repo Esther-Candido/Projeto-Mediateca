@@ -8,15 +8,12 @@ import atec.poo.ui.exceptions.DialogException;
 
 import java.io.IOException;
 
-
 /**
  * Conforme enunciado
  * 4.1.2. Guardar o estado da aplicação
  */
 public class DoSave extends Comando<LibraryManager> {
-
   private LerString ficheiro;
-
 
   /**
    * @param receiver

@@ -20,7 +20,6 @@ public class DoOpen extends Comando<LibraryManager> {
   public DoOpen(LibraryManager receiver) {
     super(receiver,Label.OPEN);
     this.ficheiro=new LerString(Message.openFile(),null);
-
   }
 
   @Override

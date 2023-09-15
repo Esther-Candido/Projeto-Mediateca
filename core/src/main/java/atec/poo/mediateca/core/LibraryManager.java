@@ -9,9 +9,6 @@ public class LibraryManager{
 
     private Biblioteca _biblioteca;
 
-    /**
-     * Cria uma nova Biblioteca
-     */
     public LibraryManager() {
         this._biblioteca =new Biblioteca();
     }
@@ -97,6 +94,7 @@ public class LibraryManager{
     public ArrayList<Obra> listObrasByID(){
         return this._biblioteca.listObrasByID();
     }
+
     /**
      * @param userID
      * @param obraID
@@ -106,10 +104,22 @@ public class LibraryManager{
         return this._biblioteca.requisitarObra(userID, obraID);
     }
 
+    /**
+     *
+     * @param userID
+     * @param obraID
+     * @return
+     */
     /*public int requisicaoDias(int userID, int obraID) {
         return this._biblioteca.requisicaoMaxDias(userID, obraID);
     }*/
 
+    /**
+     *
+     * @param userID
+     * @param obraID
+     * @return
+     */
     public String devolverObra(int userID, int obraID){
         return this._biblioteca.devolverObra(userID, obraID);
     }

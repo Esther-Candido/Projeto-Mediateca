@@ -3,7 +3,6 @@ package atec.poo.mediateca.app.main;
 /** Menu entries for the main menu. */
 @SuppressWarnings("nls")
 public interface Label {
-
   /** Menu title. */
   String TITLE = "Menu Principal";
 
@@ -27,5 +26,4 @@ public interface Label {
 
   /** §4.1.4. Open requests menu. */
   String OPEN_REQUESTS_MENU = "Menu de gestão de requisições";
-
 }

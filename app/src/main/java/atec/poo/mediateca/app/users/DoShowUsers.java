@@ -6,7 +6,6 @@ import atec.poo.ui.Comando;
 
 import java.util.ArrayList;
 
-
 /**
  * Conforme enunciado
  * 4.2.4. Mostrar Todos os utentes.

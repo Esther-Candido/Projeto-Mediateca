@@ -49,6 +49,7 @@ public class DoRequestWork extends Comando<LibraryManager> {
         String info = this.getReceptor().requisitarObra(this.userID.getValor(),this.obraID.getValor());
         ui.escreveLinha(info);
 
+        // Concluir esta parte para mostrar o tempo e as exceptions corretas:
         //int tempoEntrega = this.getReceptor().requisicaoDias(userID.getValor(), obraID.getValor()) + this.getReceptor().getData();
 
         /*try {

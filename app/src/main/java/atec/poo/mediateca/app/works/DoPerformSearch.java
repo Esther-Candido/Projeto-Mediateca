@@ -15,41 +15,31 @@ import java.util.Arrays;
 import java.util.Collections;
 
 /**
- * Conforme Enunciado
  * 4.3.3. Pesquisar Obras
- * Resultado da pesquisa ordenadas por ordem crescente do seu identificador OBRAS
- * Pesquisa deve buscar no DVD -> o realizador e o título
- * Pesquisa deve busca no BOOK -> o autor e o título
  */
 public class DoPerformSearch extends Comando<LibraryManager> {
+    private LerString pesquisa;
 
-  /**
-   * @param receiver
-   */
-
-  private LerString pesquisa;
-
-
-  public DoPerformSearch(LibraryManager receiver) {
-    super(receiver, Label.PERFORM_SEARCH);
-    this.pesquisa=new LerString(Message.requestSearchTerm(), null);
-  }
-
-  @Override
-  public final void executar() throws DialogException  {
-    ui.lerInput(this.pesquisa);
-    this.pesquisa.getValor();
-
-    // Ordena a lista de obras por ID
-    ArrayList<Obra> obras=this.getReceptor().listObrasByID();
-
-    // Procura pela palavra inserida no input(pesquisa) se tem na lista de array de obras em titulo e nomeCriador(Autor/Realizador)
-    for ( Obra o: obras ) {
-      if (o.getTitulo().toLowerCase().contains(this.pesquisa.getValor().toLowerCase()) || o.nomeCriador().toLowerCase().contains(this.pesquisa.getValor().toLowerCase())){
-        ui.escreveLinha(o.toString());
-      }
+    /**
+     * @param receiver
+     */
+    public DoPerformSearch(LibraryManager receiver) {
+        super(receiver, Label.PERFORM_SEARCH);
+        this.pesquisa = new LerString(Message.requestSearchTerm(), null);
     }
-  }
 
+    @Override
+    public final void executar() throws DialogException {
+        ui.lerInput(this.pesquisa);
+        this.pesquisa.getValor(); // VER ISTO
+
+        ArrayList<Obra> obras = this.getReceptor().listObrasByID(); // Ordena a lista de obras por ID
+
+        for (Obra o : obras) {  // Procura pela palavra inserida no input(pesquisa) se tem na lista de array de obras em titulo e nomeCriador(Autor/Realizador)
+            if (o.getTitulo().toLowerCase().contains(this.pesquisa.getValor().toLowerCase()) || o.nomeCriador().toLowerCase().contains(this.pesquisa.getValor().toLowerCase())) {
+                ui.escreveLinha(o.toString());
+            }
+        }
+    }
 }
 

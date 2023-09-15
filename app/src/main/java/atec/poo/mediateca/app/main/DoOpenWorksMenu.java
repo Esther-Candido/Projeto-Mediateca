@@ -4,7 +4,6 @@ import atec.poo.mediateca.app.works.Menu;
 import atec.poo.mediateca.core.LibraryManager;
 import atec.poo.ui.Comando;
 
-
 /**
  * Conforme Enunciado
  * 4.1.5. Gestão e consulta de dados da aplicação
@@ -24,5 +23,4 @@ public class DoOpenWorksMenu extends Comando<LibraryManager> {
     Menu menu = new Menu(this.getReceptor());
     menu.open();
   }
-  
 }

@@ -32,6 +32,5 @@ public interface Message {
   static String noWorkonDB(int idWork) {
     return "Mostrar obra: Operação inválida: A obra "+idWork+" não existe.";
   }
-
 }
 

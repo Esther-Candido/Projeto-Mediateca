@@ -21,5 +21,4 @@ public interface Label {
 
   /** §4.2.5. Pay fine. */
   String PAY_FINE = "Saldar multa de utente";
-
 }
