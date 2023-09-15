@@ -124,6 +124,16 @@ public class LibraryManager{
         return this._biblioteca.devolverObra(userID, obraID);
     }
 
+
+    public String ver_utente_obra(int userID, int obraID) throws BorrowException{
+        return this._biblioteca.ver_utente_obra(userID,obraID);
+    }
+
+
+    public int mostraMulta(int userID){
+        return this._biblioteca.mostraMulta(userID);
+    }
+
     /**
      *
      * @param ficheiro

@@ -1,9 +1,6 @@
 package atec.poo.mediateca.core;
 
-import atec.poo.mediateca.core.exceptions.BadEntrySpecificationException;
-import atec.poo.mediateca.core.exceptions.RuleException;
-import atec.poo.mediateca.core.exceptions.UserNotFoundException;
-import atec.poo.mediateca.core.exceptions.WorkNotFoundException;
+import atec.poo.mediateca.core.exceptions.*;
 import atec.poo.mediateca.core.utilidades.CompareObraByID;
 
 import java.io.File;
@@ -286,15 +283,38 @@ public class Biblioteca implements Serializable {
         User user = this.users.get(userID);
         Obra obra = this.obras.get(obraID);
 
-
         user.numRequisicoes--;
-        user.requisicao.remove(obraID);
+        user.requisicao.remove(Integer.valueOf(obraID));
         int novoStock = obra.getStock() + 1;
         obra.setStock(novoStock);
 
-        //Utiliza-se a mensagem Message.workReturnDay() para comunicar o prazo de devolução, em caso de requisição bem sucedida.
+        return "[Obra devolvida com Sucesso]" + "\nUtente: " + user.getNome() + "\nObra: " + obra.getTitulo(); //Alterar mensagem
+    }
 
-        return "[Obra devolvida com Sucesso]" + "\nUtente: " + user.getNome() + "\nObra: " + obra.getTitulo();
+    /**
+     *
+     * @param userID
+     * @param obraID
+     * @return
+     * @throws BorrowException
+     */
+    public String ver_utente_obra(int userID, int obraID) throws BorrowException{
+        User user = this.users.get(userID);
+
+        if (user.getObraID(obraID)) {
+            return this.obras.get(obraID).toString();
+        }
+        throw new BorrowException(userID,obraID);
+    }
+
+    /**
+     *
+     * @param userID
+     * @return
+     */
+    public int mostraMulta(int userID){
+        User user = this.users.get(userID);
+            return user.getMulta();
     }
 
     /**

@@ -11,7 +11,7 @@ public class User implements Comparable<User>, Serializable {
     private final String email;
     private Estado estado;
     private Comportamento comportamento;
-    private double multa;
+    private int multa;
     List<Integer> requisicao=new ArrayList<Integer>();
     public int numRequisicoes;
 
@@ -41,11 +41,11 @@ public class User implements Comparable<User>, Serializable {
         return comportamento;
     }
 
-    public double getMulta() {
+    public int getMulta() {
         return multa;
     }
 
-    public void setMulta(double multa) {
+    public void setMulta(int multa) {
         this.multa = multa;
     }
 

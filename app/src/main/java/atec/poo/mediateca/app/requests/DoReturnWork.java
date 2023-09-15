@@ -5,6 +5,7 @@ import atec.poo.mediateca.app.exceptions.NoSuchWorkException;
 import atec.poo.mediateca.app.exceptions.WorkNotBorrowedByUserException;
 import atec.poo.mediateca.core.LibraryManager;
 import atec.poo.mediateca.core.User;
+import atec.poo.mediateca.core.exceptions.BorrowException;
 import atec.poo.mediateca.core.exceptions.UserNotFoundException;
 import atec.poo.mediateca.core.exceptions.WorkNotFoundException;
 import atec.poo.ui.Comando;
@@ -26,6 +27,7 @@ public class DoReturnWork extends Comando<LibraryManager> {
         super(receiver, Label.RETURN_WORK);
         this.userID = new LerInteiro(Message.requestUserId());
         this.obraID = new LerInteiro(Message.requestWorkId());
+        this.lerMulta = new LerBoolean(Message.requestFinePaymentChoice());
     }
 
     @Override
@@ -46,13 +48,25 @@ public class DoReturnWork extends Comando<LibraryManager> {
         }
 
         try {
-            // Arranjar uma melhor variavel pra o userObra (Procura se o User requisitou aquela Obra)
-            User userObra = this.getReceptor().listUsers().get(userID.getValor());
-            userObra.getObraID(obraID.getValor());
-            String info = this.getReceptor().devolverObra(this.userID.getValor(),this.obraID.getValor());
-            ui.escreveLinha(info);
-        } catch (Exception e) {
+            this.getReceptor().ver_utente_obra(userID.getValor(), obraID.getValor()); // Executa o metodo devolverObra
+        } catch (BorrowException e) { // Ele
             throw new WorkNotBorrowedByUserException(obraID.getValor(), userID.getValor());
+        }
+
+        this.getReceptor().devolverObra(userID.getValor(), obraID.getValor()); // Executa o metodo devolverObra
+
+        int multa = this.getReceptor().mostraMulta(userID.getValor());
+        if (multa > 0) {
+            ui.escreveLinha(Message.showFine(userID.getValor(), multa));
+            ui.lerInput(lerMulta);
+
+            try {
+                if (lerMulta.getValor()) {
+                    this.getReceptor().pagarMulta(userID.getValor());
+                }
+            } catch (Exception e) {
+                throw new UserIsActiveException(userID.getValor());
+            }
         }
     }
 }
