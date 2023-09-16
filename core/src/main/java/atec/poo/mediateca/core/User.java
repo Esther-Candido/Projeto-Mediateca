@@ -3,6 +3,7 @@ package atec.poo.mediateca.core;
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class User implements Comparable<User>, Serializable {
@@ -14,7 +15,8 @@ public class User implements Comparable<User>, Serializable {
     private Estado estado;
     private final Comportamento comportamento;
     private int multa;
-    List<Integer> requisicao=new ArrayList<Integer>();
+    List<Integer> requisicaoID=new ArrayList<Integer>();
+    List<Integer> requisicao=new ArrayList<Integer>(); // VAMOS RETIRAR?
     public int numRequisicoes;
 
     public User(int id, String nome, String email) {
@@ -55,7 +57,7 @@ public class User implements Comparable<User>, Serializable {
         this.multa = multa;
     }
 
-    public boolean getObraID(int id) {
+    public boolean getObraID(int id) { // ALTERAR O NOME DO METODO
         if (requisicao != null) {
             for (Integer valor : requisicao) {
                 if (valor == id) {
