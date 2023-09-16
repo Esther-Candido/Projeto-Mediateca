@@ -116,16 +116,16 @@ public class LibraryManager{
      * @param userID id utente
      * @param obraID id obra
      */
-    public void devolverObra(int userID, int obraID) throws BorrowException{
+    public void devolverObra(int userID, int obraID) throws BorrowException {
         this._biblioteca.devolverObra(userID, obraID);
     }
 
-    /**
+    /*/**
      * Verificar se o Utente possui aquela Obra
      * @param userID id utente
      * @param obraID id obra
      */
-    public void verificarUtenteObra(int userID, int obraID) {
+    public void verificarUtenteObra(int userID, int obraID) throws BorrowException {
         this._biblioteca.verificarUtenteObra(userID, obraID);
     }
 

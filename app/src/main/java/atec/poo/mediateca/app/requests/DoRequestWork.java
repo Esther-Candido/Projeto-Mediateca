@@ -34,6 +34,7 @@ public class DoRequestWork extends Comando<LibraryManager> {
     public final void executar() throws DialogException {
        ui.lerInput(userID);
        ui.lerInput(obraID);
+
         try {
             this.getReceptor().mostrarUtente(userID.getValor());
             this.getReceptor().mostrarObra(obraID.getValor());

@@ -3,7 +3,6 @@ package atec.poo.mediateca.core;
 import atec.poo.mediateca.core.exceptions.*;
 import atec.poo.mediateca.core.utilidades.CompareObraByID;
 
-
 import java.io.File;
 import java.io.IOException;
 import java.io.Serial;
@@ -13,23 +12,28 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Scanner;
 
+
 public class Biblioteca implements Serializable {
     @Serial
     private static final long serialVersionUID = 2L;
     private final HashMap<Integer, User> users;
     private final HashMap<Integer, Obra> obras;
+    private final HashMap<Integer, Requisicao> requisicoes;
     private int nextUserID;
     private int nextObraID;
+    private int nextReqID;
     private int data;
-
+    private static final int multaDiaria = 5;
     /**
      * Construtor
      */
     public Biblioteca() {
         this.users = new HashMap<>();
         this.obras = new HashMap<>();
+        this.requisicoes = new HashMap<>();
         this.nextUserID = 1;
         this.nextObraID = 1;
+        this.nextReqID = 1;
         this.data = 0;
     }
 
@@ -109,12 +113,12 @@ public class Biblioteca implements Serializable {
     public void pagarMulta(int userID) throws ActiveUserException{
         User user = this.users.get(userID);
         if (user.getEstado().toString().equals("SUSPENSO")) {
+            // DEVOLVER OBRA
             user.setMulta(0);
             user.setEstado(Estado.valueOf("ACTIVO"));
+            return;
         }
-        if (user.getEstado().toString().equals("ACTIVO")) {
-            user.setMulta(0);
-        }
+        throw new ActiveUserException(userID);
     }
 
     /**
@@ -159,7 +163,6 @@ public class Biblioteca implements Serializable {
         throw new WorkNotFoundException(id);
     }
 
-
     /**
      * Mostra informações sobre todas as obras por ordem crescente do ID da obra
      * @return Informações de todas as obras (ordem crescente id obra)
@@ -168,6 +171,29 @@ public class Biblioteca implements Serializable {
         ArrayList<Obra> obras_array = new ArrayList<>(this.obras.values());
         obras_array.sort(new CompareObraByID()); //Collections.sort(obras_array,new CompareObraByID());
         return obras_array;
+    }
+
+    /**
+     * Mostra informações sobre todas as requisições feitas
+     * @return Informações de todas as requisições
+     */
+    public ArrayList<Requisicao> listRequisicao() {
+        ArrayList<Requisicao> requisicaos_array = new ArrayList<>(this.requisicoes.values());
+        return requisicaos_array;
+    }
+
+    /**
+     * Registra uma nova Requisicão
+     * @param userID id utente
+     * @param obraID id obra
+     * @param dataRequisicao data requisicao obra
+     * @param dataEntrega data entregue obra
+     */
+    public int registarRequisicao(int userID, int obraID, int dataRequisicao, int dataEntrega) {
+        Requisicao req = new Requisicao(this.nextReqID, userID, obraID, dataRequisicao, dataEntrega);
+        this.requisicoes.put(req.getId(), req);
+        System.out.println(listRequisicao());
+        return this.nextReqID++;
     }
 
     /**
@@ -213,9 +239,15 @@ public class Biblioteca implements Serializable {
             if (user.numRequisicoes < requisicaoLimite) {
                 user.numRequisicoes++;
                 user.requisicao.add(obraID);
+                int dataRequisicao = getData();
+                int dataEntrega = getData() + requisicaoMaxDias(userID,obraID);
+                int reqID = registarRequisicao(userID, obraID, dataRequisicao, dataEntrega);
+                user.requisicaoID.add(reqID);
+
                 int novoStock = obra.getStock() - 1;
                 obra.setStock(novoStock);
-                user.setMulta(39);
+                //user.setMulta(39);
+                //user.setEstado(Estado.valueOf("SUSPENSO"));
             } else {
                 throw new RuleException(userID, obraID, 4);
             }
@@ -260,14 +292,29 @@ public class Biblioteca implements Serializable {
      * @param userID id utente
      * @param obraID id obra
      */
-    public void devolverObra(int userID, int obraID) {
+    public void devolverObra(int userID, int obraID) throws BorrowException {
+        verificarUtenteObra(userID, obraID);
+
         User user = this.users.get(userID);
         Obra obra = this.obras.get(obraID);
 
+        verificarTempoEntrega(userID,obraID);
+        int reqRemoverID = acharRequisicao(userID,obraID);
+
+        //remove o id da requisição da pessoa que pegou
+        user.requisicaoID.remove(Integer.valueOf(reqRemoverID));
+
+        //pegar o objeto REQUISICAO, logo em seguida remover ele da class para liberar memoria
+        Requisicao req = this.requisicoes.get(reqRemoverID);
+        this.requisicoes.values().remove(req);
+
+
         user.numRequisicoes--;
+
         user.requisicao.remove(Integer.valueOf(obraID));
         int novoStock = obra.getStock() + 1;
         obra.setStock(novoStock);
+
     }
 
     /**
@@ -275,14 +322,42 @@ public class Biblioteca implements Serializable {
      * @param userID id utente
      * @param obraID id obra
      */
-    public void verificarUtenteObra(int userID, int obraID) { // Estava String
+    public void verificarUtenteObra(int userID, int obraID)throws BorrowException {
         User user = this.users.get(userID);
-
         if (user.getObraID(obraID)) {
-            this.obras.get(obraID);
-            //return this.obras.get(obraID).toString();
+            return;
         }
+        throw new BorrowException(userID,obraID);
     }
+
+    public int acharRequisicao(int userID, int obraID){
+        User user = this.users.get(userID);
+        for ( Integer req: user.requisicaoID){
+            Requisicao reqID = this.requisicoes.get(req);
+            if (reqID.getObraID() == obraID){
+                return reqID.getId();
+            }
+        }
+        return 0;
+    }
+    public void verificarTempoEntrega(int userID, int obraID) {
+        User user = this.users.get(userID);
+        Requisicao reqID = this.requisicoes.get(acharRequisicao(userID,obraID));
+
+        if(getData() > reqID.getDataEntrega()){
+            reqID.setDiasSemEntregar(getData() - reqID.getDataEntrega());
+            user.setMulta(reqID.getDiasSemEntregar() * multaDiaria);
+        }
+
+
+    }
+
+    /*
+    Se o utente não entregar as obras requisitadas no prazo devido, fica imediatamente suspenso (até pagar a multa).
+    Por cada dia de atraso, o utente fica sujeito ao pagamento de uma multa de €5,00.
+    Sò deixa de estar suspenso após a devolução das obras em atraso e o pagamento da multa.
+    Cada dia depois do prazo ultrapassado é aumentado €5,00 por cada dia que passar sem ser paga a multa.
+     */
 
     /**
      * Procura a multa de um utente especifico
@@ -317,4 +392,5 @@ public class Biblioteca implements Serializable {
         }
         s.close();
     }
+
 }

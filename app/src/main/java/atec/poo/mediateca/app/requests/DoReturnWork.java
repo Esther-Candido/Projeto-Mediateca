@@ -44,9 +44,7 @@ public class DoReturnWork extends Comando<LibraryManager> {
             throw new NoSuchWorkException(e.getObraID());
         }
 
-        this.getReceptor().verificarUtenteObra(userID.getValor(), obraID.getValor());
-
-        try {
+        try {//DEVOLVER OBRA
             this.getReceptor().devolverObra(userID.getValor(), obraID.getValor());
         } catch (BorrowException e) {
             throw new WorkNotBorrowedByUserException(e.getUserID(), e.getObraID());
@@ -57,13 +55,14 @@ public class DoReturnWork extends Comando<LibraryManager> {
         if (multa > 0) {
             ui.escreveLinha(Message.showFine(userID.getValor(), multa));
             ui.lerInput(lerMulta);
-        }
 
-        try {
-            if (lerMulta.getValor())
-                this.getReceptor().pagarMulta(userID.getValor());
-        } catch (ActiveUserException e) {
-            throw new UserIsActiveException(e.getUserID());
+            if (lerMulta.getValor()) {
+                try {
+                    this.getReceptor().pagarMulta(userID.getValor());
+                } catch (ActiveUserException e) {
+                    throw new UserIsActiveException(e.getUserID());
+                }
+            }
         }
     }
 }
