@@ -10,11 +10,11 @@ import atec.poo.ui.exceptions.DialogException;
  * 4.2.1. Registar novo Utente.
  */
 public class DoRegisterUser extends Comando<LibraryManager> {
-    private LerString nome;
-    private LerString email;
+    private final LerString nome;
+    private final LerString email;
 
     /**
-     * @param receiver
+     * @param receiver;
      */
     public DoRegisterUser(LibraryManager receiver) {
         super(receiver, Label.REGISTER_USER);

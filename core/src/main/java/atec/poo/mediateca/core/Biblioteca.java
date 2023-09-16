@@ -6,6 +6,7 @@ import atec.poo.mediateca.core.utilidades.CompareObraByID;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -13,9 +14,10 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class Biblioteca implements Serializable {
+    @Serial
     private static final long serialVersionUID = 2L;
-    private HashMap<Integer, User> users;
-    private HashMap<Integer, Obra> obras;
+    private final HashMap<Integer, User> users;
+    private final HashMap<Integer, Obra> obras;
     private int nextUserID;
     private int nextObraID;
     private int data;
@@ -32,8 +34,16 @@ public class Biblioteca implements Serializable {
     }
 
     /**
-     * Define a Data Atual
-     * @param data
+     * Mostra a data atual
+     * @return Data atual
+     */
+    public int getData() {
+        return data;
+    }
+
+    /**
+     * Define a data atual
+     * @param data data
      */
     public void setData(int data) {
         if (data > 0)
@@ -41,18 +51,10 @@ public class Biblioteca implements Serializable {
     }
 
     /**
-     * Mostra a Data Atual
-     * @return Data Atual
-     */
-    public int getData() {
-        return data;
-    }
-
-    /**
-     * Registra um novo utente na biblioteca.
-     * @param nome O nome do utente.
-     * @param email O email do utente.
-     * @return ID do novo utente criado
+     * Registra um novo utente
+     * @param nome nome utente
+     * @param email email utente
+     * @return Cria um novo utente
      */
     public int registarUser(String nome, String email) {
         User u = new User(this.nextUserID, nome, email);
@@ -62,20 +64,10 @@ public class Biblioteca implements Serializable {
     }
 
     /**
-     * Mostra informações sobre todos os utentes
-     * @return As informações de todos os utentes
-     */
-    public ArrayList<User> listUsers() {
-        ArrayList<User> users_array = new ArrayList<>(this.users.values());
-        Collections.sort(users_array);
-        return users_array;
-    }
-
-    /**
-     * Obtém informações sobre um utente específico.
-     * @param id O ID do utente.
-     * @return As informações do utente pretendido.
-     * @throws UserNotFoundException Se o usuário não existe.
+     * Obtém informações sobre um utente específico
+     * @param id id utente
+     * @return Informações do utente pretendido
+     * @throws UserNotFoundException Verificar se o utente existe ou não
      */
     public String mostrarUtente(int id) throws UserNotFoundException {
         if (this.users.containsKey(id))
@@ -84,10 +76,20 @@ public class Biblioteca implements Serializable {
     }
 
     /**
-     * Obtém notificações de um utente específico.
-     * @param id O ID do utente.
-     * @return As notificações do utente pretendido.
-     * @throws UserNotFoundException Se o usuário não existe.
+     * Mostra informações sobre todos os utentes
+     * @return Informações de todos os utentes
+     */
+    public ArrayList<User> listUsers() {
+        ArrayList<User> users_array = new ArrayList<>(this.users.values());
+        Collections.sort(users_array);
+        return users_array;
+    }
+
+    /** AINDA POR FAZER!!!!!!!!!!!!!!!!!!!
+     * Obtém notificações de um utente específico
+     * @param id id utente
+     * @return Notificações do utente pretendido
+     * @throws UserNotFoundException Verificar se o utente existe ou não
      */
     public String mostrarNotificacao(int id) throws UserNotFoundException {
         if (this.users.containsKey(id))
@@ -101,13 +103,12 @@ public class Biblioteca implements Serializable {
     }
 
     /**
-     *
-     * @param userID
+     * Paga a multa de um utente especifico
+     * @param userID id utente
      */
-
-    public void pagarMulta(int userID){
+    public void pagarMulta(int userID) throws ActiveUserException{
         User user = this.users.get(userID);
-        if (user.getEstado().toString().equals("SUSPENSO")) {  // A Multa é saldada e user passa ativo!
+        if (user.getEstado().toString().equals("SUSPENSO")) {
             user.setMulta(0);
             user.setEstado(Estado.valueOf("ACTIVO"));
         }
@@ -118,42 +119,39 @@ public class Biblioteca implements Serializable {
 
     /**
      * Registra um novo livro na biblioteca.
-     * @param titulo O titulo do livro.
-     * @param autor O autor do livro.
-     * @param preco O preco do livro.
-     * @param categoria A categoria do livro.
-     * @param isbn O valor de ISBN do livro.
-     * @param exemplares Nº de Exemplares do livro.
-     * @return ID do novo livro criado
+     * @param titulo titulo livro.
+     * @param autor autor livro.
+     * @param preco preço livro.
+     * @param categoria categoria livro.
+     * @param isbn valor de ISBN livro.
+     * @param exemplares Nº de exemplares livro.
      */
-    public int registarLivro(String titulo, String autor, Double preco, String categoria, String isbn, int exemplares) {
+    public void registarLivro(String titulo, String autor, Double preco, String categoria, String isbn, int exemplares) {
         Livro l = new Livro(this.nextObraID, titulo, autor, preco, categoria, isbn, exemplares);
         this.obras.put(l.getId(), l);
         this.nextObraID++;
-        return l.getId();
     }
 
     /**
-     * Registra um novo dvd na biblioteca.
-     * @param titulo O titulo do dvd.
-     * @param realizador O realizador do dvd.
-     * @param preco O preco do dvd.
-     * @param categoria A categoria do dvd.
-     * @param igac O valor de IGAC do dvd.
-     * @param exemplares Nº de Exemplares do dvd.
-     * @return ID do novo dvd criado
+     * Registra um novo dvd na biblioteca
+     * @param titulo titulo dvd
+     * @param realizador realizador dvd
+     * @param preco preço dvd
+     * @param categoria categoria dvd
+     * @param igac valor de igac dvd
+     * @param exemplares Nº de exemplares dvd
      */
-    public int registarDVD(String titulo, String realizador, Double preco, String categoria, String igac, int exemplares) {
+    public void registarDVD(String titulo, String realizador, Double preco, String categoria, String igac, int exemplares) {
         DVD d = new DVD(this.nextObraID, titulo, realizador, preco, categoria, igac, exemplares);
         this.obras.put(d.getId(), d);
         this.nextObraID++;
-        return d.getId();
     }
 
     /**
-     * Obtém informações sobre uma obra específica.
-     * @param id
-     * @return As informações da obra pretendido.
+     * Obtém informações sobre uma obra específica
+     * @param id id obra
+     * @return Informações da obra pretendido
+     * @throws WorkNotFoundException Verificar se a obra existe ou não
      */
     public String mostrarObra(int id) throws WorkNotFoundException {
         if (this.obras.containsKey(id))
@@ -164,18 +162,19 @@ public class Biblioteca implements Serializable {
 
     /**
      * Mostra informações sobre todas as obras por ordem crescente do ID da obra
-     * @return As informações de todas as obras
+     * @return Informações de todas as obras (ordem crescente id obra)
      */
     public ArrayList<Obra> listObrasByID() {
         ArrayList<Obra> obras_array = new ArrayList<>(this.obras.values());
-        Collections.sort(obras_array,new CompareObraByID()); //A ordem vai ser por ID
+        obras_array.sort(new CompareObraByID()); //Collections.sort(obras_array,new CompareObraByID());
         return obras_array;
     }
 
     /**
-     * Requisita obra pelo o id do Utente que quer requisitar e o id da Obra a ser requisitada
-     * @param userID Utilizador que vai fazer a solicitação da Obra
-     * @param obraID Obra a ser Requisitada
+     * Requisita obra especifica para um utente especifico
+     * @param userID id utente
+     * @param obraID id obra
+     * @throws RuleException Mostra cada erro especifico
      */
     public void requisitarObra(int userID, int obraID) throws RuleException {
         Obra obra = this.obras.get(obraID);
@@ -226,10 +225,10 @@ public class Biblioteca implements Serializable {
     }
 
     /**
-     *
-     * @param userID
-     * @param obraID
-     * @return
+     * Procura a quantidade de dias que o utente tem para devolver a obra dependendo do comportamento e a quantidade de exemplos de cada obra
+     * @param userID id utente
+     * @param obraID id obra
+     * @return Declara a quantidade de dias para devolver a obra dependendo da sua situação
      */
     public int requisicaoMaxDias (int userID, int obraID) {
         User user = users.get(userID);
@@ -257,12 +256,11 @@ public class Biblioteca implements Serializable {
     }
 
     /**
-     *
-     * @param userID
-     * @param obraID
-     * @return
+     * Faz a devolução da Obra que foi requisitada
+     * @param userID id utente
+     * @param obraID id obra
      */
-    public String devolverObra(int userID, int obraID) {
+    public void devolverObra(int userID, int obraID) {
         User user = this.users.get(userID);
         Obra obra = this.obras.get(obraID);
 
@@ -270,30 +268,26 @@ public class Biblioteca implements Serializable {
         user.requisicao.remove(Integer.valueOf(obraID));
         int novoStock = obra.getStock() + 1;
         obra.setStock(novoStock);
-
-        return "[Obra devolvida com Sucesso]" + "\nUtente: " + user.getNome() + "\nObra: " + obra.getTitulo(); //Alterar mensagem
     }
 
     /**
-     *
-     * @param userID
-     * @param obraID
-     * @return
-     * @throws BorrowException
+     * Verificar se o Utente possui aquela Obra
+     * @param userID id utente
+     * @param obraID id obra
      */
-    public String ver_utente_obra(int userID, int obraID) throws BorrowException{
+    public void verificarUtenteObra(int userID, int obraID) { // Estava String
         User user = this.users.get(userID);
 
         if (user.getObraID(obraID)) {
-            return this.obras.get(obraID).toString();
+            this.obras.get(obraID);
+            //return this.obras.get(obraID).toString();
         }
-        throw new BorrowException(userID,obraID);
     }
 
     /**
-     *
-     * @param userID
-     * @return
+     * Procura a multa de um utente especifico
+     * @param userID utente id
+     * @return Retorna a multa do utente
      */
     public int mostraMulta(int userID){
         User user = this.users.get(userID);
@@ -315,18 +309,10 @@ public class Biblioteca implements Serializable {
             //System.out.println(line);
             String[] elementos = line.split(":", 0);
             switch (elementos[0]) {
-
-                case "USER":
-                    this.registarUser(elementos[1], elementos[2]);
-                    break;
-                case "BOOK":
-                    this.registarLivro(elementos[1],elementos[2],Double.parseDouble(elementos[3]),elementos[4],elementos[5],Integer.parseInt(elementos[6]));
-                    break;
-                case "DVD":
-                    this.registarDVD(elementos[1],elementos[2],Double.parseDouble(elementos[3]),elementos[4],elementos[5],Integer.parseInt(elementos[6]));
-                    break;
-                default:
-                    throw new BadEntrySpecificationException("Unknow type of category");
+                case "USER" -> this.registarUser(elementos[1], elementos[2]);
+                case "BOOK" -> this.registarLivro(elementos[1], elementos[2], Double.parseDouble(elementos[3]), elementos[4], elementos[5], Integer.parseInt(elementos[6]));
+                case "DVD" -> this.registarDVD(elementos[1], elementos[2], Double.parseDouble(elementos[3]), elementos[4], elementos[5], Integer.parseInt(elementos[6]));
+                default -> throw new BadEntrySpecificationException("Unknow type of category");
             }
         }
         s.close();

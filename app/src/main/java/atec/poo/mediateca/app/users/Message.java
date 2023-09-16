@@ -26,7 +26,7 @@ public interface Message {
   }
 
   /**
-   * @param idUser
+   * @param idUser;
    * @return message
    */
   static String userRegistrationSuccessful(int idUser) {

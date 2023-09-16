@@ -13,9 +13,9 @@ import atec.poo.ui.exceptions.DialogException;
  *
  */
 public class DoShowUserNotifications extends Comando<LibraryManager> {
-  private LerInteiro id;
+  private final LerInteiro id;
   /**
-   * @param receiver
+   * @param receiver;
    */
   public DoShowUserNotifications(LibraryManager receiver) {
     super(receiver, Label.SHOW_USER_NOTIFICATIONS);
@@ -24,14 +24,14 @@ public class DoShowUserNotifications extends Comando<LibraryManager> {
 
   @Override
   public final void executar() throws DialogException {
-    // Por fazer
+    // AINDA POR FAZER
     ui.lerInput(this.id);
     try{
       String notificacao=this.getReceptor().mostrarNotificacao(this.id.getValor());
       ui.escreveLinha(notificacao);
     }
     catch (UserNotFoundException e) {
-      throw new NoSuchUserException(e.getId());
+      throw new NoSuchUserException(e.getUserID());
     }
   }
 }

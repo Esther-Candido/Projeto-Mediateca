@@ -10,9 +10,9 @@ import atec.poo.ui.LerInteiro;
  */
 public class DoAdvanceDate extends Comando<LibraryManager> {
 
-  private LerInteiro dias;
+  private final LerInteiro dias;
   /**
-   * @param receiver
+   * @param receiver;
    */
   public DoAdvanceDate(LibraryManager receiver) {
     super( receiver,Label.ADVANCE_DATE);

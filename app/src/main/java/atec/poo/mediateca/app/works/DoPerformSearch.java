@@ -2,17 +2,11 @@ package atec.poo.mediateca.app.works;
 
 import atec.poo.mediateca.core.LibraryManager;
 import atec.poo.mediateca.core.Obra;
-import atec.poo.mediateca.core.Tipo;
-import atec.poo.mediateca.core.utilidades.CompareObraByID;
 import atec.poo.ui.Comando;
-import atec.poo.ui.Constantes;
-import atec.poo.ui.LerInteiro;
 import atec.poo.ui.LerString;
 import atec.poo.ui.exceptions.DialogException;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 
 /**
  * 4.3.3. Pesquisar Obras

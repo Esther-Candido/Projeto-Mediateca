@@ -11,9 +11,9 @@ import atec.poo.ui.exceptions.DialogException;
  * 4.3.1. Mostrar Obra.
  */
 public class DoDisplayWork extends Comando<LibraryManager> {
-    private LerInteiro id;
+    private final LerInteiro id;
     /**
-     * @param receiver
+     * @param receiver;
      */
     public DoDisplayWork(LibraryManager receiver) {
         super(receiver, Label.SHOW_WORK);
@@ -27,7 +27,7 @@ public class DoDisplayWork extends Comando<LibraryManager> {
             String obra = this.getReceptor().mostrarObra(this.id.getValor());
             ui.escreveLinha(obra);
         } catch (WorkNotFoundException e) {
-            throw new NoSuchWorkException(e.getId());
+            throw new NoSuchWorkException(e.getObraID());
         }
     }
 }

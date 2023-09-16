@@ -10,7 +10,7 @@ public class WorkNotFoundException extends Exception implements Serializable {
         this.id = id;
     }
 
-    public int getId() {
+    public int getObraID() {
         return id;
     }
 }

@@ -13,9 +13,9 @@ import java.io.IOException;
  * 4.1.1 Abrir um ficheiro de dados
  */
 public class DoOpen extends Comando<LibraryManager> {
-  private LerString ficheiro;
+  private final LerString ficheiro;
   /**
-   * @param receiver
+   * @param receiver;
    */
   public DoOpen(LibraryManager receiver) {
     super(receiver,Label.OPEN);

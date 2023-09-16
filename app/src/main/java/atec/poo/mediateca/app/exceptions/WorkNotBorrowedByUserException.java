@@ -2,6 +2,8 @@ package atec.poo.mediateca.app.exceptions;
 
 import atec.poo.ui.exceptions.DialogException;
 
+import java.io.Serial;
+
 /**
  * Class encoding return failure.
  */
@@ -10,21 +12,22 @@ public class WorkNotBorrowedByUserException extends DialogException {
     /**
      * Serial number for serialization.
      */
-    static final long serialVersionUID = 200510291601L;
+    @Serial
+    private static final long serialVersionUID = 200510291601L;
 
     /**
      * Bad user id.
      */
-    private int _idUser;
+    private final int _idUser;
 
     /**
      * Bad work id.
      */
-    private int _idWork;
+    private final int _idWork;
 
     /**
-     * @param idWork
-     * @param idUser
+     * @param idWork;
+     * @param idUser;
      */
     public WorkNotBorrowedByUserException(int idWork, int idUser) {
         _idWork = idWork;

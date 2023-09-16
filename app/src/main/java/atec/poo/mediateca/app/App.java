@@ -12,7 +12,7 @@ import static atec.poo.ui.Dialogo.IO;
 public class App {
 
     /**
-     * @param args
+     * @param args;
      */
     public static void main(String[] args) {
 

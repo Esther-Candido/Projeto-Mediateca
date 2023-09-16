@@ -10,7 +10,7 @@ import atec.poo.ui.Comando;
 public class DoDisplayDate extends Comando<LibraryManager> {
   
   /**
-   * @param receiver
+   * @param receiver;
    */
   public DoDisplayDate(LibraryManager receiver) {
     super(receiver,Label.DISPLAY_DATE);

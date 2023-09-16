@@ -2,26 +2,26 @@ package atec.poo.mediateca.core.exceptions;
 
 public class RuleException extends Exception {
 
-   private int userId;
-   private int obraId;
-   private int ruleId;
+   private final int userID;
+   private final int obraID;
+   private final int ruleID;
 
-    public RuleException(int userId, int obraId, int ruleId) {
-        this.userId = userId;
-        this.obraId = obraId;
-        this.ruleId = ruleId;
+    public RuleException(int userID, int obraID, int ruleID) {
+        this.userID = userID;
+        this.obraID = obraID;
+        this.ruleID = ruleID;
     }
 
-    public int getUserId() {
-        return userId;
+    public int getUserID() {
+        return userID;
     }
 
-    public int getObraId() {
-        return obraId;
+    public int getObraID() {
+        return obraID;
     }
 
-    public int getRuleId() {
-        return ruleId;
+    public int getRuleID() {
+        return ruleID;
     }
 }
 

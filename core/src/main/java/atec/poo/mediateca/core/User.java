@@ -1,16 +1,18 @@
 package atec.poo.mediateca.core;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 public class User implements Comparable<User>, Serializable {
+    @Serial
     private static final long serialVersionUID = 1L;
     private final int id;
     private final String nome;
     private final String email;
     private Estado estado;
-    private Comportamento comportamento;
+    private final Comportamento comportamento;
     private int multa;
     List<Integer> requisicao=new ArrayList<Integer>();
     public int numRequisicoes;
@@ -53,7 +55,7 @@ public class User implements Comparable<User>, Serializable {
         this.multa = multa;
     }
 
-    public boolean getObraID(int id) { // Arranjar um melhor nome pra isto
+    public boolean getObraID(int id) {
         if (requisicao != null) {
             for (Integer valor : requisicao) {
                 if (valor == id) {

@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class DoShowUsers extends Comando<LibraryManager> {
 
   /**
-   * @param receiver
+   * @param receiver;
    */
   public DoShowUsers(LibraryManager receiver) {
     super(receiver,Label.SHOW_USERS);

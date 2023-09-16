@@ -19,8 +19,8 @@ public interface Message {
   }
 
   /**
-   * @param idUtente
-   * @param euros
+   * @param idUtente;
+   * @param euros;
    * @return message
    */
   static String showFine(int idUtente, int euros) {
@@ -42,8 +42,8 @@ public interface Message {
   }
 
   /**
-   * @param idWork
-   * @param day
+   * @param idWork;
+   * @param day;
    * @return message
    */
   static String workReturnDay(int idWork, int day) {

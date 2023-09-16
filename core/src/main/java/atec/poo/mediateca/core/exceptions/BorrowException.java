@@ -2,21 +2,20 @@ package atec.poo.mediateca.core.exceptions;
 
 public class BorrowException extends Exception{
 
-    private int userId;
-    private int obraId;
+    private final int userID;
+    private final int obraID;
 
-    public BorrowException(int userId, int obraID) {
-        this.userId = userId;
-        this.obraId = obraId;
-
+    public BorrowException(int userID, int obraID) {
+        this.userID = userID;
+        this.obraID = obraID;
     }
 
-    public int getUserId() {
-        return userId;
+    public int getUserID() {
+        return userID;
     }
 
-    public int getObraId() {
-        return obraId;
+    public int getObraID() {
+        return obraID;
     }
 
 }

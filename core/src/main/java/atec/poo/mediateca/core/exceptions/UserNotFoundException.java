@@ -4,13 +4,13 @@ import java.io.Serializable;
 
 public class UserNotFoundException extends Exception implements Serializable {
 
-    private int id;
+    private final int id;
 
     public UserNotFoundException(int id) {
         this.id = id;
     }
 
-    public int getId() {
+    public int getUserID() {
         return id;
     }
 }

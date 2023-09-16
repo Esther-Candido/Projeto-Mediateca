@@ -13,9 +13,9 @@ import atec.poo.ui.exceptions.DialogException;
  */
 public class DoShowUser extends Comando<LibraryManager> {
 
-    private LerInteiro id;
+    private final LerInteiro id;
     /**
-     * @param receiver
+     * @param receiver;
      */
     public DoShowUser(LibraryManager receiver) {
         super(receiver, Label.SHOW_USER);
@@ -29,7 +29,7 @@ public class DoShowUser extends Comando<LibraryManager> {
             String user=this.getReceptor().mostrarUtente(this.id.getValor());
             ui.escreveLinha(user);
         } catch (UserNotFoundException e) {
-            throw new NoSuchUserException(e.getId());
+            throw new NoSuchUserException(e.getUserID());
         }
     }
 }

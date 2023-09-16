@@ -12,7 +12,7 @@ import atec.poo.ui.Comando;
 public class DoOpenUsersMenu extends Comando<LibraryManager> {
 
   /**
-   * @param receiver
+   * @param receiver;
    */
   public DoOpenUsersMenu(LibraryManager receiver) {
     super(receiver,Label.OPEN_USERS_MENU);

@@ -1,15 +1,17 @@
 package atec.poo.mediateca.core;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 public abstract class Obra implements Comparable<Obra>, Serializable {
+    @Serial
     private static final long serialVersionUID = 1L;
     private final int id;
     private final String titulo;
     private final Double preco;
-    private String categoria;
+    private final String categoria;
     private int stock;
-    private int exemplares;
+    private final int exemplares;
     private Tipo tipo;
 
     public Obra(int id, String titulo, Double preco, String categoria, int exemplares) {
@@ -37,10 +39,6 @@ public abstract class Obra implements Comparable<Obra>, Serializable {
         return categoria;
     }
 
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
-    }
-
     public int getStock() {
         return stock;
     }
@@ -53,10 +51,6 @@ public abstract class Obra implements Comparable<Obra>, Serializable {
         return exemplares;
     }
 
-    public Tipo getTipo() {
-        return tipo;
-    }
-
     public void setTipo(Tipo tipo) {
         this.tipo = tipo;
     }
@@ -66,6 +60,7 @@ public abstract class Obra implements Comparable<Obra>, Serializable {
         return this.id+" - "+this.stock+" de "+this.exemplares+" - "+this.tipo+" - "+this.titulo+" - "+this.preco+" - "+this.categoria;
     }
 
+    // A ORDENAÇÃO JÁ ESTA A SER FEITA NO COMPAREOBRABYID ISTO ESTA A FAZER ALGO CONTRARIO
     @Override
     public int compareTo(Obra o) {
         if(this.titulo.equals(o.getTitulo()))

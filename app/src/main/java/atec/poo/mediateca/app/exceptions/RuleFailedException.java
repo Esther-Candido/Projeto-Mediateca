@@ -2,6 +2,8 @@ package atec.poo.mediateca.app.exceptions;
 
 import atec.poo.ui.exceptions.DialogException;
 
+import java.io.Serial;
+
 /**
  * Class encoding the failure of borrowing requests.
  */
@@ -10,7 +12,8 @@ public class RuleFailedException extends DialogException {
     /**
      * Serial number for serialization.
      */
-    static final long serialVersionUID = 200510291601L;
+    @Serial
+    private static final long serialVersionUID = 200510291601L;
 
     /**
      * User id.
@@ -25,12 +28,12 @@ public class RuleFailedException extends DialogException {
     /**
      * Index of failed rule.
      */
-    int _ruleIndex = -1;
+    int _ruleIndex;
 
     /**
-     * @param idUser
-     * @param idWork
-     * @param ruleIndex
+     * @param idUser;
+     * @param idWork;
+     * @param ruleIndex;
      */
     public RuleFailedException(int idUser, int idWork, int ruleIndex) {
         _idUser = idUser;
@@ -59,8 +62,7 @@ public class RuleFailedException extends DialogException {
         return _idUser;
     }
 
-    /**
-     * @see pt.tecnico.po.ui.DialogException#getMessage()
+    /**)
      */
     @Override
     public String getMessage() {

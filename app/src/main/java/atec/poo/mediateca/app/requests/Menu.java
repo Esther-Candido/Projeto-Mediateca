@@ -7,7 +7,7 @@ import atec.poo.ui.Comando;
 public class Menu extends atec.poo.ui.Menu {
 
   /**
-   * @param receiver
+   * @param receiver;
    */
   public Menu(LibraryManager receiver) {
     super(Label.TITLE, new Comando<?>[] {

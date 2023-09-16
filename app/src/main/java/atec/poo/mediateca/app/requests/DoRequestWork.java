@@ -16,12 +16,12 @@ import atec.poo.ui.exceptions.DialogException;
  * 4.4.1. Rquisitar uma obra
  */
 public class DoRequestWork extends Comando<LibraryManager> {
-    private LerInteiro userID;
-    private LerInteiro obraID;
+    private final LerInteiro userID;
+    private final LerInteiro obraID;
 
     /**
      * Requisita a obra
-     * @param receiver
+     * @param receiver;
      *
      */
     public DoRequestWork(LibraryManager receiver) {
@@ -32,18 +32,15 @@ public class DoRequestWork extends Comando<LibraryManager> {
 
     @Override
     public final void executar() throws DialogException {
-        ui.lerInput(userID);
-        ui.lerInput(obraID);
+       ui.lerInput(userID);
+       ui.lerInput(obraID);
         try {
-            this.getReceptor().mostrarUtente(this.userID.getValor());
+            this.getReceptor().mostrarUtente(userID.getValor());
+            this.getReceptor().mostrarObra(obraID.getValor());
         } catch (UserNotFoundException e) {
-            throw new NoSuchUserException(e.getId());
-        }
-
-        try {
-            this.getReceptor().mostrarObra(this.obraID.getValor());
+            throw new NoSuchUserException(e.getUserID());
         } catch (WorkNotFoundException e) {
-            throw new NoSuchWorkException(e.getId());
+            throw new NoSuchWorkException(e.getObraID());
         }
 
         int tempoEntrega = this.getReceptor().requisicaoDias(userID.getValor(), obraID.getValor()) + this.getReceptor().getData();
@@ -52,7 +49,7 @@ public class DoRequestWork extends Comando<LibraryManager> {
             this.getReceptor().requisitarObra(this.userID.getValor(),this.obraID.getValor());
             ui.escreveLinha(Message.workReturnDay(obraID.getValor(), tempoEntrega));
         } catch (RuleException e) {
-            throw new RuleFailedException(e.getUserId(), e.getObraId(), e.getRuleId());
+            throw new RuleFailedException(e.getUserID(), e.getObraID(), e.getRuleID());
         }
     }
 }

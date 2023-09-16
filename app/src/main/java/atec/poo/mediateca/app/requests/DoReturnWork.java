@@ -5,31 +5,27 @@ import atec.poo.mediateca.app.exceptions.NoSuchWorkException;
 import atec.poo.mediateca.app.exceptions.UserIsActiveException;
 import atec.poo.mediateca.app.exceptions.WorkNotBorrowedByUserException;
 import atec.poo.mediateca.core.LibraryManager;
-import atec.poo.mediateca.core.User;
+import atec.poo.mediateca.core.exceptions.ActiveUserException;
 import atec.poo.mediateca.core.exceptions.BorrowException;
 import atec.poo.mediateca.core.exceptions.UserNotFoundException;
 import atec.poo.mediateca.core.exceptions.WorkNotFoundException;
 import atec.poo.ui.*;
 import atec.poo.ui.exceptions.DialogException;
 
-import java.util.HashMap;
-
 /**
  * 4.4.2. Return a work.
  */
 public class DoReturnWork extends Comando<LibraryManager> {
-    private HashMap<Integer, User> users;
-    private LerInteiro userID;
-    private LerInteiro obraID;
-    private LerBoolean lerMulta;
+    private final LerInteiro userID;
+    private final LerInteiro obraID;
+    private final LerBoolean lerMulta;
     /**
      *
-     * @param receiver
+     * @param receiver;
      */
     public DoReturnWork(LibraryManager receiver) {
 
         super(receiver, Label.RETURN_WORK);
-        this.users = new HashMap<>();
         this.userID = new LerInteiro(Message.requestUserId());
         this.obraID = new LerInteiro(Message.requestWorkId());
         this.lerMulta = new LerBoolean(Message.requestFinePaymentChoice());
@@ -39,39 +35,35 @@ public class DoReturnWork extends Comando<LibraryManager> {
     public final void executar() throws DialogException {
         ui.lerInput(userID);
         ui.lerInput(obraID);
-
         try {
-            this.getReceptor().mostrarUtente(this.userID.getValor());
+            this.getReceptor().mostrarUtente(userID.getValor());
+            this.getReceptor().mostrarObra(obraID.getValor());
         } catch (UserNotFoundException e) {
-            throw new NoSuchUserException(e.getId());
-        }
-
-        try {
-            this.getReceptor().mostrarObra(this.obraID.getValor());
+            throw new NoSuchUserException(e.getUserID());
         } catch (WorkNotFoundException e) {
-            throw new NoSuchWorkException(e.getId());
+            throw new NoSuchWorkException(e.getObraID());
         }
+
+        this.getReceptor().verificarUtenteObra(userID.getValor(), obraID.getValor());
 
         try {
-            this.getReceptor().ver_utente_obra(userID.getValor(), obraID.getValor()); // Executa o metodo devolverObra
-        } catch (BorrowException e) { // Ele
-            throw new WorkNotBorrowedByUserException(obraID.getValor(), userID.getValor());
+            this.getReceptor().devolverObra(userID.getValor(), obraID.getValor());
+        } catch (BorrowException e) {
+            throw new WorkNotBorrowedByUserException(e.getUserID(), e.getObraID());
         }
-
-        this.getReceptor().devolverObra(userID.getValor(), obraID.getValor()); // Executa o metodo devolverObra
 
         int multa = this.getReceptor().mostraMulta(userID.getValor());
+
         if (multa > 0) {
             ui.escreveLinha(Message.showFine(userID.getValor(), multa));
             ui.lerInput(lerMulta);
+        }
 
-            try {
-                if (lerMulta.getValor()) {
-                    this.getReceptor().pagarMulta(userID.getValor());
-                }
-            } catch (Exception e) {
-                throw new UserIsActiveException(userID.getValor());
-            }
+        try {
+            if (lerMulta.getValor())
+                this.getReceptor().pagarMulta(userID.getValor());
+        } catch (ActiveUserException e) {
+            throw new UserIsActiveException(e.getUserID());
         }
     }
 }

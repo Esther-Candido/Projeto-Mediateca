@@ -1,8 +1,8 @@
 package atec.poo.mediateca.app.users;
 
-import atec.poo.mediateca.app.exceptions.NoSuchUserException;
+import atec.poo.mediateca.app.exceptions.UserIsActiveException;
 import atec.poo.mediateca.core.LibraryManager;
-import atec.poo.mediateca.core.exceptions.UserNotFoundException;
+import atec.poo.mediateca.core.exceptions.ActiveUserException;
 import atec.poo.ui.Comando;
 import atec.poo.ui.LerInteiro;
 import atec.poo.ui.exceptions.DialogException;
@@ -13,9 +13,9 @@ import atec.poo.ui.exceptions.DialogException;
  */
 public class DoPayFine extends Comando<LibraryManager> {
 
-    private LerInteiro id;
+    private final LerInteiro id;
     /**
-     * @param receiver
+     * @param receiver;
      */
     public DoPayFine(LibraryManager receiver) {
         super(receiver, Label.PAY_FINE);
@@ -25,6 +25,10 @@ public class DoPayFine extends Comando<LibraryManager> {
     @Override
     public final void executar() throws DialogException {
         ui.lerInput(this.id);
-        this.getReceptor().pagarMulta(this.id.getValor());
+        try {
+            this.getReceptor().pagarMulta(id.getValor());
+        } catch (ActiveUserException e) {
+            throw new UserIsActiveException(e.getUserID());
+        }
     }
 }

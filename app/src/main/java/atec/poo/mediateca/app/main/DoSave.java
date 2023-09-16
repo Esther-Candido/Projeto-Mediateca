@@ -13,10 +13,10 @@ import java.io.IOException;
  * 4.1.2. Guardar o estado da aplicação
  */
 public class DoSave extends Comando<LibraryManager> {
-  private LerString ficheiro;
+  private final LerString ficheiro;
 
   /**
-   * @param receiver
+   * @param receiver;
    */
   public DoSave(LibraryManager receiver) {
     super(receiver, Label.SAVE);

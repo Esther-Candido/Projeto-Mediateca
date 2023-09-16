@@ -12,7 +12,7 @@ public interface Message {
   }
 
   /**
-   * @param idWork
+   * @param idWork;
    * @return message
    */
   static String semExemplares(int idWork) {

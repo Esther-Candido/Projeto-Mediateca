@@ -2,7 +2,6 @@ package atec.poo.mediateca.app.works;
 
 import atec.poo.mediateca.core.LibraryManager;
 import atec.poo.mediateca.core.Obra;
-import atec.poo.mediateca.core.User;
 import atec.poo.ui.Comando;
 
 import java.util.ArrayList;
@@ -13,7 +12,7 @@ import java.util.ArrayList;
 public class DoDisplayWorks extends Comando<LibraryManager> {
 
     /**
-     * @param receiver
+     * @param receiver;
      */
     public DoDisplayWorks(LibraryManager receiver) {
         super(receiver, Label.SHOW_WORKS);

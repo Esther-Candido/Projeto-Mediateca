@@ -1,6 +1,8 @@
 package atec.poo.mediateca.core.exceptions;
 
 
+import java.io.Serial;
+
 /**
  * Class for representing a read error.
  */
@@ -9,6 +11,7 @@ public class ImportFileException extends Exception {
     /**
      * Serial number for serialization.
      */
+    @Serial
     private static final long serialVersionUID = 201901101348L;
 
     /**
@@ -19,14 +22,14 @@ public class ImportFileException extends Exception {
     }
 
     /**
-     * @param description
+     * @param description;
      */
     public ImportFileException(String description) {
         super(description);
     }
 
     /**
-     * @param cause
+     * @param cause;
      */
     public ImportFileException(Exception cause) {
         super(cause);

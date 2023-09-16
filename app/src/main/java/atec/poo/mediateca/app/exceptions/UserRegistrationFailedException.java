@@ -2,6 +2,8 @@ package atec.poo.mediateca.app.exceptions;
 
 import atec.poo.ui.exceptions.DialogException;
 
+import java.io.Serial;
+
 /**
  * Class encoding user registration failure.
  */
@@ -10,21 +12,22 @@ public class UserRegistrationFailedException extends DialogException {
     /**
      * Serial number for serialization.
      */
-    static final long serialVersionUID = 201901091828L;
+    @Serial
+    private static final long serialVersionUID = 201901091828L;
 
     /**
      * Bad user's name.
      */
-    private String _name;
+    private final String _name;
 
     /**
      * Bad user's email.
      */
-    private String _email;
+    private final String _email;
 
     /**
-     * @param name
-     * @param email
+     * @param name;
+     * @param email;
      */
     public UserRegistrationFailedException(String name, String email) {
         _name = name;

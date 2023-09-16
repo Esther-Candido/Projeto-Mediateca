@@ -7,7 +7,7 @@ public interface Message {
   /**
    * The work corresponding to the id does not exist.
    * 
-   * @param idWork
+   * @param idWork;
    * @return message
    */
   static String noSuchWork(int idWork) {
@@ -17,7 +17,7 @@ public interface Message {
   /**
    * The user corresponding to the id does not exist.
    * 
-   * @param idUser
+   * @param idUser;
    * @return message
    */
   static String noSuchUser(int idUser) {
@@ -27,7 +27,7 @@ public interface Message {
   /**
    * The user corresponding to the id is not suspended.
    * 
-   * @param idUser
+   * @param idUser;
    * @return message
    */
   static String userNotSuspended(int idUser) {
@@ -37,9 +37,9 @@ public interface Message {
   /**
    * generates message with the rule violation
    * 
-   * @param idUser
-   * @param idWork
-   * @param ixRule
+   * @param idUser;
+   * @param idWork;
+   * @param ixRule;
    * @return messgae
    */
   static String ruleFailed(int idUser, int idWork, int ixRule) {
@@ -47,8 +47,8 @@ public interface Message {
   }
 
   /**
-   * @param idWork
-   * @param idUser
+   * @param idWork;
+   * @param idUser;
    * @return message
    */
   static String workNotBorrowedByUser(int idWork, int idUser) {
@@ -56,8 +56,8 @@ public interface Message {
   }
 
   /**
-   * @param name
-   * @param email
+   * @param name;
+   * @param email;
    * @return message
    */
   static String userRegistrationFailed(String name, String email) {
@@ -72,7 +72,7 @@ public interface Message {
   }
 
   /**
-   * @param filename
+   * @param filename;
    * @return string with "file not found" message (more elaborate).
    */
   static String fileNotFound(String filename) {

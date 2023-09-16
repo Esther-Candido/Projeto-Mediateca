@@ -14,126 +14,134 @@ public class LibraryManager{
     }
 
     /**
-     * Mostra a Data
-     * @return Data Atual
+     * Mostra a data atual
+     * @return Data atual
      */
     public int getData() {
         return this._biblioteca.getData();
     }
 
     /**
-     * Atualiza a Data
-     * @param dias
-     * @return Dias Avançar
+     * Define a data atual
+     * @param dias dias
      */
     public void setData(int dias) {
         this._biblioteca.setData(dias);
     }
 
     /**
-     * Cria um novo Utente
-     * @param nome
-     * @param email
-     * @return Novo Utente
+     * Registra um novo utente
+     * @param nome nome utente
+     * @param email emial utente
+     * @return Cria um novo utente
      */
     public int registarUser(String nome, String email){
         return this._biblioteca.registarUser(nome,email);
     }
 
     /**
-     *
-     * @param id
-     * @return
-     * @throws UserNotFoundException
+     * Obtém informações sobre um utente especifico
+     * @param id id utente
+     * @return Informações do utente pretendido
+     * @throws UserNotFoundException Verificar se o utente existe ou não
      */
     public String mostrarUtente(int id) throws UserNotFoundException {
         return this._biblioteca.mostrarUtente(id);
     }
 
     /**
-     *
-     * @return
+     * Mostra informações sobre todos os utentes
+     * @return Informações de todos os utentes
      */
     public ArrayList<User> listUsers(){
         return this._biblioteca.listUsers();
     }
 
-    /**
-     *
-     * @param id
-     * @return
-     * @throws UserNotFoundException
+    /** AINDA POR FAZER!!!!!!!!!!!!!!!!!!!
+     * Obtém notificações de um utente específico
+     * @param id id utente
+     * @return Notificações do utente pretendido
+     * @throws UserNotFoundException Verificar se o utente existe ou não
      */
     public  String mostrarNotificacao(int id) throws UserNotFoundException {
         return this._biblioteca.mostrarNotificacao(id);
     }
 
     /**
-     *
-     * @param userID
+     * Paga a multa de um utente especifico
+     * @param userID id utente
      */
-    public void pagarMulta(int userID){this._biblioteca.pagarMulta(userID);}
+    public void pagarMulta(int userID) throws ActiveUserException {this._biblioteca.pagarMulta(userID);}
 
     /**
-     *
-     * @param id
-     * @return
+     * Obtém informações sobre uma obra específica
+     * @param id id obra
+     * @return Informações da obra pretendido
+     * @throws WorkNotFoundException Verificar se a obra existe ou não
      */
     public String mostrarObra(int id) throws  WorkNotFoundException{
         return this._biblioteca.mostrarObra(id);
     }
 
     /**
-     *
-     * @return
+     * Mostra informações sobre todas as obras por ordem crescente do ID da obra
+     * @return Informações de todas as obras (ordem crescente id obra)
      */
     public ArrayList<Obra> listObrasByID(){
         return this._biblioteca.listObrasByID();
     }
 
     /**
-     * @param userID
-     * @param obraID
-     * @return
+     * Requisita obra especifica para um utente especifico
+     * @param userID id utente
+     * @param obraID id obra
+     * @throws RuleException Mostra cada erro especifico
      */
     public void requisitarObra(int userID, int obraID) throws RuleException{
         this._biblioteca.requisitarObra(userID, obraID);
     }
 
     /**
-     *
-     * @param userID
-     * @param obraID
-     * @return
+     * COMENTAR ISTO!!
+     * @param userID id utente
+     * @param obraID id obra
+     * @return VER UM NOME PARA DAR A ISTO!!!!
      */
     public int requisicaoDias(int userID, int obraID) {
         return this._biblioteca.requisicaoMaxDias(userID, obraID);
     }
 
     /**
-     *
-     * @param userID
-     * @param obraID
-     * @return
+     * Faz a devolução da Obra que foi requisitada
+     * @param userID id utente
+     * @param obraID id obra
      */
-    public String devolverObra(int userID, int obraID){
-        return this._biblioteca.devolverObra(userID, obraID);
+    public void devolverObra(int userID, int obraID) throws BorrowException{
+        this._biblioteca.devolverObra(userID, obraID);
     }
 
-
-    public String ver_utente_obra(int userID, int obraID) throws BorrowException{
-        return this._biblioteca.ver_utente_obra(userID,obraID);
+    /**
+     * Verificar se o Utente possui aquela Obra
+     * @param userID id utente
+     * @param obraID id obra
+     */
+    public void verificarUtenteObra(int userID, int obraID) {
+        this._biblioteca.verificarUtenteObra(userID, obraID);
     }
 
-
+    /**
+     * Procura a multa de um utente especifico
+     * @param userID utente id
+     * @return Retorna a multa do utente
+     */
     public int mostraMulta(int userID){
         return this._biblioteca.mostraMulta(userID);
     }
 
     /**
-     *
-     * @param ficheiro
-     * @throws IOException
+     * COMENTAR ISTO!!
+     * @param ficheiro ficheiro
+     * @throws IOException NÂO SEI!
      */
     public void save(String ficheiro) throws IOException {
         ObjectOutputStream oos=new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(ficheiro)));
@@ -142,10 +150,10 @@ public class LibraryManager{
     }
 
     /**
-     *
-     * @param ficheiro
-     * @throws IOException
-     * @throws ClassNotFoundException
+     * COMENTAR ISTO!!
+     * @param ficheiro ficheiro
+     * @throws IOException NÃO SEI
+     * @throws ClassNotFoundException NÃO SEI
      */
     public void load(String ficheiro) throws IOException, ClassNotFoundException {
         ObjectInputStream ois = new ObjectInputStream(new BufferedInputStream(new FileInputStream(ficheiro)));

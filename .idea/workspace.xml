@@ -5,28 +5,60 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4662b5e-311f-435c-968a-2d020cfccb77" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/exceptions/BorrowException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/exceptions/ActiveUserException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/exceptions/FileOpenFailedException.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/exceptions/FileOpenFailedException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/exceptions/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/exceptions/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/exceptions/NoSuchUserException.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/exceptions/NoSuchUserException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/exceptions/NoSuchWorkException.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/exceptions/NoSuchWorkException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/exceptions/RuleFailedException.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/exceptions/RuleFailedException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/exceptions/UserIsActiveException.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/exceptions/UserIsActiveException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/exceptions/UserRegistrationFailedException.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/exceptions/UserRegistrationFailedException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/exceptions/WorkNotBorrowedByUserException.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/exceptions/WorkNotBorrowedByUserException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/main/DoAdvanceDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/main/DoAdvanceDate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/main/DoDisplayDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/main/DoDisplayDate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/main/DoOpen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/main/DoOpen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/main/DoOpenRequestsMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/main/DoOpenRequestsMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/main/DoOpenUsersMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/main/DoOpenUsersMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/main/DoOpenWorksMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/main/DoOpenWorksMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/main/DoSave.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/main/DoSave.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/main/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/main/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/requests/DoRequestWork.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/requests/DoRequestWork.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/requests/DoReturnWork.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/requests/DoReturnWork.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/requests/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/requests/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/requests/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/requests/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/users/DoPayFine.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/users/DoPayFine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/users/DoRegisterUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/users/DoRegisterUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/users/DoShowUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/users/DoShowUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/users/DoShowUserNotifications.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/users/DoShowUserNotifications.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/users/DoShowUsers.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/users/DoShowUsers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/users/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/users/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/users/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/users/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/works/DoDisplayWork.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/works/DoDisplayWork.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/works/DoDisplayWorks.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/works/DoDisplayWorks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/works/DoPerformSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/works/DoPerformSearch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/works/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/works/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/works/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/works/Message.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Biblioteca.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Biblioteca.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/DVD.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/DVD.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/LibraryManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/LibraryManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Livro.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Livro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Obra.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Obra.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/exceptions/BadEntrySpecificationException.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/exceptions/BadEntrySpecificationException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/exceptions/BorrowException.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/exceptions/BorrowException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/exceptions/ImportFileException.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/exceptions/ImportFileException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/exceptions/RuleException.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/exceptions/RuleException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/exceptions/UserNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/exceptions/UserNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/exceptions/WorkNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/exceptions/WorkNotFoundException.java" afterDir="false" />
     </list>
     <list id="ab932900-c719-417c-973a-d1cc8cd95c38" name="Changes by atec" comment="pesquisar obras FILTRO e ordenar por ID" />
-    <list id="3316f7df-a205-4735-b5f2-2a591965be0e" name="Changes by Bruno Rafael" comment="">
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/requests/DoReturnWork.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/requests/DoReturnWork.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/users/DoPayFine.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/users/DoPayFine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/works/DoPerformSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/works/DoPerformSearch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Biblioteca.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Biblioteca.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/LibraryManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/LibraryManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/User.java" afterDir="false" />
-    </list>
+    <list id="3316f7df-a205-4735-b5f2-2a591965be0e" name="Changes by Bruno Rafael" comment="" />
+    <list id="e651a330-c68e-4bd8-a282-20d6ffe6ce53" name="Changes by Eliseu" comment="" />
     <list id="2bb50890-f5fb-4e45-bc29-c8828237ae5f" name="Changes by eliseu" comment="" />
-    <list id="e651a330-c68e-4bd8-a282-20d6ffe6ce53" name="Changes by Eliseu" comment="">
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/requests/DoReturnWork.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/requests/DoReturnWork.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Biblioteca.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Biblioteca.java" afterDir="false" />
-    </list>
     <list id="f13d89b1-b798-435d-9fcd-d21652288b04" name="Changes by vitor" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,63 +76,11 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Biblioteca.java">
-      <ranges>
-        <range start1="2" end1="6" start2="2" end2="3" changelist="f4662b5e-311f-435c-968a-2d020cfccb77" />
-        <range start1="7" end1="7" start2="4" end2="5" changelist="e651a330-c68e-4bd8-a282-20d6ffe6ce53" />
-        <range start1="105" end1="110" start2="103" end2="105" changelist="e651a330-c68e-4bd8-a282-20d6ffe6ce53" />
-        <range start1="111" end1="117" start2="106" end2="106" changelist="e651a330-c68e-4bd8-a282-20d6ffe6ce53" />
-        <range start1="118" end1="128" start2="107" end2="112" changelist="e651a330-c68e-4bd8-a282-20d6ffe6ce53" />
-        <range start1="129" end1="132" start2="113" end2="116" changelist="e651a330-c68e-4bd8-a282-20d6ffe6ce53" />
-        <range start1="195" end1="196" start2="179" end2="180" changelist="3316f7df-a205-4735-b5f2-2a591965be0e" />
-        <range start1="199" end1="206" start2="183" end2="183" changelist="3316f7df-a205-4735-b5f2-2a591965be0e" />
-        <range start1="208" end1="208" start2="185" end2="189" changelist="3316f7df-a205-4735-b5f2-2a591965be0e" />
-        <range start1="237" end1="239" start2="218" end2="219" changelist="3316f7df-a205-4735-b5f2-2a591965be0e" />
-        <range start1="288" end1="289" start2="268" end2="268" changelist="f4662b5e-311f-435c-968a-2d020cfccb77" />
-        <range start1="290" end1="291" start2="269" end2="270" changelist="f4662b5e-311f-435c-968a-2d020cfccb77" />
-        <range start1="294" end1="297" start2="273" end2="274" changelist="f4662b5e-311f-435c-968a-2d020cfccb77" />
-        <range start1="299" end1="299" start2="276" end2="302" changelist="f4662b5e-311f-435c-968a-2d020cfccb77" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/requests/DoReturnWork.java">
-      <ranges>
-        <range start1="4" end1="4" start2="4" end2="5" changelist="3316f7df-a205-4735-b5f2-2a591965be0e" />
-        <range start1="7" end1="7" start2="8" end2="9" changelist="f4662b5e-311f-435c-968a-2d020cfccb77" />
-        <range start1="9" end1="11" start2="11" end2="12" changelist="e651a330-c68e-4bd8-a282-20d6ffe6ce53" />
-        <range start1="12" end1="12" start2="13" end2="15" changelist="e651a330-c68e-4bd8-a282-20d6ffe6ce53" />
-        <range start1="17" end1="17" start2="20" end2="21" changelist="e651a330-c68e-4bd8-a282-20d6ffe6ce53" />
-        <range start1="19" end1="20" start2="23" end2="24" changelist="e651a330-c68e-4bd8-a282-20d6ffe6ce53" />
-        <range start1="25" end1="25" start2="29" end2="30" changelist="e651a330-c68e-4bd8-a282-20d6ffe6ce53" />
-        <range start1="26" end1="26" start2="31" end2="32" changelist="e651a330-c68e-4bd8-a282-20d6ffe6ce53" />
-        <range start1="28" end1="28" start2="34" end2="35" changelist="f4662b5e-311f-435c-968a-2d020cfccb77" />
-        <range start1="48" end1="54" start2="55" end2="57" changelist="f4662b5e-311f-435c-968a-2d020cfccb77" />
-        <range start1="56" end1="56" start2="59" end2="75" changelist="f4662b5e-311f-435c-968a-2d020cfccb77" />
-        <range start1="58" end1="59" start2="77" end2="77" changelist="f4662b5e-311f-435c-968a-2d020cfccb77" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/User.java">
-      <ranges>
-        <range start1="13" end1="14" start2="13" end2="14" changelist="f4662b5e-311f-435c-968a-2d020cfccb77" />
-        <range start1="38" end1="38" start2="38" end2="42" changelist="3316f7df-a205-4735-b5f2-2a591965be0e" />
-        <range start1="43" end1="44" start2="47" end2="48" changelist="f4662b5e-311f-435c-968a-2d020cfccb77" />
-        <range start1="47" end1="48" start2="51" end2="52" changelist="f4662b5e-311f-435c-968a-2d020cfccb77" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/LibraryManager.java">
-      <ranges>
-        <range start1="72" end1="75" start2="72" end2="73" changelist="3316f7df-a205-4735-b5f2-2a591965be0e" />
-        <range start1="76" end1="79" start2="74" end2="75" changelist="3316f7df-a205-4735-b5f2-2a591965be0e" />
-        <range start1="102" end1="104" start2="98" end2="100" changelist="3316f7df-a205-4735-b5f2-2a591965be0e" />
-        <range start1="126" end1="126" start2="122" end2="132" changelist="f4662b5e-311f-435c-968a-2d020cfccb77" />
-      </ranges>
-    </file>
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
@@ -111,27 +91,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Bruno Rafael/Desktop/grupo-2&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/Bruno Rafael/Desktop/grupo-2",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "vcs.Git",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Documents\ATEC\Curso\5413 - Programação de Computadore (Orientada a objetos) - Vitor\Projeto" />
@@ -181,6 +162,7 @@
       <workItem from="1694771063539" duration="104000" />
       <workItem from="1694776822418" duration="9256000" />
       <workItem from="1694806876948" duration="11239000" />
+      <workItem from="1694837501895" duration="7654000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <option name="closed" value="true" />
