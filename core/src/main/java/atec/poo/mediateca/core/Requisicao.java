@@ -6,11 +6,11 @@ import java.io.Serializable;
 public class Requisicao implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
-    private Integer id;
-    private Integer userID;
-    private Integer obraID;
+    private final int id;
+    private final int userID;
+    private final int obraID;
     private final int dataRequisicao;
-    private int dataEntrega;
+    private final int dataEntrega;
     private int diasSemEntregar;
 
     public Requisicao(int id, int userID, int obraID, int dataRequisicao, int dataEntrega) {
@@ -26,25 +26,14 @@ public class Requisicao implements Serializable {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public void setUserID(Integer userID) {
-        this.userID = userID;
-    }
-
-    public void setObraID(Integer obraID) {
-        this.obraID = obraID;
+    public int getUserID() {
+        return userID;
     }
 
     public int getObraID() {
         return obraID;
     }
 
-    public int getDataRequisicao() {
-        return dataRequisicao;
-    }
 
     public int getDataEntrega() {
         return dataEntrega;

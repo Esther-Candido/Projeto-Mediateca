@@ -4,20 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4662b5e-311f-435c-968a-2d020cfccb77" name="Changes" comment="comentários">
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Requisicao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Mediateca_All.xml" beforeDir="false" />
+    <list default="true" id="f4662b5e-311f-435c-968a-2d020cfccb77" name="Changes" comment="Devolver Obra">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/requests/DoRequestWork.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/requests/DoRequestWork.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/requests/DoReturnWork.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/requests/DoReturnWork.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/users/DoPayFine.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/users/DoPayFine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Biblioteca.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Biblioteca.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/LibraryManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/LibraryManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Requisicao.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Requisicao.java" afterDir="false" />
     </list>
     <list id="ab932900-c719-417c-973a-d1cc8cd95c38" name="Changes by atec" comment="pesquisar obras FILTRO e ordenar por ID" />
-    <list id="3316f7df-a205-4735-b5f2-2a591965be0e" name="Changes by Bruno Rafael" comment="">
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/all.import" beforeDir="false" afterPath="$PROJECT_DIR$/imports/all.import" afterDir="false" />
+    <list id="3316f7df-a205-4735-b5f2-2a591965be0e" name="Changes by Bruno Rafael" comment="Changes by Bruno Rafael">
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Biblioteca.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Biblioteca.java" afterDir="false" />
     </list>
     <list id="2bb50890-f5fb-4e45-bc29-c8828237ae5f" name="Changes by eliseu" comment="" />
     <list id="e651a330-c68e-4bd8-a282-20d6ffe6ce53" name="Changes by Eliseu" comment="" />
@@ -38,11 +34,29 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Biblioteca.java">
+      <ranges>
+        <range start1="9" end1="13" start2="9" end2="10" changelist="3316f7df-a205-4735-b5f2-2a591965be0e" />
+        <range start1="54" end1="54" start2="51" end2="56" changelist="f4662b5e-311f-435c-968a-2d020cfccb77" />
+        <range start1="112" end1="113" start2="114" end2="115" changelist="f4662b5e-311f-435c-968a-2d020cfccb77" />
+        <range start1="114" end1="114" start2="116" end2="117" changelist="f4662b5e-311f-435c-968a-2d020cfccb77" />
+        <range start1="115" end1="116" start2="118" end2="118" changelist="3316f7df-a205-4735-b5f2-2a591965be0e" />
+        <range start1="118" end1="118" start2="120" end2="121" changelist="f4662b5e-311f-435c-968a-2d020cfccb77" />
+        <range start1="123" end1="123" start2="126" end2="151" changelist="f4662b5e-311f-435c-968a-2d020cfccb77" />
+        <range start1="300" end1="301" start2="328" end2="328" changelist="f4662b5e-311f-435c-968a-2d020cfccb77" />
+        <range start1="342" end1="343" start2="369" end2="370" changelist="f4662b5e-311f-435c-968a-2d020cfccb77" />
+        <range start1="344" end1="345" start2="371" end2="371" changelist="f4662b5e-311f-435c-968a-2d020cfccb77" />
+        <range start1="349" end1="349" start2="375" end2="376" changelist="f4662b5e-311f-435c-968a-2d020cfccb77" />
+        <range start1="353" end1="360" start2="380" end2="380" changelist="3316f7df-a205-4735-b5f2-2a591965be0e" />
+      </ranges>
+    </file>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
@@ -142,7 +156,7 @@
       <workItem from="1694837501895" duration="7654000" />
       <workItem from="1694884741388" duration="11197000" />
       <workItem from="1694898044009" duration="6168000" />
-      <workItem from="1694904254961" duration="406000" />
+      <workItem from="1694904254961" duration="7060000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <option name="closed" value="true" />
@@ -256,11 +270,30 @@
       <option name="project" value="LOCAL" />
       <updated>1694771003332</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Devolver Obra">
+      <option name="closed" value="true" />
+      <created>1694904712996</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1694904712996</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Changes by Bruno Rafael">
+      <option name="closed" value="true" />
+      <created>1694904716810</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1694904716810</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.import" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -280,22 +313,27 @@
     <MESSAGE value="Changes by eliseu" />
     <MESSAGE value="Changes" />
     <MESSAGE value="pesquisar obras FILTRO e ordenar por ID" />
-    <MESSAGE value="Changes by Bruno Rafael" />
     <MESSAGE value="att" />
     <MESSAGE value="limpeza de codigo" />
     <MESSAGE value="ordem utentes" />
     <MESSAGE value="requisição 50% feito" />
     <MESSAGE value="requisição 100% / falta notificação em caso de 0 stock &amp; data limite devolução" />
     <MESSAGE value="comentários" />
-    <option name="LAST_COMMIT_MESSAGE" value="comentários" />
+    <MESSAGE value="Devolver Obra" />
+    <MESSAGE value="Changes by Bruno Rafael" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes by Bruno Rafael" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Biblioteca.java</url>
-          <line>300</line>
-          <option name="timeStamp" value="9" />
+          <line>126</line>
+          <properties class="atec.poo.mediateca.core.Biblioteca" method="devolverObraMulta">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

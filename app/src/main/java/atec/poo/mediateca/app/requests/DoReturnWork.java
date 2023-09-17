@@ -5,6 +5,7 @@ import atec.poo.mediateca.app.exceptions.NoSuchWorkException;
 import atec.poo.mediateca.app.exceptions.UserIsActiveException;
 import atec.poo.mediateca.app.exceptions.WorkNotBorrowedByUserException;
 import atec.poo.mediateca.core.LibraryManager;
+import atec.poo.mediateca.core.Requisicao;
 import atec.poo.mediateca.core.exceptions.ActiveUserException;
 import atec.poo.mediateca.core.exceptions.BorrowException;
 import atec.poo.mediateca.core.exceptions.UserNotFoundException;

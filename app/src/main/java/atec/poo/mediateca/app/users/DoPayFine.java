@@ -3,6 +3,7 @@ package atec.poo.mediateca.app.users;
 import atec.poo.mediateca.app.exceptions.UserIsActiveException;
 import atec.poo.mediateca.core.LibraryManager;
 import atec.poo.mediateca.core.exceptions.ActiveUserException;
+import atec.poo.mediateca.core.exceptions.BorrowException;
 import atec.poo.ui.Comando;
 import atec.poo.ui.LerInteiro;
 import atec.poo.ui.exceptions.DialogException;

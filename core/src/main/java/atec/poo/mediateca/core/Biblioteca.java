@@ -52,6 +52,11 @@ public class Biblioteca implements Serializable {
     public void setData(int data) {
         if (data > 0)
             this.data += data;
+     for(Requisicao req: requisicoes.values()){
+         if (getData() > req.getDataEntrega()){
+             verificarTempoEntrega(req.getUserID(),req);
+         }
+     }
     }
 
     /**
@@ -110,17 +115,44 @@ public class Biblioteca implements Serializable {
      * Paga a multa de um utente especifico
      * @param userID id utente
      */
-    public void pagarMulta(int userID) throws ActiveUserException{
+    public void pagarMulta(int userID) throws ActiveUserException {
         User user = this.users.get(userID);
+
         if (user.getEstado().toString().equals("SUSPENSO")) {
             // DEVOLVER OBRA
             user.setMulta(0);
             user.setEstado(Estado.valueOf("ACTIVO"));
+            devolverObraMulta(userID);
             return;
         }
         throw new ActiveUserException(userID);
     }
 
+    public void devolverObraMulta(int userID){
+        User user = this.users.get(userID);
+
+        List<Requisicao> obraDivida = new ArrayList<>();
+
+        for(Integer reqID: user.requisicaoID) {
+            Requisicao req = this.requisicoes.get(reqID);
+            if (getData() > req.getDataEntrega()) {
+                obraDivida.add(this.requisicoes.get(Integer.valueOf(reqID)));
+            }
+        }
+
+        for (Requisicao reqCliente: obraDivida){
+            Obra obra = this.obras.get(reqCliente.getObraID());
+
+            //remove o id da requisição da pessoa que pegou
+            user.requisicaoID.remove(Integer.valueOf(reqCliente.getId()));
+            this.requisicoes.values().remove(reqCliente);
+            user.numRequisicoes--;
+
+            user.requisicao.remove(Integer.valueOf(reqCliente.getObraID()));
+            int novoStock = obra.getStock() + 1;
+            obra.setStock(novoStock);
+        }
+    }
     /**
      * Registra um novo livro na biblioteca.
      * @param titulo titulo livro.
@@ -298,7 +330,6 @@ public class Biblioteca implements Serializable {
         User user = this.users.get(userID);
         Obra obra = this.obras.get(obraID);
 
-        verificarTempoEntrega(userID,obraID);
         int reqRemoverID = acharRequisicao(userID,obraID);
 
         //remove o id da requisição da pessoa que pegou
@@ -340,13 +371,13 @@ public class Biblioteca implements Serializable {
         }
         return 0;
     }
-    public void verificarTempoEntrega(int userID, int obraID) {
+    public void verificarTempoEntrega(int userID, Requisicao reqID) {
         User user = this.users.get(userID);
-        Requisicao reqID = this.requisicoes.get(acharRequisicao(userID,obraID));
 
         if(getData() > reqID.getDataEntrega()){
             reqID.setDiasSemEntregar(getData() - reqID.getDataEntrega());
             user.setMulta(reqID.getDiasSemEntregar() * multaDiaria);
+            user.setEstado(Estado.valueOf("SUSPENSO"));
         }
 
 
