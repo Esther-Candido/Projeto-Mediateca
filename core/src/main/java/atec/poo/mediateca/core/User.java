@@ -18,6 +18,8 @@ public class User implements Comparable<User>, Serializable {
     List<Integer> requisicao = new ArrayList<>();
     List<String> NotificacaoObra = new ArrayList<>();
     public int numRequisicoes;
+    public int multaAtrasada;
+    public int multaNoTempo;
 
     public User(int id, String nome, String email) {
         this.id = id;
@@ -27,6 +29,8 @@ public class User implements Comparable<User>, Serializable {
         this.comportamento = Comportamento.NORMAL;
         this.multa = 0;
         this.numRequisicoes = 0;
+        this.multaAtrasada = 0;
+        this.multaNoTempo = 0;
     }
 
     public int getId() {
@@ -37,12 +41,12 @@ public class User implements Comparable<User>, Serializable {
         return nome;
     }
 
-    public Estado getEstado() {
-        return estado;
-    }
-
     public void setEstado(Estado estado) {
         this.estado = estado;
+    }
+
+    public Estado getEstado() {
+        return estado;
     }
 
     public Comportamento getComportamento() {

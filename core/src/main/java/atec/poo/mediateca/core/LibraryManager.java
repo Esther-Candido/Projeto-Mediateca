@@ -117,11 +117,32 @@ public class LibraryManager {
     }
 
     /**
-     * COMENTAR ISTO!!
+     * Verifica se o Utente está suspenso
+     *
+     * @param userID userid;
+     * @param obraID obra id;
+     * @throws RuleException Mostra o erro especifico para utentes suspensos
+     */
+    public void verificarSuspensao(int userID, int obraID) throws RuleException {
+        this._biblioteca.verificarSuspensao(userID, obraID);
+    }
+
+    /**
+     * Verifica se o Stock acabou
+     *
+     * @param obraID obra id
+     * @return Retorna TRUE se a obra tem stock e FALSE quando não tem
+     */
+    public Boolean verificarStock(int obraID) {
+        return this._biblioteca.verificarStock(obraID);
+    }
+
+    /**
+     * Procura a quantidade de dias para devolver a obra (comportamento e a quantidade de exemplares da obra)
      *
      * @param userID id utente
      * @param obraID id obra
-     * @return VER UM NOME PARA DAR A ISTO!!!!
+     * @return Retorna a data de entrega da Obra Requisitada
      */
     public int calcularDataEntrega(int userID, int obraID) {
         return this._biblioteca.calcularDataEntrega(userID, obraID);
@@ -143,15 +164,15 @@ public class LibraryManager {
      * @param userID utente id
      * @return Retorna a multa do utente
      */
-    public int mostrarMulta(int userID) {
-        return this._biblioteca.mostrarMulta(userID);
+    public int mostrarMulta2(int userID) {
+        return this._biblioteca.mostrarMulta2(userID);
     }
 
     /**
-     * COMENTAR ISTO!!
+     * Executa o Save da Aplicação
      *
      * @param ficheiro ficheiro
-     * @throws IOException NÂO SEI!
+     * @throws IOException Não sei o que meter aqui......
      */
     public void save(String ficheiro) throws IOException {
         ObjectOutputStream oos = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(ficheiro)));
@@ -160,11 +181,11 @@ public class LibraryManager {
     }
 
     /**
-     * COMENTAR ISTO!!
+     * Executa o Load da Aplicação
      *
      * @param ficheiro ficheiro
-     * @throws IOException            NÃO SEI
-     * @throws ClassNotFoundException NÃO SEI
+     * @throws IOException            Não sei o que meter aqui......
+     * @throws ClassNotFoundException Não sei o que meter aqui......
      */
     public void load(String ficheiro) throws IOException, ClassNotFoundException {
         ObjectInputStream ois = new ObjectInputStream(new BufferedInputStream(new FileInputStream(ficheiro)));

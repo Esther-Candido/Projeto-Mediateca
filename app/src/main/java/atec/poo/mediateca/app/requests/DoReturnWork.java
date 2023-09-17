@@ -50,7 +50,7 @@ public class DoReturnWork extends Comando<LibraryManager> {
             throw new WorkNotBorrowedByUserException(e.getUserID(), e.getObraID());
         }
 
-        int multa = this.getReceptor().mostrarMulta(userID.getValor());
+        int multa = this.getReceptor().mostrarMulta2(userID.getValor());
 
         if (multa > 0) {
             ui.escreveLinha(Message.showFine(userID.getValor(), multa));

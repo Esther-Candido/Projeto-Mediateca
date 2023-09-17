@@ -137,9 +137,9 @@ public class Biblioteca implements Serializable {
     public void pagarMulta(int userID) throws ActiveUserException {
         User user = this.users.get(userID);
 
-        if (user.getEstado().toString().equals("SUSPENSO")) {
+        if (user.getEstado().equals(Estado.SUSPENSO)) {
             user.setMulta(0);
-            user.setEstado(Estado.valueOf("ACTIVO"));
+            user.setEstado(Estado.ACTIVO);
             devolverObraMulta(userID);
             return;
         }
@@ -276,16 +276,15 @@ public class Biblioteca implements Serializable {
         if (obra.getCategoria().equals(Categoria.REFERENCE))
             throw new RuleException(userID, obraID, 5);
 
-        if (obra.getPreco() > 25.00 && !user.getComportamento().equals("CUMPRIDOR"))
+        if (obra.getPreco() > 25.00 && !user.getComportamento().equals(Comportamento.CUMPRIDOR))
             throw new RuleException(userID, obraID, 6);
 
         if (!user.getObraID(obraID)) {
-            String comportamento = user.getComportamento().toString();
+            Comportamento comportamento = user.getComportamento();
             int requisicaoLimite = switch (comportamento) {
-                case "NORMAL" -> 3;
-                case "CUMPRIDOR" -> 5;
-                case "FALTOSO" -> 1;
-                default -> 0;
+                case NORMAL -> 3;
+                case CUMPRIDOR -> 5;
+                case FALTOSO -> 1;
             };
 
             if (user.numRequisicoes < requisicaoLimite) {
@@ -318,10 +317,39 @@ public class Biblioteca implements Serializable {
     }
 
     /**
-     * Procura a quantidade de dias que o utente tem para devolver a obra dependendo do comportamento e a quantidade de exemplares de cada obra
+     * Verifica se o Utente está suspenso
+     *
+     * @param userID user id;
+     * @param obraID obra id;
+     * @throws RuleException Mostra o erro especifico para utentes suspensos
+     */
+    public void verificarSuspensao(int userID, int obraID) throws RuleException {
+        User user = this.users.get(userID);
+        if (user.getEstado().equals(Estado.SUSPENSO)) {
+            throw new RuleException(userID, obraID, 2);
+        }
+    }
+
+    /**
+     * Verifica se o Stock acabou
+     *
+     * @param obraID obra id
+     * @return Retorna TRUE se a obra tem stock e FALSE quando não tem
+     */
+    public boolean verificarStock(int obraID) {
+        Obra obra = this.obras.get(obraID);
+        if (obra.getStock() <= 0) {
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * Procura a quantidade de dias para devolver a obra (comportamento e a quantidade de exemplares da obra)
+     *
      * @param userID id utente
      * @param obraID id obra
-     * @return Declara a quantidade de dias para devolver a obra dependendo da sua situação
+     * @return Retorna a data de entrega da Obra Requisitada
      */
     public int calcularDataEntrega(int userID, int obraID) {
         User user = users.get(userID);
@@ -398,9 +426,11 @@ public class Biblioteca implements Serializable {
     }
 
     /**
+     * Procura requisicões feitas por um Utente especifico
+     *
      * @param userID;
      * @param obraID;
-     * @return escrever algo
+     * @return Retorna o ID da requisições feitas pelo o Utente
      */
     public int procurarRequisicao(int userID, int obraID) {
         User user = this.users.get(userID);
@@ -414,6 +444,37 @@ public class Biblioteca implements Serializable {
     }
 
     /**
+     *
+     */
+    public void gerirComportamento(int userID) {
+        User user = this.users.get(userID);
+
+        if (user.multaAtrasada >= 3) {
+            user.setComportamento(Comportamento.FALTOSO);
+        } else if (user.multaNoTempo == 3 || user.getComportamento().equals(Comportamento.FALTOSO)) {
+            user.setComportamento(Comportamento.NORMAL);
+        } else if (user.multaNoTempo >= 5) {
+            user.setComportamento(Comportamento.CUMPRIDOR);
+        }
+    }
+
+    public void pagamentoPontual(int userID, Requisicao reqID) {
+        User user = this.users.get(userID);
+
+        if (getData() > reqID.getDataEntrega()) {
+            user.multaNoTempo = 0;
+            user.multaAtrasada++;
+            gerirComportamento(userID);
+        } else if (getData() < reqID.getDataEntrega()) {
+            user.multaAtrasada = 0;
+            user.multaNoTempo++;
+            gerirComportamento(userID);
+        }
+    }
+
+    /**
+     * Verificar a Data de Entrega de uma Obra Requisitada
+     *
      * @param userID;
      * @param reqID;
      */
@@ -427,12 +488,12 @@ public class Biblioteca implements Serializable {
     }
 
     /**
-     * Procura a multa de um utente especifico
+     * Procura a multa de um utente específico
      *
      * @param userID utente id
      * @return Retorna a multa do utente
      */
-    public int mostrarMulta(int userID) {
+    public int mostrarMulta2(int userID) {
         User user = this.users.get(userID);
         return user.getMulta();
     }

@@ -19,6 +19,7 @@ import atec.poo.ui.exceptions.DialogException;
 public class DoRequestWork extends Comando<LibraryManager> {
     private final LerInteiro userID;
     private final LerInteiro obraID;
+    private final LerBoolean lerAvisoStock;
 
     /**
      * Requisita a obra
@@ -29,6 +30,7 @@ public class DoRequestWork extends Comando<LibraryManager> {
         super(receiver, Label.REQUEST_WORK);
         this.userID = new LerInteiro(Message.requestUserId());
         this.obraID = new LerInteiro(Message.requestWorkId());
+        this.lerAvisoStock = new LerBoolean(Message.requestReturnNotificationPreference());
     }
 
     @Override
@@ -45,9 +47,22 @@ public class DoRequestWork extends Comando<LibraryManager> {
             throw new NoSuchWorkException(e.getObraID());
         }
 
-        int tempoEntrega = this.getReceptor().calcularDataEntrega(userID.getValor(), obraID.getValor()) + this.getReceptor().getData();
+        try{
+            this.getReceptor().verificarSuspensao(this.userID.getValor(), this.obraID.getValor());
+        } catch (RuleException e) {
+            throw new RuleFailedException(e.getUserID(), e.getObraID(), e.getRuleID());
+        }
+
+        if (!this.getReceptor().verificarStock(this.obraID.getValor())) {
+            ui.lerInput(lerAvisoStock);
+            if (lerAvisoStock.getValor()) {
+                this.getReceptor().NotificacaoStock(userID.getValor(), obraID.getValor());
+            }
+            return;
+        }
 
         try {
+            int tempoEntrega = this.getReceptor().calcularDataEntrega(userID.getValor(), obraID.getValor()) + this.getReceptor().getData();
             this.getReceptor().requisitarObra(this.userID.getValor(), this.obraID.getValor());
             ui.escreveLinha(Message.workReturnDay(obraID.getValor(), tempoEntrega));
         } catch (RuleException e) {

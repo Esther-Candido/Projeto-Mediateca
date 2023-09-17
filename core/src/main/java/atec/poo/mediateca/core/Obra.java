@@ -11,7 +11,7 @@ public abstract class Obra implements Comparable<Obra>, Serializable {
     private final int id;
     private final String titulo;
     private final Double preco;
-    private final String categoria;
+    private final Categoria categoria;
     private int stock;
     private final int exemplares;
     private Tipo tipo;
@@ -21,7 +21,7 @@ public abstract class Obra implements Comparable<Obra>, Serializable {
         this.id = id;
         this.titulo = titulo;
         this.preco = preco;
-        this.categoria = categoria;
+        this.categoria = Categoria.FICTION;
         this.stock = exemplares;
         this.exemplares = exemplares;
     }
@@ -38,7 +38,7 @@ public abstract class Obra implements Comparable<Obra>, Serializable {
         return preco;
     }
 
-    public String getCategoria() {
+    public Categoria getCategoria() {
         return categoria;
     }
 
@@ -57,10 +57,6 @@ public abstract class Obra implements Comparable<Obra>, Serializable {
 
     public void setTipo(Tipo tipo) {
         this.tipo = tipo;
-    }
-
-    public Tipo getTipo() {
-        return tipo;
     }
 
     public List<Integer> getUserIDRegistro() {
