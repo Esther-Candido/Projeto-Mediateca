@@ -8,6 +8,7 @@ import atec.poo.mediateca.core.exceptions.RuleException;
 import atec.poo.mediateca.core.exceptions.UserNotFoundException;
 import atec.poo.mediateca.core.exceptions.WorkNotFoundException;
 import atec.poo.ui.Comando;
+import atec.poo.ui.LerBoolean;
 import atec.poo.ui.LerInteiro;
 import atec.poo.ui.exceptions.DialogException;
 

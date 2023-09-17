@@ -2,7 +2,10 @@ package atec.poo.mediateca.core;
 
 import atec.poo.mediateca.core.exceptions.*;
 import atec.poo.mediateca.core.utilidades.CompareObraByID;
+import com.sun.nio.sctp.MessageInfo;
 
+
+import javax.annotation.processing.Messager;
 import java.io.File;
 import java.io.IOException;
 import java.io.Serial;
@@ -104,22 +107,26 @@ public class Biblioteca implements Serializable {
      * @return Notificações do utente pretendido
      * @throws UserNotFoundException Verificar se o utente existe ou não
      */
-    public ArrayList<String> mostrarNotificacao(int userID){
+    public ArrayList<String> mostrarNotificacao(int userID) {
         User user = this.users.get(userID);
 
-        if(!user.filaObraID.isEmpty()){
+        if (!user.NotificacaoObra.isEmpty()) {
 
-            for (Integer obraid: user.filaObraID){
-                Obra obra = this.obras.get(obraid);
-                ArrayList<String> obra_notificacao = new ArrayList<>(obra.getRegistro());
-                return obra_notificacao;
-            }
+            ArrayList<String> obra_notificacao = new ArrayList<>(user.getNotificacaoObra());
+            user.NotificacaoObra.clear();
+            return obra_notificacao;
+
         }
         return new ArrayList<>();
     }
 
 
+    public void NotificacaoStock(int userID, int obraID) {
+        Obra obra = this.obras.get(obraID);
+        User user = this.users.get(userID);
 
+        obra.UserIDRegistro.add(Integer.valueOf(userID));
+    }
 
 
     /**
@@ -165,6 +172,7 @@ public class Biblioteca implements Serializable {
             user.requisicao.remove(Integer.valueOf(reqCliente.getObraID()));
             int novoStock = obra.getStock() + 1;
             obra.setStock(novoStock);
+            pagamentoPontual(userID, reqCliente);
         }
     }
 
@@ -259,16 +267,13 @@ public class Biblioteca implements Serializable {
         Obra obra = this.obras.get(obraID);
         User user = this.users.get(userID);
 
-        if (user.getEstado().toString().equals("SUSPENSO")) {
-            throw new RuleException(userID, obraID, 2);
-        }
-
         if (obra.getStock() <= 0) {
-            user.filaObraID.add(Integer.valueOf(obraID));
-            throw new RuleException(userID, obraID, 3);
+
+            NotificacaoStock(userID, obraID);
         }
 
-        if (obra.getCategoria().equals("REFERENCE"))
+
+        if (obra.getCategoria().equals(Categoria.REFERENCE))
             throw new RuleException(userID, obraID, 5);
 
         if (obra.getPreco() > 25.00 && !user.getComportamento().equals("CUMPRIDOR"))
@@ -291,17 +296,19 @@ public class Biblioteca implements Serializable {
                 int reqID = registarRequisicao(userID, obraID, dataRequisicao, dataEntrega);
                 user.requisicaoID.add(reqID);
 
-
-                obra.Registro.add("REQUISIÇÃO: " + obra.toString());
-                if (user.filaObraID.contains(obraID)){
-                    user.filaObraID.remove(Integer.valueOf(obraID));
-                }
-
-
-
-
                 int novoStock = obra.getStock() - 1;
                 obra.setStock(novoStock);
+
+                if (!obra.UserIDRegistro.isEmpty()) {
+                    if (obra.UserIDRegistro.contains(userID)) {
+                        obra.UserIDRegistro.remove(Integer.valueOf(userID));
+                    }
+                    for (Integer userIDnot : obra.UserIDRegistro) {
+                        User userNot = this.users.get(userIDnot);
+                        userNot.NotificacaoObra.add("REQUISIÇÃO: " + obra.toString());
+                    }
+                }
+
             } else {
                 throw new RuleException(userID, obraID, 4);
             }
@@ -366,8 +373,14 @@ public class Biblioteca implements Serializable {
         user.numRequisicoes--;
         int novoStock = obra.getStock() + 1;
         obra.setStock(novoStock);
-        //REGISTRO das acoes de devolucoes
-        obra.Registro.add("ENTREGA: " + obra.toString());
+        pagamentoPontual(userID, req);
+
+        //REGISTRO das notificações para outros usuario sobre a devolução
+        for (Integer userIDnot : obra.UserIDRegistro) {
+            User userNot = this.users.get(userIDnot);
+            userNot.NotificacaoObra.add("ENTREGA: " + obra.toString());
+        }
+
     }
 
     /**
@@ -407,11 +420,10 @@ public class Biblioteca implements Serializable {
     public void verificarDataEntrega(int userID, Requisicao reqID) {
         User user = this.users.get(userID);
 
-        if (getData() > reqID.getDataEntrega()) {
-            reqID.setDiasSemEntregar(getData() - reqID.getDataEntrega());
-            user.setMulta(reqID.getDiasSemEntregar() * multaDiaria);
-            user.setEstado(Estado.valueOf("SUSPENSO"));
-        }
+        reqID.setDiasSemEntregar(getData() - reqID.getDataEntrega());
+        user.setMulta(reqID.getDiasSemEntregar() * multaDiaria + user.getMulta());
+        user.setEstado(Estado.SUSPENSO);
+
     }
 
     /**
@@ -441,8 +453,10 @@ public class Biblioteca implements Serializable {
             String[] elementos = line.split(":", 0);
             switch (elementos[0]) {
                 case "USER" -> this.registarUser(elementos[1], elementos[2]);
-                case "BOOK" -> this.registarLivro(elementos[1], elementos[2], Double.parseDouble(elementos[3]), elementos[4], elementos[5], Integer.parseInt(elementos[6]));
-                case "DVD" -> this.registarDVD(elementos[1], elementos[2], Double.parseDouble(elementos[3]), elementos[4], elementos[5], Integer.parseInt(elementos[6]));
+                case "BOOK" ->
+                        this.registarLivro(elementos[1], elementos[2], Double.parseDouble(elementos[3]), elementos[4], elementos[5], Integer.parseInt(elementos[6]));
+                case "DVD" ->
+                        this.registarDVD(elementos[1], elementos[2], Double.parseDouble(elementos[3]), elementos[4], elementos[5], Integer.parseInt(elementos[6]));
                 default -> throw new BadEntrySpecificationException("Unknow type of category");
             }
         }

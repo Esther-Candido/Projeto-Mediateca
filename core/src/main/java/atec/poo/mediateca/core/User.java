@@ -12,11 +12,11 @@ public class User implements Comparable<User>, Serializable {
     private final String nome;
     private final String email;
     private Estado estado;
-    private final Comportamento comportamento;
+    private Comportamento comportamento;
     private int multa;
     List<Integer> requisicaoID = new ArrayList<>();
     List<Integer> requisicao = new ArrayList<>();
-    List<Integer> filaObraID = new ArrayList<>();
+    List<String> NotificacaoObra = new ArrayList<>();
     public int numRequisicoes;
 
     public User(int id, String nome, String email) {
@@ -55,6 +55,30 @@ public class User implements Comparable<User>, Serializable {
 
     public void setMulta(int multa) {
         this.multa = multa;
+    }
+
+    public List<String> getNotificacaoObra() {
+        return NotificacaoObra;
+    }
+
+    public int getMultaAtrasada() {
+        return multaAtrasada;
+    }
+
+    public void setMultaAtrasada(int multaAtrasada) {
+        this.multaAtrasada = multaAtrasada;
+    }
+
+    public int getMultaNoTempo() {
+        return multaNoTempo;
+    }
+
+    public void setMultaNoTempo(int multaNoTempo) {
+        this.multaNoTempo = multaNoTempo;
+    }
+
+    public void setComportamento(Comportamento comportamento) {
+        this.comportamento = comportamento;
     }
 
     public boolean getObraID(int id) { // ALTERAR O NOME DO METODO E POSSIVELMENTE MUDAR DE SITIO

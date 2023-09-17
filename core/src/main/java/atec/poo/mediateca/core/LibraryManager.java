@@ -73,6 +73,9 @@ public class LibraryManager {
         return this._biblioteca.mostrarNotificacao(userID);
     }
 
+
+    public void NotificacaoStock(int userID, int obraID){this._biblioteca.NotificacaoStock(userID,obraID);}
+
     /**
      * Paga a multa de um utente especifico
      *

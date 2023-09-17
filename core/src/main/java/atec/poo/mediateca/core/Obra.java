@@ -15,7 +15,7 @@ public abstract class Obra implements Comparable<Obra>, Serializable {
     private int stock;
     private final int exemplares;
     private Tipo tipo;
-    List<String> Registro = new ArrayList<>();
+    List<Integer> UserIDRegistro = new ArrayList<>();
 
     public Obra(int id, String titulo, Double preco, String categoria, int exemplares) {
         this.id = id;
@@ -63,8 +63,8 @@ public abstract class Obra implements Comparable<Obra>, Serializable {
         return tipo;
     }
 
-    public List<String> getRegistro() {
-        return Registro;
+    public List<Integer> getUserIDRegistro() {
+        return UserIDRegistro;
     }
 
     @Override
