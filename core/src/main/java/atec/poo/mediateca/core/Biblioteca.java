@@ -9,7 +9,6 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.util.*;
 
-
 public class Biblioteca implements Serializable {
     @Serial
     private static final long serialVersionUID = 2L;
@@ -21,6 +20,7 @@ public class Biblioteca implements Serializable {
     private int nextReqID;
     private int data;
     private static final int multaDiaria = 5;
+
     /**
      * Construtor
      */
@@ -36,6 +36,7 @@ public class Biblioteca implements Serializable {
 
     /**
      * Mostra a data atual
+     *
      * @return Data atual
      */
     public int getData() {
@@ -44,21 +45,23 @@ public class Biblioteca implements Serializable {
 
     /**
      * Define a data atual
+     *
      * @param data data
      */
     public void setData(int data) {
         if (data > 0)
             this.data += data;
-     for(Requisicao req: requisicoes.values()){
-         if (getData() > req.getDataEntrega()){
-             verificarTempoEntrega(req.getUserID(),req);
-         }
-     }
+        for (Requisicao req : requisicoes.values()) {
+            if (getData() > req.getDataEntrega()) {
+                verificarDataEntrega(req.getUserID(), req);
+            }
+        }
     }
 
     /**
      * Registra um novo utente
-     * @param nome nome utente
+     *
+     * @param nome  nome utente
      * @param email email utente
      * @return Cria um novo utente
      */
@@ -71,6 +74,7 @@ public class Biblioteca implements Serializable {
 
     /**
      * Obtém informações sobre um utente específico
+     *
      * @param id id utente
      * @return Informações do utente pretendido
      * @throws UserNotFoundException Verificar se o utente existe ou não
@@ -83,6 +87,7 @@ public class Biblioteca implements Serializable {
 
     /**
      * Mostra informações sobre todos os utentes
+     *
      * @return Informações de todos os utentes
      */
     public ArrayList<User> listUsers() {
@@ -91,8 +96,10 @@ public class Biblioteca implements Serializable {
         return users_array;
     }
 
-    /** AINDA POR FAZER!!!!!!!!!!!!!!!!!!!
+    /**
+     * AINDA POR FAZER!!!!!!!!!!!!!!!!!!!
      * Obtém notificações de um utente específico
+     *
      * @param id id utente
      * @return Notificações do utente pretendido
      * @throws UserNotFoundException Verificar se o utente existe ou não
@@ -100,7 +107,7 @@ public class Biblioteca implements Serializable {
     public String mostrarNotificacao(int id) throws UserNotFoundException {
         if (this.users.containsKey(id))
             return this.users.get(id).toString(); // Em vez mostrar informação do Utente mostrar as notificações desse Utente (Entrega/Requisição)
-            // Exemplos:
+        // Exemplos:
             /*
                 ENTREGA: 4 - 2 de 4 - DVD - Casamento Real - 8 Ficção - António Fonseca - 200400500
                 REQUISIÇÃO: 5 - 4 de 22 - Livro - Dicionário - 45 - Referência - Pedro Casanova - 1234567893
@@ -110,6 +117,7 @@ public class Biblioteca implements Serializable {
 
     /**
      * Paga a multa de um utente especifico
+     *
      * @param userID id utente
      */
     public void pagarMulta(int userID) throws ActiveUserException {
@@ -124,19 +132,22 @@ public class Biblioteca implements Serializable {
         throw new ActiveUserException(userID);
     }
 
-    public void devolverObraMulta(int userID){
+    /**
+     * @param userID;
+     */
+    public void devolverObraMulta(int userID) {
         User user = this.users.get(userID);
 
         List<Requisicao> obraDivida = new ArrayList<>();
 
-        for(Integer reqID: user.requisicaoID) {
+        for (Integer reqID : user.requisicaoID) {
             Requisicao req = this.requisicoes.get(reqID);
             if (getData() > req.getDataEntrega()) {
-                obraDivida.add(this.requisicoes.get(Integer.valueOf(reqID)));
+                obraDivida.add(this.requisicoes.get(reqID));
             }
         }
 
-        for (Requisicao reqCliente: obraDivida){
+        for (Requisicao reqCliente : obraDivida) {
             Obra obra = this.obras.get(reqCliente.getObraID());
 
             //remove o id da requisição da pessoa que pegou
@@ -149,13 +160,15 @@ public class Biblioteca implements Serializable {
             obra.setStock(novoStock);
         }
     }
+
     /**
      * Registra um novo livro na biblioteca.
-     * @param titulo titulo livro.
-     * @param autor autor livro.
-     * @param preco preço livro.
-     * @param categoria categoria livro.
-     * @param isbn valor de ISBN livro.
+     *
+     * @param titulo     titulo livro.
+     * @param autor      autor livro.
+     * @param preco      preço livro.
+     * @param categoria  categoria livro.
+     * @param isbn       valor de ISBN livro.
      * @param exemplares Nº de exemplares livro.
      */
     public void registarLivro(String titulo, String autor, Double preco, String categoria, String isbn, int exemplares) {
@@ -166,11 +179,12 @@ public class Biblioteca implements Serializable {
 
     /**
      * Registra um novo dvd na biblioteca
-     * @param titulo titulo dvd
+     *
+     * @param titulo     titulo dvd
      * @param realizador realizador dvd
-     * @param preco preço dvd
-     * @param categoria categoria dvd
-     * @param igac valor de igac dvd
+     * @param preco      preço dvd
+     * @param categoria  categoria dvd
+     * @param igac       valor de igac dvd
      * @param exemplares Nº de exemplares dvd
      */
     public void registarDVD(String titulo, String realizador, Double preco, String categoria, String igac, int exemplares) {
@@ -181,6 +195,7 @@ public class Biblioteca implements Serializable {
 
     /**
      * Obtém informações sobre uma obra específica
+     *
      * @param id id obra
      * @return Informações da obra pretendido
      * @throws WorkNotFoundException Verificar se a obra existe ou não
@@ -193,39 +208,42 @@ public class Biblioteca implements Serializable {
 
     /**
      * Mostra informações sobre todas as obras por ordem crescente do ID da obra
+     *
      * @return Informações de todas as obras (ordem crescente id obra)
      */
     public ArrayList<Obra> listObrasByID() {
         ArrayList<Obra> obras_array = new ArrayList<>(this.obras.values());
-        obras_array.sort(new CompareObraByID()); //Collections.sort(obras_array,new CompareObraByID());
+        obras_array.sort(new CompareObraByID());
         return obras_array;
     }
 
     /**
-     * Mostra informações sobre todas as requisições feitas
-     * @return Informações de todas as requisições
-     */
-    public ArrayList<Requisicao> listRequisicao() {
-        ArrayList<Requisicao> requisicaos_array = new ArrayList<>(this.requisicoes.values());
-        return requisicaos_array;
-    }
-
-    /**
      * Registra uma nova Requisicão
-     * @param userID id utente
-     * @param obraID id obra
+     *
+     * @param userID         id utente
+     * @param obraID         id obra
      * @param dataRequisicao data requisicao obra
-     * @param dataEntrega data entregue obra
+     * @param dataEntrega    data entregue obra
      */
     public int registarRequisicao(int userID, int obraID, int dataRequisicao, int dataEntrega) {
         Requisicao req = new Requisicao(this.nextReqID, userID, obraID, dataRequisicao, dataEntrega);
         this.requisicoes.put(req.getId(), req);
-        System.out.println(listRequisicao());
+        System.out.println(listRequisicao()); //Serve só para testes, para saber se a requisição esta a ser bem feita.
         return this.nextReqID++;
     }
 
     /**
+     * Mostra informações sobre todas as requisições feitas
+     *
+     * @return Informações de todas as requisições
+     */
+    public ArrayList<Requisicao> listRequisicao() {
+        return new ArrayList<>(this.requisicoes.values());
+    }
+
+    /**
      * Requisita obra especifica para um utente especifico
+     *
      * @param userID id utente
      * @param obraID id obra
      * @throws RuleException Mostra cada erro especifico
@@ -250,32 +268,23 @@ public class Biblioteca implements Serializable {
 
         if (!user.getObraID(obraID)) {
             String comportamento = user.getComportamento().toString();
-            int requisicaoLimite = 0;
-
-            switch (comportamento) {
-                case "NORMAL":
-                    requisicaoLimite = 3;
-                    break;
-                case "CUMPRIDOR":
-                    requisicaoLimite = 5;
-                    break;
-                case "FALTOSO":
-                    requisicaoLimite = 1;
-                    break;
-            }
+            int requisicaoLimite = switch (comportamento) {
+                case "NORMAL" -> 3;
+                case "CUMPRIDOR" -> 5;
+                case "FALTOSO" -> 1;
+                default -> 0;
+            };
 
             if (user.numRequisicoes < requisicaoLimite) {
                 user.numRequisicoes++;
                 user.requisicao.add(obraID);
                 int dataRequisicao = getData();
-                int dataEntrega = getData() + requisicaoMaxDias(userID,obraID);
+                int dataEntrega = getData() + calcularDataEntrega(userID, obraID);
                 int reqID = registarRequisicao(userID, obraID, dataRequisicao, dataEntrega);
                 user.requisicaoID.add(reqID);
 
                 int novoStock = obra.getStock() - 1;
                 obra.setStock(novoStock);
-                //user.setMulta(39);
-                //user.setEstado(Estado.valueOf("SUSPENSO"));
             } else {
                 throw new RuleException(userID, obraID, 4);
             }
@@ -285,12 +294,12 @@ public class Biblioteca implements Serializable {
     }
 
     /**
-     * Procura a quantidade de dias que o utente tem para devolver a obra dependendo do comportamento e a quantidade de exemplos de cada obra
+     * Procura a quantidade de dias que o utente tem para devolver a obra dependendo do comportamento e a quantidade de exemplares de cada obra
      * @param userID id utente
      * @param obraID id obra
      * @return Declara a quantidade de dias para devolver a obra dependendo da sua situação
      */
-    public int requisicaoMaxDias (int userID, int obraID) {
+    public int calcularDataEntrega(int userID, int obraID) {
         User user = users.get(userID);
         Obra obra = obras.get(obraID);
         if (obra.getExemplares() > 5) {
@@ -317,6 +326,7 @@ public class Biblioteca implements Serializable {
 
     /**
      * Faz a devolução da Obra que foi requisitada
+     *
      * @param userID id utente
      * @param obraID id obra
      */
@@ -326,67 +336,74 @@ public class Biblioteca implements Serializable {
         User user = this.users.get(userID);
         Obra obra = this.obras.get(obraID);
 
-        int reqRemoverID = acharRequisicao(userID,obraID);
+        int devolverObra = procurarRequisicao(userID, obraID);
 
         //remove o id da requisição da pessoa que pegou
-        user.requisicaoID.remove(Integer.valueOf(reqRemoverID));
+        user.requisicaoID.remove(Integer.valueOf(devolverObra));
 
         //pegar o objeto REQUISICAO, logo em seguida remover ele da class para liberar memoria
-        Requisicao req = this.requisicoes.get(reqRemoverID);
+        Requisicao req = this.requisicoes.get(devolverObra);
         this.requisicoes.values().remove(req);
-
+        user.requisicao.remove(Integer.valueOf(obraID));
 
         user.numRequisicoes--;
-
-        user.requisicao.remove(Integer.valueOf(obraID));
         int novoStock = obra.getStock() + 1;
         obra.setStock(novoStock);
-
     }
 
     /**
      * Verificar se o Utente possui aquela Obra
+     *
      * @param userID id utente
      * @param obraID id obra
      */
-    public void verificarUtenteObra(int userID, int obraID)throws BorrowException {
+    public void verificarUtenteObra(int userID, int obraID) throws BorrowException {
         User user = this.users.get(userID);
         if (user.getObraID(obraID)) {
             return;
         }
-        throw new BorrowException(userID,obraID);
+        throw new BorrowException(userID, obraID);
     }
 
-    public int acharRequisicao(int userID, int obraID){
+    /**
+     * @param userID;
+     * @param obraID;
+     * @return escrever algo
+     */
+    public int procurarRequisicao(int userID, int obraID) {
         User user = this.users.get(userID);
-        for ( Integer req: user.requisicaoID){
+        for (Integer req : user.requisicaoID) {
             Requisicao reqID = this.requisicoes.get(req);
-            if (reqID.getObraID() == obraID){
+            if (reqID.getObraID() == obraID) {
                 return reqID.getId();
             }
         }
         return 0;
     }
-    public void verificarTempoEntrega(int userID, Requisicao reqID) {
+
+    /**
+     * @param userID;
+     * @param reqID;
+     */
+    public void verificarDataEntrega(int userID, Requisicao reqID) {
         User user = this.users.get(userID);
 
-        if(getData() > reqID.getDataEntrega()){
+        if (getData() > reqID.getDataEntrega()) {
             reqID.setDiasSemEntregar(getData() - reqID.getDataEntrega());
             user.setMulta(reqID.getDiasSemEntregar() * multaDiaria);
             user.setEstado(Estado.valueOf("SUSPENSO"));
         }
-
-
     }
 
     /**
      * Procura a multa de um utente especifico
+     *
      * @param userID utente id
      * @return Retorna a multa do utente
      */
-    public int mostraMulta(int userID){
+    public int mostrarMulta(int userID) {
         User user = this.users.get(userID);
-            return user.getMulta();
+        return user.getMulta();
     }
 
     /**
@@ -412,5 +429,4 @@ public class Biblioteca implements Serializable {
         }
         s.close();
     }
-
 }

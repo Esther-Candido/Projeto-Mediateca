@@ -41,4 +41,3 @@ public class BadEntrySpecificationException extends Exception {
         return _entrySpecification;
     }
 }
-

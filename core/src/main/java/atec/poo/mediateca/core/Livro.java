@@ -1,10 +1,10 @@
 package atec.poo.mediateca.core;
 
-public class Livro extends Obra{
+public class Livro extends Obra {
     private final String autor;
     private final String isbn;
 
-    public Livro(int id, String titulo, String autor, Double preco, String categoria,String isbn, int exemplares) {
+    public Livro(int id, String titulo, String autor, Double preco, String categoria, String isbn, int exemplares) {
         super(id, titulo, preco, categoria, exemplares);
         this.autor = autor;
         this.isbn = isbn;
@@ -13,7 +13,7 @@ public class Livro extends Obra{
 
     @Override
     public String toString() {
-        return super.toString()+" - " +this.autor+ " - "+this.isbn;
+        return super.toString() + " - " + this.autor + " - " + this.isbn;
     }
 
     @Override

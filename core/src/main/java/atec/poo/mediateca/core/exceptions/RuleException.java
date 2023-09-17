@@ -2,9 +2,9 @@ package atec.poo.mediateca.core.exceptions;
 
 public class RuleException extends Exception {
 
-   private final int userID;
-   private final int obraID;
-   private final int ruleID;
+    private final int userID;
+    private final int obraID;
+    private final int ruleID;
 
     public RuleException(int userID, int obraID, int ruleID) {
         this.userID = userID;
@@ -24,4 +24,3 @@ public class RuleException extends Exception {
         return ruleID;
     }
 }
-

@@ -5,7 +5,6 @@ import atec.poo.mediateca.app.exceptions.NoSuchWorkException;
 import atec.poo.mediateca.app.exceptions.UserIsActiveException;
 import atec.poo.mediateca.app.exceptions.WorkNotBorrowedByUserException;
 import atec.poo.mediateca.core.LibraryManager;
-import atec.poo.mediateca.core.Requisicao;
 import atec.poo.mediateca.core.exceptions.ActiveUserException;
 import atec.poo.mediateca.core.exceptions.BorrowException;
 import atec.poo.mediateca.core.exceptions.UserNotFoundException;
@@ -20,8 +19,8 @@ public class DoReturnWork extends Comando<LibraryManager> {
     private final LerInteiro userID;
     private final LerInteiro obraID;
     private final LerBoolean lerMulta;
+
     /**
-     *
      * @param receiver;
      */
     public DoReturnWork(LibraryManager receiver) {
@@ -45,13 +44,13 @@ public class DoReturnWork extends Comando<LibraryManager> {
             throw new NoSuchWorkException(e.getObraID());
         }
 
-        try {//DEVOLVER OBRA
+        try {
             this.getReceptor().devolverObra(userID.getValor(), obraID.getValor());
         } catch (BorrowException e) {
             throw new WorkNotBorrowedByUserException(e.getUserID(), e.getObraID());
         }
 
-        int multa = this.getReceptor().mostraMulta(userID.getValor());
+        int multa = this.getReceptor().mostrarMulta(userID.getValor());
 
         if (multa > 0) {
             ui.escreveLinha(Message.showFine(userID.getValor(), multa));

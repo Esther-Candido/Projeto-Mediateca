@@ -3,7 +3,6 @@ package atec.poo.mediateca.app.users;
 import atec.poo.mediateca.app.exceptions.UserIsActiveException;
 import atec.poo.mediateca.core.LibraryManager;
 import atec.poo.mediateca.core.exceptions.ActiveUserException;
-import atec.poo.mediateca.core.exceptions.BorrowException;
 import atec.poo.ui.Comando;
 import atec.poo.ui.LerInteiro;
 import atec.poo.ui.exceptions.DialogException;
@@ -15,12 +14,13 @@ import atec.poo.ui.exceptions.DialogException;
 public class DoPayFine extends Comando<LibraryManager> {
 
     private final LerInteiro id;
+
     /**
      * @param receiver;
      */
     public DoPayFine(LibraryManager receiver) {
         super(receiver, Label.PAY_FINE);
-        this.id=new LerInteiro(Message.requestUserId());
+        this.id = new LerInteiro(Message.requestUserId());
     }
 
     @Override

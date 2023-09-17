@@ -13,7 +13,7 @@ public class DVD extends Obra {
 
     @Override
     public String toString() {
-        return super.toString()+" - " +this.realizador+" - "+this.igac;
+        return super.toString() + " - " + this.realizador + " - " + this.igac;
     }
 
     @Override

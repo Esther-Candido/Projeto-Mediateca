@@ -11,16 +11,16 @@ import atec.poo.ui.Comando;
  */
 public class DoOpenWorksMenu extends Comando<LibraryManager> {
 
-  /**
-   * @param receiver;
-   */
-  public DoOpenWorksMenu(LibraryManager receiver) {
-    super(receiver, Label.OPEN_WORKS_MENU);
-  }
+    /**
+     * @param receiver;
+     */
+    public DoOpenWorksMenu(LibraryManager receiver) {
+        super(receiver, Label.OPEN_WORKS_MENU);
+    }
 
-  @Override
-  public final void executar() {
-    Menu menu = new Menu(this.getReceptor());
-    menu.open();
-  }
+    @Override
+    public final void executar() {
+        Menu menu = new Menu(this.getReceptor());
+        menu.open();
+    }
 }

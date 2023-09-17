@@ -13,23 +13,23 @@ import java.io.IOException;
  * 4.1.2. Guardar o estado da aplicação
  */
 public class DoSave extends Comando<LibraryManager> {
-  private final LerString ficheiro;
+    private final LerString ficheiro;
 
-  /**
-   * @param receiver;
-   */
-  public DoSave(LibraryManager receiver) {
-    super(receiver, Label.SAVE);
-    this.ficheiro = new LerString(Message.saveAs(), null);
-  }
-
-  @Override
-  public final void executar() throws DialogException {
-    ui.lerInput(this.ficheiro);
-    try {
-      this.getReceptor().save(this.ficheiro.getValor());
-    } catch (IOException e) {
-      throw new FileOpenFailedException(this.ficheiro.getValor());
+    /**
+     * @param receiver;
+     */
+    public DoSave(LibraryManager receiver) {
+        super(receiver, Label.SAVE);
+        this.ficheiro = new LerString(Message.saveAs(), null);
     }
-  }
+
+    @Override
+    public final void executar() throws DialogException {
+        ui.lerInput(this.ficheiro);
+        try {
+            this.getReceptor().save(this.ficheiro.getValor());
+        } catch (IOException e) {
+            throw new FileOpenFailedException(this.ficheiro.getValor());
+        }
+    }
 }

@@ -62,7 +62,8 @@ public class RuleFailedException extends DialogException {
         return _idUser;
     }
 
-    /**)
+    /**
+     * )
      */
     @Override
     public String getMessage() {

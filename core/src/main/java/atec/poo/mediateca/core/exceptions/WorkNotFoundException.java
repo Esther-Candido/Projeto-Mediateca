@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class WorkNotFoundException extends Exception implements Serializable {
 
-    private int id;
+    private final int id;
 
     public WorkNotFoundException(int id) {
         this.id = id;
@@ -14,4 +14,3 @@ public class WorkNotFoundException extends Exception implements Serializable {
         return id;
     }
 }
-

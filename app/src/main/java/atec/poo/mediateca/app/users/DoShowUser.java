@@ -14,19 +14,20 @@ import atec.poo.ui.exceptions.DialogException;
 public class DoShowUser extends Comando<LibraryManager> {
 
     private final LerInteiro id;
+
     /**
      * @param receiver;
      */
     public DoShowUser(LibraryManager receiver) {
         super(receiver, Label.SHOW_USER);
-        this.id=new LerInteiro(Message.requestUserId());
+        this.id = new LerInteiro(Message.requestUserId());
     }
 
     @Override
     public final void executar() throws DialogException {
         ui.lerInput(this.id);
         try {
-            String user=this.getReceptor().mostrarUtente(this.id.getValor());
+            String user = this.getReceptor().mostrarUtente(this.id.getValor());
             ui.escreveLinha(user);
         } catch (UserNotFoundException e) {
             throw new NoSuchUserException(e.getUserID());

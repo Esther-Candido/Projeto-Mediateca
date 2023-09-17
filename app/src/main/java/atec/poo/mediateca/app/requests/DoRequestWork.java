@@ -21,8 +21,8 @@ public class DoRequestWork extends Comando<LibraryManager> {
 
     /**
      * Requisita a obra
-     * @param receiver;
      *
+     * @param receiver;
      */
     public DoRequestWork(LibraryManager receiver) {
         super(receiver, Label.REQUEST_WORK);
@@ -32,8 +32,8 @@ public class DoRequestWork extends Comando<LibraryManager> {
 
     @Override
     public final void executar() throws DialogException {
-       ui.lerInput(userID);
-       ui.lerInput(obraID);
+        ui.lerInput(userID);
+        ui.lerInput(obraID);
 
         try {
             this.getReceptor().mostrarUtente(userID.getValor());
@@ -44,10 +44,10 @@ public class DoRequestWork extends Comando<LibraryManager> {
             throw new NoSuchWorkException(e.getObraID());
         }
 
-        int tempoEntrega = this.getReceptor().requisicaoDias(userID.getValor(), obraID.getValor()) + this.getReceptor().getData();
+        int tempoEntrega = this.getReceptor().calcularDataEntrega(userID.getValor(), obraID.getValor()) + this.getReceptor().getData();
 
-        try{
-            this.getReceptor().requisitarObra(this.userID.getValor(),this.obraID.getValor());
+        try {
+            this.getReceptor().requisitarObra(this.userID.getValor(), this.obraID.getValor());
             ui.escreveLinha(Message.workReturnDay(obraID.getValor(), tempoEntrega));
         } catch (RuleException e) {
             throw new RuleFailedException(e.getUserID(), e.getObraID(), e.getRuleID());

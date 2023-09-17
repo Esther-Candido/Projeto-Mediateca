@@ -1,6 +1,6 @@
 package atec.poo.mediateca.core.exceptions;
 
-public class BorrowException extends Exception{
+public class BorrowException extends Exception {
 
     private final int userID;
     private final int obraID;

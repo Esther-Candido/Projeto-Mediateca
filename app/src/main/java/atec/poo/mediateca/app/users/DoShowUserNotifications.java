@@ -10,28 +10,27 @@ import atec.poo.ui.exceptions.DialogException;
 /**
  * Conforme enunciado
  * 4.2.3. Mostrar Notificações do Utente
- *
  */
 public class DoShowUserNotifications extends Comando<LibraryManager> {
-  private final LerInteiro id;
-  /**
-   * @param receiver;
-   */
-  public DoShowUserNotifications(LibraryManager receiver) {
-    super(receiver, Label.SHOW_USER_NOTIFICATIONS);
-    this.id=new LerInteiro(Message.requestUserId());
-  }
+    private final LerInteiro id;
 
-  @Override
-  public final void executar() throws DialogException {
-    // AINDA POR FAZER
-    ui.lerInput(this.id);
-    try{
-      String notificacao=this.getReceptor().mostrarNotificacao(this.id.getValor());
-      ui.escreveLinha(notificacao);
+    /**
+     * @param receiver;
+     */
+    public DoShowUserNotifications(LibraryManager receiver) {
+        super(receiver, Label.SHOW_USER_NOTIFICATIONS);
+        this.id = new LerInteiro(Message.requestUserId());
     }
-    catch (UserNotFoundException e) {
-      throw new NoSuchUserException(e.getUserID());
+
+    @Override
+    public final void executar() throws DialogException {
+        // AINDA POR FAZER
+        ui.lerInput(this.id);
+        try {
+            String notificacao = this.getReceptor().mostrarNotificacao(this.id.getValor());
+            ui.escreveLinha(notificacao);
+        } catch (UserNotFoundException e) {
+            throw new NoSuchUserException(e.getUserID());
+        }
     }
-  }
 }

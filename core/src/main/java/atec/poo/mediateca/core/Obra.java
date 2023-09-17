@@ -57,14 +57,13 @@ public abstract class Obra implements Comparable<Obra>, Serializable {
 
     @Override
     public String toString() {
-        return this.id+" - "+this.stock+" de "+this.exemplares+" - "+this.tipo+" - "+this.titulo+" - "+this.preco+" - "+this.categoria;
+        return this.id + " - " + this.stock + " de " + this.exemplares + " - " + this.tipo + " - " + this.titulo + " - " + this.preco + " - " + this.categoria;
     }
 
-    // A ORDENAÇÃO JÁ ESTA A SER FEITA NO COMPAREOBRABYID ISTO ESTA A FAZER ALGO CONTRARIO
     @Override
     public int compareTo(Obra o) {
-        if(this.titulo.equals(o.getTitulo()))
-            return this.id-o.getId();
+        if (this.titulo.equals(o.getTitulo()))
+            return this.id - o.getId();
         return this.titulo.compareTo(o.getTitulo());
     }
 

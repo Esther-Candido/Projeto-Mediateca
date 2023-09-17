@@ -12,19 +12,19 @@ import java.util.ArrayList;
  */
 public class DoShowUsers extends Comando<LibraryManager> {
 
-  /**
-   * @param receiver;
-   */
-  public DoShowUsers(LibraryManager receiver) {
-    super(receiver,Label.SHOW_USERS);
-  }
-
-  @Override
-  public final void executar() {
-    ArrayList<User> users=this.getReceptor().listUsers();
-    for (User u : users) {
-      ui.escreveLinha(u.toString());
-      ui.escreveLinha(String.valueOf(u.numRequisicoes));
+    /**
+     * @param receiver;
+     */
+    public DoShowUsers(LibraryManager receiver) {
+        super(receiver, Label.SHOW_USERS);
     }
-  }
+
+    @Override
+    public final void executar() {
+        ArrayList<User> users = this.getReceptor().listUsers();
+        for (User u : users) {
+            ui.escreveLinha(u.toString());
+            ui.escreveLinha(String.valueOf(u.numRequisicoes));
+        }
+    }
 }

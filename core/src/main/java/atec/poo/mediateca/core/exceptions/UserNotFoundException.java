@@ -14,4 +14,3 @@ public class UserNotFoundException extends Exception implements Serializable {
         return id;
     }
 }
-

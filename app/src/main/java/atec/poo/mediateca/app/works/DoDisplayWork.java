@@ -12,12 +12,13 @@ import atec.poo.ui.exceptions.DialogException;
  */
 public class DoDisplayWork extends Comando<LibraryManager> {
     private final LerInteiro id;
+
     /**
      * @param receiver;
      */
     public DoDisplayWork(LibraryManager receiver) {
         super(receiver, Label.SHOW_WORK);
-        this.id=new LerInteiro(Message.requestWorkId());
+        this.id = new LerInteiro(Message.requestWorkId());
     }
 
     @Override
@@ -31,4 +32,3 @@ public class DoDisplayWork extends Comando<LibraryManager> {
         }
     }
 }
-

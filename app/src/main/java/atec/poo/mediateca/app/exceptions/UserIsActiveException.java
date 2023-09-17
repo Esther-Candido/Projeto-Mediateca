@@ -18,7 +18,7 @@ public class UserIsActiveException extends DialogException {
     /**
      * Bad user id.
      */
-    private int _id;
+    private final int _id;
 
     /**
      * @param id;

@@ -20,7 +20,7 @@ public class DoDisplayWorks extends Comando<LibraryManager> {
 
     @Override
     public final void executar() {
-        ArrayList<Obra> obras=this.getReceptor().listObrasByID();
+        ArrayList<Obra> obras = this.getReceptor().listObrasByID();
         for (Obra o : obras) {
             ui.escreveLinha(o.toString());
         }

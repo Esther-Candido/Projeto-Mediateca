@@ -10,19 +10,20 @@ import atec.poo.ui.LerInteiro;
  */
 public class DoAdvanceDate extends Comando<LibraryManager> {
 
-  private final LerInteiro dias;
-  /**
-   * @param receiver;
-   */
-  public DoAdvanceDate(LibraryManager receiver) {
-    super( receiver,Label.ADVANCE_DATE);
-    this.dias=new LerInteiro(Message.requestDaysToAdvance());
-  }
+    private final LerInteiro dias;
 
-  @Override
-  public final void executar() {
-    ui.lerInput(this.dias);
-    this.getReceptor().setData(this.dias.getValor());
-    ui.escreveLinha(Message.currentDate(this.getReceptor().getData()));
-  }
+    /**
+     * @param receiver;
+     */
+    public DoAdvanceDate(LibraryManager receiver) {
+        super(receiver, Label.ADVANCE_DATE);
+        this.dias = new LerInteiro(Message.requestDaysToAdvance());
+    }
+
+    @Override
+    public final void executar() {
+        ui.lerInput(this.dias);
+        this.getReceptor().setData(this.dias.getValor());
+        ui.escreveLinha(Message.currentDate(this.getReceptor().getData()));
+    }
 }

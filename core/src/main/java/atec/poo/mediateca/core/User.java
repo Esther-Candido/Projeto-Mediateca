@@ -3,7 +3,6 @@ package atec.poo.mediateca.core;
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class User implements Comparable<User>, Serializable {
@@ -15,18 +14,18 @@ public class User implements Comparable<User>, Serializable {
     private Estado estado;
     private final Comportamento comportamento;
     private int multa;
-    List<Integer> requisicaoID=new ArrayList<Integer>();
-    List<Integer> requisicao=new ArrayList<Integer>(); // VAMOS RETIRAR?
+    List<Integer> requisicaoID = new ArrayList<>();
+    List<Integer> requisicao = new ArrayList<>();
     public int numRequisicoes;
 
     public User(int id, String nome, String email) {
         this.id = id;
         this.nome = nome;
         this.email = email;
-        this.estado=Estado.ACTIVO;
-        this.comportamento=Comportamento.NORMAL;
-        this.multa=0;
-        this.numRequisicoes=0;
+        this.estado = Estado.ACTIVO;
+        this.comportamento = Comportamento.NORMAL;
+        this.multa = 0;
+        this.numRequisicoes = 0;
     }
 
     public int getId() {
@@ -57,7 +56,7 @@ public class User implements Comparable<User>, Serializable {
         this.multa = multa;
     }
 
-    public boolean getObraID(int id) { // ALTERAR O NOME DO METODO
+    public boolean getObraID(int id) { // ALTERAR O NOME DO METODO E POSSIVELMENTE MUDAR DE SITIO
         if (requisicao != null) {
             for (Integer valor : requisicao) {
                 if (valor == id) {
@@ -71,15 +70,15 @@ public class User implements Comparable<User>, Serializable {
     @Override
     public String toString() {
         if (multa > 0)
-            return this.id+" - "+this.nome+" - "+this.email+" - "+this.comportamento+" - "+this.estado+" - EUR "+this.multa;
+            return this.id + " - " + this.nome + " - " + this.email + " - " + this.comportamento + " - " + this.estado + " - EUR " + this.multa;
         else
-            return this.id+" - "+this.nome+" - "+this.email+" - "+this.comportamento+" - "+this.estado;
+            return this.id + " - " + this.nome + " - " + this.email + " - " + this.comportamento + " - " + this.estado;
     }
 
     @Override
     public int compareTo(User o) {
-        if(this.nome.equalsIgnoreCase(o.getNome()))
-            return this.id-o.getId();
+        if (this.nome.equalsIgnoreCase(o.getNome()))
+            return this.id - o.getId();
         return this.nome.toLowerCase().compareTo(o.getNome().toLowerCase());
     }
 }
