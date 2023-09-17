@@ -7,10 +7,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.Serial;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Scanner;
+import java.util.*;
 
 
 public class Biblioteca implements Serializable {
@@ -119,7 +116,6 @@ public class Biblioteca implements Serializable {
         User user = this.users.get(userID);
 
         if (user.getEstado().toString().equals("SUSPENSO")) {
-            // DEVOLVER OBRA
             user.setMulta(0);
             user.setEstado(Estado.valueOf("ACTIVO"));
             devolverObraMulta(userID);
@@ -382,13 +378,6 @@ public class Biblioteca implements Serializable {
 
 
     }
-
-    /*
-    Se o utente não entregar as obras requisitadas no prazo devido, fica imediatamente suspenso (até pagar a multa).
-    Por cada dia de atraso, o utente fica sujeito ao pagamento de uma multa de €5,00.
-    Sò deixa de estar suspenso após a devolução das obras em atraso e o pagamento da multa.
-    Cada dia depois do prazo ultrapassado é aumentado €5,00 por cada dia que passar sem ser paga a multa.
-     */
 
     /**
      * Procura a multa de um utente especifico
