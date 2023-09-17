@@ -2,6 +2,8 @@ package atec.poo.mediateca.core;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class Obra implements Comparable<Obra>, Serializable {
     @Serial
@@ -13,6 +15,7 @@ public abstract class Obra implements Comparable<Obra>, Serializable {
     private int stock;
     private final int exemplares;
     private Tipo tipo;
+    List<String> Registro = new ArrayList<>();
 
     public Obra(int id, String titulo, Double preco, String categoria, int exemplares) {
         this.id = id;
@@ -43,6 +46,7 @@ public abstract class Obra implements Comparable<Obra>, Serializable {
         return stock;
     }
 
+
     public void setStock(int stock) {
         this.stock = stock;
     }
@@ -53,6 +57,14 @@ public abstract class Obra implements Comparable<Obra>, Serializable {
 
     public void setTipo(Tipo tipo) {
         this.tipo = tipo;
+    }
+
+    public Tipo getTipo() {
+        return tipo;
+    }
+
+    public List<String> getRegistro() {
+        return Registro;
     }
 
     @Override

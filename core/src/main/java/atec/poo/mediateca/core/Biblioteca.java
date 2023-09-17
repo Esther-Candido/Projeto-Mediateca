@@ -100,20 +100,27 @@ public class Biblioteca implements Serializable {
      * AINDA POR FAZER!!!!!!!!!!!!!!!!!!!
      * Obtém notificações de um utente específico
      *
-     * @param id id utente
+     * @param userID id utente
      * @return Notificações do utente pretendido
      * @throws UserNotFoundException Verificar se o utente existe ou não
      */
-    public String mostrarNotificacao(int id) throws UserNotFoundException {
-        if (this.users.containsKey(id))
-            return this.users.get(id).toString(); // Em vez mostrar informação do Utente mostrar as notificações desse Utente (Entrega/Requisição)
-        // Exemplos:
-            /*
-                ENTREGA: 4 - 2 de 4 - DVD - Casamento Real - 8 Ficção - António Fonseca - 200400500
-                REQUISIÇÃO: 5 - 4 de 22 - Livro - Dicionário - 45 - Referência - Pedro Casanova - 1234567893
-             */
-        throw new UserNotFoundException(id);
+    public ArrayList<String> mostrarNotificacao(int userID){
+        User user = this.users.get(userID);
+
+        if(!user.filaObraID.isEmpty()){
+
+            for (Integer obraid: user.filaObraID){
+                Obra obra = this.obras.get(obraid);
+                ArrayList<String> obra_notificacao = new ArrayList<>(obra.getRegistro());
+                return obra_notificacao;
+            }
+        }
+        return new ArrayList<>();
     }
+
+
+
+
 
     /**
      * Paga a multa de um utente especifico
@@ -257,6 +264,7 @@ public class Biblioteca implements Serializable {
         }
 
         if (obra.getStock() <= 0) {
+            user.filaObraID.add(Integer.valueOf(obraID));
             throw new RuleException(userID, obraID, 3);
         }
 
@@ -282,6 +290,15 @@ public class Biblioteca implements Serializable {
                 int dataEntrega = getData() + calcularDataEntrega(userID, obraID);
                 int reqID = registarRequisicao(userID, obraID, dataRequisicao, dataEntrega);
                 user.requisicaoID.add(reqID);
+
+
+                obra.Registro.add("REQUISIÇÃO: " + obra.toString());
+                if (user.filaObraID.contains(obraID)){
+                    user.filaObraID.remove(Integer.valueOf(obraID));
+                }
+
+
+
 
                 int novoStock = obra.getStock() - 1;
                 obra.setStock(novoStock);
@@ -349,6 +366,8 @@ public class Biblioteca implements Serializable {
         user.numRequisicoes--;
         int novoStock = obra.getStock() + 1;
         obra.setStock(novoStock);
+        //REGISTRO das acoes de devolucoes
+        obra.Registro.add("ENTREGA: " + obra.toString());
     }
 
     /**

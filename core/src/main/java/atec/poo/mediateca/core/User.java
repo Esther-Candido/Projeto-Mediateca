@@ -16,6 +16,7 @@ public class User implements Comparable<User>, Serializable {
     private int multa;
     List<Integer> requisicaoID = new ArrayList<>();
     List<Integer> requisicao = new ArrayList<>();
+    List<Integer> filaObraID = new ArrayList<>();
     public int numRequisicoes;
 
     public User(int id, String nome, String email) {
