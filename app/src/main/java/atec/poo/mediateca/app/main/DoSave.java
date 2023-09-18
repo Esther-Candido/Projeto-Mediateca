@@ -20,7 +20,7 @@ public class DoSave extends Comando<LibraryManager> {
      */
     public DoSave(LibraryManager receiver) {
         super(receiver, Label.SAVE);
-        this.ficheiro = new LerString(Message.saveAs(), null);
+        this.ficheiro = new LerString(Message.newSaveAs(), null);
     }
 
     @Override

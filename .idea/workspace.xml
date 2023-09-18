@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4662b5e-311f-435c-968a-2d020cfccb77" name="Changes" comment="comentários">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/requests/DoRequestWork.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/requests/DoRequestWork.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Biblioteca.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Biblioteca.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/LibraryManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/LibraryManager.java" afterDir="false" />
-    </list>
+    <list default="true" id="f4662b5e-311f-435c-968a-2d020cfccb77" name="Changes" comment="Retirando BUGS" />
     <list id="ab932900-c719-417c-973a-d1cc8cd95c38" name="Changes by atec" comment="pesquisar obras FILTRO e ordenar por ID" />
     <list id="2bb50890-f5fb-4e45-bc29-c8828237ae5f" name="Changes by eliseu" comment="" />
     <list id="f13d89b1-b798-435d-9fcd-d21652288b04" name="Changes by vitor" comment="" />
@@ -149,7 +144,7 @@
       <workItem from="1694933574605" duration="312000" />
       <workItem from="1694956910149" duration="13705000" />
       <workItem from="1694971448353" duration="12086000" />
-      <workItem from="1694997484414" duration="2831000" />
+      <workItem from="1694997484414" duration="3190000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <option name="closed" value="true" />
@@ -287,7 +282,23 @@
       <option name="project" value="LOCAL" />
       <updated>1694983404202</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Retirando BUGS">
+      <option name="closed" value="true" />
+      <created>1695002411943</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1695002411943</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Retirando BUGS">
+      <option name="closed" value="true" />
+      <created>1695002471627</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1695002471627</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -319,7 +330,8 @@
     <MESSAGE value="comentários" />
     <MESSAGE value="Changes by Bruno Rafael" />
     <MESSAGE value="Changes by Eliseu" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes by Eliseu" />
+    <MESSAGE value="Retirando BUGS" />
+    <option name="LAST_COMMIT_MESSAGE" value="Retirando BUGS" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
