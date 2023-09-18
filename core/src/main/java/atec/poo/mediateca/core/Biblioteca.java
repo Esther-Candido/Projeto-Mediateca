@@ -335,10 +335,7 @@ public class Biblioteca implements Serializable {
      */
     public boolean verificarStock(int obraID) {
         Obra obra = this.obras.get(obraID);
-        if (obra.getStock() <= 0) {
-            return false;
-        }
-        return true;
+        return obra.getStock() > 0;
     }
 
     /**
