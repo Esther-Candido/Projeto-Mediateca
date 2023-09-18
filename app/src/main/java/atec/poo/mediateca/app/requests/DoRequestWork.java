@@ -50,7 +50,6 @@ public class DoRequestWork extends Comando<LibraryManager> {
             throw new RuleFailedException(e.getUserID(), e.getObraID(), e.getRuleID());
         }
 
-        //if (!this.getReceptor().verificarStock(this.obraID.getValor())) {
         if (!this.getReceptor().verificarStock(this.obraID.getValor()) && !this.getReceptor().userObra(userID.getValor(),obraID.getValor())) {
             ui.escreveLinha(atec.poo.mediateca.app.works.Message.semExemplares(obraID.getValor()));
             ui.lerInput(lerAvisoStock);

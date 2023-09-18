@@ -279,12 +279,8 @@ public class Biblioteca implements Serializable {
         Obra obra = this.obras.get(obraID);
         User user = this.users.get(userID);
 
-        /*if (obra.getStock() <= 0)
-            NotificacaoStock(userID, obraID);*/
-
         if (obra.getStock() <= 0 && !user.getObraID(obraID))
             NotificacaoStock(userID, obraID);
-
 
         if (obra.getCategoria().equals("REFERENCE"))
             throw new RuleException(userID, obraID, 5);

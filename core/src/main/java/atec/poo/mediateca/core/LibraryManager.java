@@ -105,7 +105,6 @@ public class LibraryManager {
     }
 
 
-    public boolean userObra (int userID, int obraID){ return this._biblioteca.userObra(userID,obraID);}
     /**
      *
      * @param userID id user
