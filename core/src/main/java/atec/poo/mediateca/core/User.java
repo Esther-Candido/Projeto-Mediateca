@@ -69,7 +69,7 @@ public class User implements Comparable<User>, Serializable {
         this.comportamento = comportamento;
     }
 
-    public boolean getObraID(int id) { // ALTERAR O NOME DO METODO E POSSIVELMENTE MUDAR DE SITIO
+    public boolean getObraID(int id) {
         if (requisicao != null) {
             for (Integer valor : requisicao) {
                 if (valor == id) {
