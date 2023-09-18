@@ -123,7 +123,9 @@ public class Biblioteca implements Serializable {
      */
     public void NotificacaoStock(int userID, int obraID) {
         Obra obra = this.obras.get(obraID);
-        obra.UserIDRegistro.add(userID);
+        if(!obra.UserIDRegistro.contains(userID)){
+            obra.UserIDRegistro.add(userID);
+        }
     }
 
 
