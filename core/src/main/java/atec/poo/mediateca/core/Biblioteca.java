@@ -46,7 +46,8 @@ public class Biblioteca implements Serializable {
 
     /**
      * Define a data atual
-     *
+     * E faz uma verificação das multa para ser aplicada em usuario
+     * que ainda não entrego no prazo estipulado
      * @param data data
      */
     public void setData(int data) {
@@ -98,10 +99,13 @@ public class Biblioteca implements Serializable {
     }
 
     /**
-     * Obtém notificações de um utente específico
+     * Obtém notificações de uma obra específica
+     * para um Usuario que tiver interesse.
+     * Após a visualização da notificação
+     * a caixa de notificação do cliente é limpa
      *
      * @param userID id utente
-     * @return Notificações do utente pretendido
+     * @return Notificações da obra para o Usuario interessado
      */
     public ArrayList<String> mostrarNotificacao(int userID) {
         User user = this.users.get(userID);
@@ -117,9 +121,12 @@ public class Biblioteca implements Serializable {
     }
 
     /**
-     *
-     * @param userID user id
-     * @param obraID obra id
+     * Se o cliente quiser ser notificado, entra na função
+     * ela verifica se ele ja tem notificação ativa para a obra especifica
+     * caso não, ele entra na condição e adiciona o userID para acompanhar
+     * o registro da OBRA
+     * @param userID ID DO USUARIO
+     * @param obraID ID DA OBRA
      */
     public void NotificacaoStock(int userID, int obraID) {
         Obra obra = this.obras.get(obraID);
@@ -131,7 +138,8 @@ public class Biblioteca implements Serializable {
 
     /**
      * Paga a multa de um utente especifico
-     *
+     * E chama a função devolver DevolverObraMulta
+     * caso o usuario ainda esta com a obra ela é devolvida
      * @param userID id utente
      */
     public void pagarMulta(int userID) throws ActiveUserException {
@@ -146,8 +154,12 @@ public class Biblioteca implements Serializable {
         throw new ActiveUserException(userID);
     }
 
-    /**
-     * @param userID;
+    /** O Usuario chama a função para pagar a multa da entrega atrasada
+     * caso esteja com alguma OBRA que passou do prazo de entrega
+     * ela é devolvida assim que saldar toda a multa
+     * OBS: Esta função é diferente da devolver obra, nessa o USUARIO
+     * pode já ter devolvido a OBRA
+     * @param userID; ID DO USUARIO
      */
     public void devolverObraMulta(int userID) {
         User user = this.users.get(userID);
@@ -511,7 +523,6 @@ public class Biblioteca implements Serializable {
         Scanner s = new Scanner(new File(filename));
         while (s.hasNextLine()) {
             String line = s.nextLine();
-            //System.out.println(line);
             String[] elementos = line.split(":", 0);
             switch (elementos[0]) {
                 case "USER" -> this.registarUser(elementos[1], elementos[2]);

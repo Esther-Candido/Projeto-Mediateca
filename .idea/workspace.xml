@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4662b5e-311f-435c-968a-2d020cfccb77" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/docs/Implementação.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Biblioteca.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Biblioteca.java" afterDir="false" />
     </list>
     <list id="ab932900-c719-417c-973a-d1cc8cd95c38" name="Changes by atec" comment="pesquisar obras FILTRO e ordenar por ID" />
     <list id="3316f7df-a205-4735-b5f2-2a591965be0e" name="Changes by Bruno Rafael" comment="" />
@@ -91,17 +92,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Application.Mediateca-All" />
       <item itemvalue="Application.Mediateca-Users" />
@@ -152,6 +142,7 @@
       <workItem from="1694971448353" duration="11366000" />
       <workItem from="1694983643002" duration="4035000" />
       <workItem from="1695001746667" duration="5480000" />
+      <workItem from="1695064389328" duration="1332000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <option name="closed" value="true" />
@@ -312,7 +303,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Biblioteca.java</url>
-          <line>54</line>
+          <line>55</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
