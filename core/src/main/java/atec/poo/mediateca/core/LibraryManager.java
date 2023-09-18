@@ -67,7 +67,6 @@ public class LibraryManager {
      *
      * @param userID id utente
      * @return Notificações do utente pretendido
-     * @throws UserNotFoundException Verificar se o utente existe ou não
      */
     public ArrayList<String> mostrarNotificacao(int userID) {
         return this._biblioteca.mostrarNotificacao(userID);
