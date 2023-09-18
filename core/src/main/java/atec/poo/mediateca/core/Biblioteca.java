@@ -221,7 +221,6 @@ public class Biblioteca implements Serializable {
 
     /**
      * Mostra informações sobre todas as obras por ordem crescente do ID da obra
-     *
      * @return Informações de todas as obras (ordem crescente id obra)
      */
     public ArrayList<Obra> listObrasByID() {
@@ -246,7 +245,6 @@ public class Biblioteca implements Serializable {
 
     /**
      * Registra uma nova Requisicão
-     *
      * @param userID         id utente
      * @param obraID         id obra
      * @param dataRequisicao data requisicao obra
@@ -258,15 +256,6 @@ public class Biblioteca implements Serializable {
         return this.nextReqID++;
     }
 
-    /**
-     * Mostra informações sobre todas as requisições feitas
-     *
-     * @return Informações de todas as requisições
-     */
-
-    public ArrayList<Requisicao> listRequisicao() {
-        return new ArrayList<>(this.requisicoes.values());
-    }
 
     /**
      * Requisita obra especifica para um utente especifico

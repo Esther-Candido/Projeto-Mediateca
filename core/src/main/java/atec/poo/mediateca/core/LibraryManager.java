@@ -6,9 +6,7 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class LibraryManager {
-
     private Biblioteca _biblioteca;
-
     public LibraryManager() {
         this._biblioteca = new Biblioteca();
     }
@@ -72,12 +70,17 @@ public class LibraryManager {
         return this._biblioteca.mostrarNotificacao(userID);
     }
 
-
+    /**
+     *  Adiciona ao Usuario a notificação da obra que ele pretendia pegar
+     *  essa função só é ativada após o usuario aceitar que quer receber
+     *  notificação quando a obra tiver disponivel
+     * @param userID ID do Usuario
+     * @param obraID ID da Obra
+     */
     public void NotificacaoStock(int userID, int obraID){this._biblioteca.NotificacaoStock(userID,obraID);}
 
     /**
      * Paga a multa de um utente especifico
-     *
      * @param userID id utente
      */
     public void pagarMulta(int userID) throws ActiveUserException {
@@ -86,7 +89,6 @@ public class LibraryManager {
 
     /**
      * Obtém informações sobre uma obra específica
-     *
      * @param id id obra
      * @return Informações da obra pretendido
      * @throws WorkNotFoundException Verificar se a obra existe ou não
@@ -104,9 +106,7 @@ public class LibraryManager {
         return this._biblioteca.listObrasByID();
     }
 
-
     /**
-     *
      * @param userID id user
      * @param obraID id obra
      * @return true ou false
@@ -115,7 +115,6 @@ public class LibraryManager {
 
     /**
      * Requisita obra especifica para um utente especifico
-     *
      * @param userID id utente
      * @param obraID id obra
      * @throws RuleException Mostra cada erro especifico
@@ -137,7 +136,6 @@ public class LibraryManager {
 
     /**
      * Verifica se o Stock acabou
-     *
      * @param obraID obra id
      * @return Retorna TRUE se a obra tem stock e FALSE quando não tem
      */
@@ -158,7 +156,6 @@ public class LibraryManager {
 
     /**
      * Faz a devolução da Obra que foi requisitada
-     *
      * @param userID id utente
      * @param obraID id obra
      */
@@ -168,7 +165,6 @@ public class LibraryManager {
 
     /**
      * Procura a multa de um utente especifico
-     *
      * @param userID utente id
      * @return Retorna a multa do utente
      */
