@@ -53,7 +53,7 @@ public class DoRequestWork extends Comando<LibraryManager> {
             throw new RuleFailedException(e.getUserID(), e.getObraID(), e.getRuleID());
         }
 
-        if (!this.getReceptor().verificarStock(this.obraID.getValor())) {
+        if (!this.getReceptor().verificarStock(this.obraID.getValor()) && !this.getReceptor().userObra(userID.getValor(),obraID.getValor())) {
             ui.lerInput(lerAvisoStock);
             if (lerAvisoStock.getValor()) {
                 this.getReceptor().NotificacaoStock(userID.getValor(), obraID.getValor());

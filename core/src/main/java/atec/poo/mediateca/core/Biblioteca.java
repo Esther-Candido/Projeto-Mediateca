@@ -124,7 +124,6 @@ public class Biblioteca implements Serializable {
 
     public void NotificacaoStock(int userID, int obraID) {
         Obra obra = this.obras.get(obraID);
-        User user = this.users.get(userID);
 
         obra.UserIDRegistro.add(Integer.valueOf(userID));
     }
@@ -234,6 +233,19 @@ public class Biblioteca implements Serializable {
     }
 
     /**
+     * Descobrir se o cliente tem a obra,
+     * usado no DoRequestWork para quando a obra não tiver stock
+     * Mas o usuario coloca um id que ja tenha a obra, obtenha o erro de
+     * usuario não pode requisitar a mesma obra
+     * @param userID ID USUARIO
+     * @param obraID ID DA OBRA
+     * @return Se a obra estiver com o Usuario retorna true
+     */
+    public boolean userObra (int userID, int obraID){
+        User user = this.users.get(userID);
+        return user.getObraID(obraID);
+    }
+    /**
      * Registra uma nova Requisicão
      *
      * @param userID         id utente
@@ -244,7 +256,6 @@ public class Biblioteca implements Serializable {
     public int registarRequisicao(int userID, int obraID, int dataRequisicao, int dataEntrega) {
         Requisicao req = new Requisicao(this.nextReqID, userID, obraID, dataRequisicao, dataEntrega);
         this.requisicoes.put(req.getId(), req);
-        System.out.println(listRequisicao()); //Serve só para testes, para saber se a requisição esta a ser bem feita.
         return this.nextReqID++;
     }
 
@@ -268,11 +279,9 @@ public class Biblioteca implements Serializable {
         Obra obra = this.obras.get(obraID);
         User user = this.users.get(userID);
 
-        if (obra.getStock() <= 0) {
-
+            if (obra.getStock() <= 0 && !user.getObraID(obraID)) {
             NotificacaoStock(userID, obraID);
         }
-
 
         if (obra.getCategoria().equals(Categoria.REFERENCE))
             throw new RuleException(userID, obraID, 5);

@@ -5,27 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4662b5e-311f-435c-968a-2d020cfccb77" name="Changes" comment="comentários">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/requests/DoRequestWork.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/requests/DoRequestWork.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Biblioteca.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Biblioteca.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/LibraryManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/LibraryManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Obra.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Obra.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/User.java" afterDir="false" />
     </list>
     <list id="ab932900-c719-417c-973a-d1cc8cd95c38" name="Changes by atec" comment="pesquisar obras FILTRO e ordenar por ID" />
-    <list id="3316f7df-a205-4735-b5f2-2a591965be0e" name="Changes by Bruno Rafael" comment="">
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Categoria.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/requests/DoRequestWork.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/requests/DoRequestWork.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/requests/DoReturnWork.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/requests/DoReturnWork.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Biblioteca.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Biblioteca.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/LibraryManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/LibraryManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Obra.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Obra.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/User.java" afterDir="false" />
-    </list>
-    <list id="e651a330-c68e-4bd8-a282-20d6ffe6ce53" name="Changes by Eliseu" comment="">
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Biblioteca.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Biblioteca.java" afterDir="false" />
-    </list>
     <list id="2bb50890-f5fb-4e45-bc29-c8828237ae5f" name="Changes by eliseu" comment="" />
     <list id="f13d89b1-b798-435d-9fcd-d21652288b04" name="Changes by vitor" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -43,86 +28,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Biblioteca.java">
-      <ranges>
-        <range start1="4" end1="4" start2="4" end2="5" changelist="f4662b5e-311f-435c-968a-2d020cfccb77" />
-        <range start1="5" end1="5" start2="6" end2="8" changelist="f4662b5e-311f-435c-968a-2d020cfccb77" />
-        <range start1="8" end1="8" start2="11" end2="12" changelist="e651a330-c68e-4bd8-a282-20d6ffe6ce53" />
-        <range start1="106" end1="107" start2="110" end2="111" changelist="f4662b5e-311f-435c-968a-2d020cfccb77" />
-        <range start1="109" end1="110" start2="113" end2="114" changelist="f4662b5e-311f-435c-968a-2d020cfccb77" />
-        <range start1="111" end1="116" start2="115" end2="119" changelist="f4662b5e-311f-435c-968a-2d020cfccb77" />
-        <range start1="121" end1="121" start2="124" end2="127" changelist="f4662b5e-311f-435c-968a-2d020cfccb77" />
-        <range start1="122" end1="122" start2="128" end2="130" changelist="f4662b5e-311f-435c-968a-2d020cfccb77" />
-        <range start1="132" end1="133" start2="140" end2="141" changelist="3316f7df-a205-4735-b5f2-2a591965be0e" />
-        <range start1="134" end1="135" start2="142" end2="143" changelist="3316f7df-a205-4735-b5f2-2a591965be0e" />
-        <range start1="167" end1="167" start2="175" end2="176" changelist="f4662b5e-311f-435c-968a-2d020cfccb77" />
-        <range start1="260" end1="264" start2="269" end2="269" changelist="f4662b5e-311f-435c-968a-2d020cfccb77" />
-        <range start1="266" end1="268" start2="271" end2="273" changelist="f4662b5e-311f-435c-968a-2d020cfccb77" />
-        <range start1="270" end1="271" start2="275" end2="277" changelist="f4662b5e-311f-435c-968a-2d020cfccb77" />
-        <range start1="273" end1="274" start2="279" end2="280" changelist="3316f7df-a205-4735-b5f2-2a591965be0e" />
-        <range start1="277" end1="278" start2="283" end2="284" changelist="3316f7df-a205-4735-b5f2-2a591965be0e" />
-        <range start1="279" end1="283" start2="285" end2="288" changelist="3316f7df-a205-4735-b5f2-2a591965be0e" />
-        <range start1="293" end1="302" start2="298" end2="298" changelist="f4662b5e-311f-435c-968a-2d020cfccb77" />
-        <range start1="304" end1="304" start2="300" end2="311" changelist="f4662b5e-311f-435c-968a-2d020cfccb77" />
-        <range start1="311" end1="311" start2="318" end2="346" changelist="3316f7df-a205-4735-b5f2-2a591965be0e" />
-        <range start1="313" end1="314" start2="348" end2="350" changelist="3316f7df-a205-4735-b5f2-2a591965be0e" />
-        <range start1="316" end1="317" start2="352" end2="353" changelist="3316f7df-a205-4735-b5f2-2a591965be0e" />
-        <range start1="368" end1="370" start2="404" end2="412" changelist="f4662b5e-311f-435c-968a-2d020cfccb77" />
-        <range start1="387" end1="387" start2="429" end2="431" changelist="3316f7df-a205-4735-b5f2-2a591965be0e" />
-        <range start1="389" end1="390" start2="433" end2="434" changelist="3316f7df-a205-4735-b5f2-2a591965be0e" />
-        <range start1="402" end1="402" start2="446" end2="475" changelist="3316f7df-a205-4735-b5f2-2a591965be0e" />
-        <range start1="403" end1="403" start2="476" end2="478" changelist="3316f7df-a205-4735-b5f2-2a591965be0e" />
-        <range start1="409" end1="414" start2="484" end2="488" changelist="f4662b5e-311f-435c-968a-2d020cfccb77" />
-        <range start1="417" end1="418" start2="491" end2="492" changelist="3316f7df-a205-4735-b5f2-2a591965be0e" />
-        <range start1="422" end1="423" start2="496" end2="497" changelist="3316f7df-a205-4735-b5f2-2a591965be0e" />
-        <range start1="443" end1="445" start2="517" end2="521" changelist="f4662b5e-311f-435c-968a-2d020cfccb77" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/User.java">
-      <ranges>
-        <range start1="14" end1="15" start2="14" end2="15" changelist="f4662b5e-311f-435c-968a-2d020cfccb77" />
-        <range start1="18" end1="19" start2="18" end2="19" changelist="f4662b5e-311f-435c-968a-2d020cfccb77" />
-        <range start1="20" end1="20" start2="20" end2="22" changelist="3316f7df-a205-4735-b5f2-2a591965be0e" />
-        <range start1="29" end1="29" start2="31" end2="33" changelist="3316f7df-a205-4735-b5f2-2a591965be0e" />
-        <range start1="38" end1="42" start2="42" end2="42" changelist="3316f7df-a205-4735-b5f2-2a591965be0e" />
-        <range start1="46" end1="46" start2="46" end2="50" changelist="3316f7df-a205-4735-b5f2-2a591965be0e" />
-        <range start1="58" end1="58" start2="62" end2="86" changelist="f4662b5e-311f-435c-968a-2d020cfccb77" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/LibraryManager.java">
-      <ranges>
-        <range start1="75" end1="75" start2="75" end2="78" changelist="f4662b5e-311f-435c-968a-2d020cfccb77" />
-        <range start1="114" end1="114" start2="117" end2="138" changelist="3316f7df-a205-4735-b5f2-2a591965be0e" />
-        <range start1="116" end1="117" start2="140" end2="141" changelist="3316f7df-a205-4735-b5f2-2a591965be0e" />
-        <range start1="120" end1="121" start2="144" end2="145" changelist="3316f7df-a205-4735-b5f2-2a591965be0e" />
-        <range start1="142" end1="144" start2="166" end2="168" changelist="3316f7df-a205-4735-b5f2-2a591965be0e" />
-        <range start1="147" end1="148" start2="171" end2="172" changelist="3316f7df-a205-4735-b5f2-2a591965be0e" />
-        <range start1="150" end1="151" start2="174" end2="175" changelist="3316f7df-a205-4735-b5f2-2a591965be0e" />
-        <range start1="159" end1="160" start2="183" end2="184" changelist="3316f7df-a205-4735-b5f2-2a591965be0e" />
-        <range start1="162" end1="164" start2="186" end2="188" changelist="3316f7df-a205-4735-b5f2-2a591965be0e" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Obra.java">
-      <ranges>
-        <range start1="13" end1="14" start2="13" end2="14" changelist="3316f7df-a205-4735-b5f2-2a591965be0e" />
-        <range start1="17" end1="18" start2="17" end2="18" changelist="f4662b5e-311f-435c-968a-2d020cfccb77" />
-        <range start1="23" end1="24" start2="23" end2="24" changelist="3316f7df-a205-4735-b5f2-2a591965be0e" />
-        <range start1="40" end1="41" start2="40" end2="41" changelist="3316f7df-a205-4735-b5f2-2a591965be0e" />
-        <range start1="60" end1="64" start2="60" end2="60" changelist="3316f7df-a205-4735-b5f2-2a591965be0e" />
-        <range start1="65" end1="67" start2="61" end2="63" changelist="f4662b5e-311f-435c-968a-2d020cfccb77" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/app/src/main/java/atec/poo/mediateca/app/requests/DoRequestWork.java">
-      <ranges>
-        <range start1="10" end1="10" start2="10" end2="11" changelist="f4662b5e-311f-435c-968a-2d020cfccb77" />
-        <range start1="20" end1="20" start2="21" end2="22" changelist="3316f7df-a205-4735-b5f2-2a591965be0e" />
-        <range start1="30" end1="30" start2="32" end2="33" changelist="3316f7df-a205-4735-b5f2-2a591965be0e" />
-        <range start1="46" end1="47" start2="49" end2="62" changelist="3316f7df-a205-4735-b5f2-2a591965be0e" />
-        <range start1="49" end1="49" start2="64" end2="65" changelist="3316f7df-a205-4735-b5f2-2a591965be0e" />
-      </ranges>
-    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -243,7 +148,8 @@
       <workItem from="1694931811038" duration="1692000" />
       <workItem from="1694933574605" duration="312000" />
       <workItem from="1694956910149" duration="13705000" />
-      <workItem from="1694971448353" duration="11366000" />
+      <workItem from="1694971448353" duration="12086000" />
+      <workItem from="1694997484414" duration="2831000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <option name="closed" value="true" />
@@ -357,7 +263,31 @@
       <option name="project" value="LOCAL" />
       <updated>1694771003332</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="comentários">
+      <option name="closed" value="true" />
+      <created>1694983391159</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1694983391159</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Changes by Eliseu">
+      <option name="closed" value="true" />
+      <created>1694983397719</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1694983397719</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Changes by Eliseu">
+      <option name="closed" value="true" />
+      <created>1694983404202</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1694983404202</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -381,21 +311,22 @@
     <MESSAGE value="Changes by eliseu" />
     <MESSAGE value="Changes" />
     <MESSAGE value="pesquisar obras FILTRO e ordenar por ID" />
-    <MESSAGE value="Changes by Bruno Rafael" />
     <MESSAGE value="att" />
     <MESSAGE value="limpeza de codigo" />
     <MESSAGE value="ordem utentes" />
     <MESSAGE value="requisição 50% feito" />
     <MESSAGE value="requisição 100% / falta notificação em caso de 0 stock &amp; data limite devolução" />
     <MESSAGE value="comentários" />
-    <option name="LAST_COMMIT_MESSAGE" value="comentários" />
+    <MESSAGE value="Changes by Bruno Rafael" />
+    <MESSAGE value="Changes by Eliseu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes by Eliseu" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Biblioteca.java</url>
-          <line>481</line>
+          <line>490</line>
           <properties class="atec.poo.mediateca.core.Biblioteca" method="verificarDataEntrega">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
@@ -406,6 +337,11 @@
           <url>file://$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Biblioteca.java</url>
           <line>57</line>
           <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/core/src/main/java/atec/poo/mediateca/core/Biblioteca.java</url>
+          <line>281</line>
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

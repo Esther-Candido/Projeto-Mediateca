@@ -105,6 +105,8 @@ public class LibraryManager {
         return this._biblioteca.listObrasByID();
     }
 
+
+    public boolean userObra (int userID, int obraID){ return this._biblioteca.userObra(userID,obraID);}
     /**
      * Requisita obra especifica para um utente especifico
      *
