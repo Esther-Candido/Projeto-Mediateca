@@ -13,8 +13,7 @@ import atec.poo.ui.LerInteiro;
 import atec.poo.ui.exceptions.DialogException;
 
 /**
- * Conforme enunciado
- * 4.4.1. Rquisitar uma obra
+ * 4.4.1. Requisitar uma obra
  */
 public class DoRequestWork extends Comando<LibraryManager> {
     private final LerInteiro userID;
@@ -22,8 +21,6 @@ public class DoRequestWork extends Comando<LibraryManager> {
     private final LerBoolean lerAvisoStock;
 
     /**
-     * Requisita a obra
-     *
      * @param receiver;
      */
     public DoRequestWork(LibraryManager receiver) {
@@ -47,13 +44,15 @@ public class DoRequestWork extends Comando<LibraryManager> {
             throw new NoSuchWorkException(e.getObraID());
         }
 
-        try{
+        try {
             this.getReceptor().verificarSuspensao(this.userID.getValor(), this.obraID.getValor());
         } catch (RuleException e) {
             throw new RuleFailedException(e.getUserID(), e.getObraID(), e.getRuleID());
         }
 
-        if (!this.getReceptor().verificarStock(this.obraID.getValor())) {
+        //if (!this.getReceptor().verificarStock(this.obraID.getValor())) {
+        if (!this.getReceptor().verificarStock(this.obraID.getValor()) && !this.getReceptor().userObra(userID.getValor(),obraID.getValor())) {
+            ui.escreveLinha(atec.poo.mediateca.app.works.Message.semExemplares(obraID.getValor()));
             ui.lerInput(lerAvisoStock);
             if (lerAvisoStock.getValor()) {
                 this.getReceptor().NotificacaoStock(userID.getValor(), obraID.getValor());

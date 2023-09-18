@@ -9,7 +9,6 @@ import atec.poo.ui.exceptions.DialogException;
 import java.io.IOException;
 
 /**
- * Conforme enunciado
  * 4.1.1 Abrir um ficheiro de dados
  */
 public class DoOpen extends Comando<LibraryManager> {

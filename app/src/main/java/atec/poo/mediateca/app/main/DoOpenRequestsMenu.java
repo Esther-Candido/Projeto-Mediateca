@@ -5,9 +5,7 @@ import atec.poo.mediateca.core.LibraryManager;
 import atec.poo.ui.Comando;
 
 /**
- * Conforme Enunciado
- * 4.1.5. Gestão e consulta de dados da aplicação
- * Abre Menu Requisições
+ * 4.1.5. Gestão e consulta de dados da aplicação (Abre Menu Requisições)
  */
 public class DoOpenRequestsMenu extends Comando<LibraryManager> {
 

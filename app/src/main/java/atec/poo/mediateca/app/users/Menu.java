@@ -4,7 +4,7 @@ import atec.poo.mediateca.core.LibraryManager;
 import atec.poo.ui.Comando;
 
 /**
- * 4.2. Users menu.
+ * 4.2. Menu Utentes.
  */
 public class Menu extends atec.poo.ui.Menu {
 

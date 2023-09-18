@@ -24,7 +24,6 @@ public class DoReturnWork extends Comando<LibraryManager> {
      * @param receiver;
      */
     public DoReturnWork(LibraryManager receiver) {
-
         super(receiver, Label.RETURN_WORK);
         this.userID = new LerInteiro(Message.requestUserId());
         this.obraID = new LerInteiro(Message.requestWorkId());
@@ -35,6 +34,7 @@ public class DoReturnWork extends Comando<LibraryManager> {
     public final void executar() throws DialogException {
         ui.lerInput(userID);
         ui.lerInput(obraID);
+
         try {
             this.getReceptor().mostrarUtente(userID.getValor());
             this.getReceptor().mostrarObra(obraID.getValor());
@@ -50,7 +50,7 @@ public class DoReturnWork extends Comando<LibraryManager> {
             throw new WorkNotBorrowedByUserException(e.getUserID(), e.getObraID());
         }
 
-        int multa = this.getReceptor().mostrarMulta2(userID.getValor());
+        int multa = this.getReceptor().mostrarMulta(userID.getValor());
 
         if (multa > 0) {
             ui.escreveLinha(Message.showFine(userID.getValor(), multa));

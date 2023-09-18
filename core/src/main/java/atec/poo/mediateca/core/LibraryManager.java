@@ -67,7 +67,6 @@ public class LibraryManager {
      *
      * @param userID id utente
      * @return Notificações do utente pretendido
-     * @throws UserNotFoundException Verificar se o utente existe ou não
      */
     public ArrayList<String> mostrarNotificacao(int userID) {
         return this._biblioteca.mostrarNotificacao(userID);
@@ -104,6 +103,14 @@ public class LibraryManager {
     public ArrayList<Obra> listObrasByID() {
         return this._biblioteca.listObrasByID();
     }
+
+    /**
+     *
+     * @param userID id user
+     * @param obraID id obra
+     * @return true ou false
+     */
+    public boolean userObra (int userID, int obraID){ return this._biblioteca.userObra(userID,obraID);}
 
     /**
      * Requisita obra especifica para um utente especifico
@@ -164,15 +171,15 @@ public class LibraryManager {
      * @param userID utente id
      * @return Retorna a multa do utente
      */
-    public int mostrarMulta2(int userID) {
-        return this._biblioteca.mostrarMulta2(userID);
+    public int mostrarMulta(int userID) {
+        return this._biblioteca.mostrarMulta(userID);
     }
 
     /**
      * Executa o Save da Aplicação
      *
      * @param ficheiro ficheiro
-     * @throws IOException Não sei o que meter aqui......
+     * @throws IOException Erro na abertura e/ou Leitura do ficheiro
      */
     public void save(String ficheiro) throws IOException {
         ObjectOutputStream oos = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(ficheiro)));
@@ -184,8 +191,8 @@ public class LibraryManager {
      * Executa o Load da Aplicação
      *
      * @param ficheiro ficheiro
-     * @throws IOException            Não sei o que meter aqui......
-     * @throws ClassNotFoundException Não sei o que meter aqui......
+     * @throws IOException            Erro na abertura e/ou Leitura do ficheiro
+     * @throws ClassNotFoundException Erro se a classe não for encontrada
      */
     public void load(String ficheiro) throws IOException, ClassNotFoundException {
         ObjectInputStream ois = new ObjectInputStream(new BufferedInputStream(new FileInputStream(ficheiro)));

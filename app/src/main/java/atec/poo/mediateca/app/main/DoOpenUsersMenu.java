@@ -5,9 +5,7 @@ import atec.poo.mediateca.core.LibraryManager;
 import atec.poo.ui.Comando;
 
 /**
- * Conforme Enunciado
- * 4.1.5. Gestão e consulta de dados da aplicação
- * Abre Menu Utentes
+ * 4.1.5. Gestão e consulta de dados da aplicação (Abre Menu Utentes)
  */
 public class DoOpenUsersMenu extends Comando<LibraryManager> {
 

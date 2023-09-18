@@ -8,7 +8,6 @@ import atec.poo.ui.LerInteiro;
 import atec.poo.ui.exceptions.DialogException;
 
 /**
- * Conforme Enunciado
  * 4.2.2. Mostrar Utente.
  */
 public class DoShowUser extends Comando<LibraryManager> {

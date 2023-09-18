@@ -9,7 +9,6 @@ import atec.poo.ui.exceptions.DialogException;
 import java.io.IOException;
 
 /**
- * Conforme enunciado
  * 4.1.2. Guardar o estado da aplicação
  */
 public class DoSave extends Comando<LibraryManager> {
@@ -20,7 +19,7 @@ public class DoSave extends Comando<LibraryManager> {
      */
     public DoSave(LibraryManager receiver) {
         super(receiver, Label.SAVE);
-        this.ficheiro = new LerString(Message.saveAs(), null);
+        this.ficheiro = new LerString(Message.newSaveAs(), null);
     }
 
     @Override

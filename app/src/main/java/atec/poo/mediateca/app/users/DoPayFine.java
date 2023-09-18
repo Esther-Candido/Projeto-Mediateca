@@ -8,7 +8,6 @@ import atec.poo.ui.LerInteiro;
 import atec.poo.ui.exceptions.DialogException;
 
 /**
- * Conforme enunciado
  * 4.2.5. Pagar Multa
  */
 public class DoPayFine extends Comando<LibraryManager> {

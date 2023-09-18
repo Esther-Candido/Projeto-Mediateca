@@ -5,7 +5,6 @@ import atec.poo.ui.Comando;
 import atec.poo.ui.LerInteiro;
 
 /**
- * Conforme Enunciado
  * 4.1.4. Avançar data atual
  */
 public class DoAdvanceDate extends Comando<LibraryManager> {

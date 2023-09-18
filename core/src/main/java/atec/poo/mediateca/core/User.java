@@ -65,22 +65,6 @@ public class User implements Comparable<User>, Serializable {
         return NotificacaoObra;
     }
 
-    public int getMultaAtrasada() {
-        return multaAtrasada;
-    }
-
-    public void setMultaAtrasada(int multaAtrasada) {
-        this.multaAtrasada = multaAtrasada;
-    }
-
-    public int getMultaNoTempo() {
-        return multaNoTempo;
-    }
-
-    public void setMultaNoTempo(int multaNoTempo) {
-        this.multaNoTempo = multaNoTempo;
-    }
-
     public void setComportamento(Comportamento comportamento) {
         this.comportamento = comportamento;
     }

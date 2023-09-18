@@ -4,7 +4,6 @@ import atec.poo.mediateca.core.LibraryManager;
 import atec.poo.ui.Comando;
 
 /**
- * Conforme enunciado
  * 4.1.3. Mostrar data atual
  */
 public class DoDisplayDate extends Comando<LibraryManager> {
